@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/archives/2020/04/">
+  <link rel="canonical" href="http://yoursite-url/Others/How-To-Create-Personal-Page/">
   <title>
     
-      Haokai Qin&#39;s Tech&amp;Design Gallery
+      教程-基于github+hexo创建个人主页 - Haokai Qin&#39;s Tech&amp;Design Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="archives/2020/04/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -374,19 +352,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/lml_bg.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/lml_bg.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/lml_bg.jpg');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/lml_bg.jpg'); */
       
     }
 
@@ -404,10 +382,44 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Haokai Qin&#39;s Tech&amp;Design Gallery</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">- For A Brighter-Shining Tomorrow -</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#教程" title="教程">教程</a>
+              
+              <a class="tag" href="/tags/#其他" title="其他">其他</a>
+              
+            </div>
+            <h1>教程-基于github+hexo创建个人主页</h1>
+            <h2 class="subheading">关于创建个人主页的教程，以及一部分疑难解答。</h2>
+            <span class="meta">
+              Posted by 秦浩凯(Haokai Qin) on
+              2022-01-20
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">1.1k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -448,326 +460,317 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="0-安装环境"><a href="#0-安装环境" class="headerlink" title="0.安装环境"></a>0.安装环境</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;需要安装：Git/node.js/hexo/任意一款markdown文件编辑器<br>&nbsp;&nbsp;&nbsp;&nbsp;可选配置：VPN软件<br>&nbsp;&nbsp;&nbsp;&nbsp;参考以下链接以进行安装：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41922289/article/details/95639870">https://blog.csdn.net/weixin_41922289/article/details/95639870</a></p>
+<h2 id="1-建立个人主页"><a href="#1-建立个人主页" class="headerlink" title="1.建立个人主页"></a>1.建立个人主页</h2><h3 id="1-1-使用默认主题-不是必须步骤"><a href="#1-1-使用默认主题-不是必须步骤" class="headerlink" title="1.1 使用默认主题(不是必须步骤)"></a>1.1 使用默认主题(不是必须步骤)</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;参考<a target="_blank" rel="noopener" href="https://www.dazhuanlan.com/shanbo87/topics/1420718">https://www.dazhuanlan.com/shanbo87/topics/1420718</a>，建立一个格式为<br><code>&lt;github username&gt;.github.io</code><br>&nbsp;&nbsp;&nbsp;&nbsp;的仓库。<br>&nbsp;&nbsp;&nbsp;&nbsp;找到这个仓库的settings页，在侧边栏中选择Pages，可以进行更多设置。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong><em>尽管不使用默认主题，但仍然需要创建这一仓库以容纳个人主页内容。</em></strong></p>
+<h3 id="1-2-使用hexo主题"><a href="#1-2-使用hexo主题" class="headerlink" title="1.2 使用hexo主题"></a>1.2 使用hexo主题</h3><blockquote>
+<p>这部分参考了   </p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/V-Vincen/hexo-theme-livemylife/blob/master/README_CN.md">https://github.com/V-Vincen/hexo-theme-livemylife/blob/master/README_CN.md</a>   </li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/heimu24/article/details/81209539">https://blog.csdn.net/heimu24/article/details/81209539</a>   </li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhengqing/p/11150687.html">https://www.cnblogs.com/zhengqing/p/11150687.html</a></li>
+</ol>
+<p>如果阅读过可以跳过。</p>
+<h4 id="nbsp-nbsp-nbsp-nbsp-1-2-1-hexo主题站"><a href="#nbsp-nbsp-nbsp-nbsp-1-2-1-hexo主题站" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp; 1.2.1 hexo主题站"></a>&nbsp;&nbsp;&nbsp;&nbsp; 1.2.1 hexo主题站</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在<a target="_blank" rel="noopener" href="https://hexo.io/themes/" title="这里">https://hexo.io/themes/</a>可以查找hexo主题。   </p>
+</blockquote>
+<h4 id="nbsp-nbsp-nbsp-nbsp-1-2-2-通过git下载中意的主题"><a href="#nbsp-nbsp-nbsp-nbsp-1-2-2-通过git下载中意的主题" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp; 1.2.2 通过git下载中意的主题"></a>&nbsp;&nbsp;&nbsp;&nbsp; 1.2.2 通过git下载中意的主题</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;hexo安装完成后，使用命令<br><code>hexo init blog</code><br>&nbsp;&nbsp;&nbsp;&nbsp;在当前目录创建一个名为blog的文件夹。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在git bash中cd到用于存放博客工程文件的文件夹（比如上一步的blog），使用命令<br><code>git clone &lt;git文件URL&gt;</code><br>&nbsp;&nbsp;&nbsp;&nbsp;获取资源。</p>
+<h4 id="nbsp-nbsp-nbsp-nbsp-1-2-3-修改主题设置"><a href="#nbsp-nbsp-nbsp-nbsp-1-2-3-修改主题设置" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;1.2.3 修改主题设置"></a>&nbsp;&nbsp;&nbsp;&nbsp;1.2.3 修改主题设置</h4><h4 id="nbsp-nbsp-nbsp-nbsp-1-2-4-推送到github"><a href="#nbsp-nbsp-nbsp-nbsp-1-2-4-推送到github" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;1.2.4 推送到github"></a>&nbsp;&nbsp;&nbsp;&nbsp;1.2.4 推送到github</h4><blockquote>
+<p>建议参考<a target="_blank" rel="noopener" href="https://github.com/V-Vincen/hexo-theme-livemylife/blob/master/README_CN.md使用。">https://github.com/V-Vincen/hexo-theme-livemylife/blob/master/README_CN.md使用。</a><br>本文档提供了一些推送到github时的疑难问题解答。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;使用命令<br><code>npm install hexo-github-deployer</code><br>&nbsp;&nbsp;&nbsp;&nbsp;安装推送插件。 </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在blog工程文件夹内找到<br><code>_config.yml</code>文件。修改其deploy部分。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;完成后，使用（注意此时目录位置）<br><code>hexo generate</code><br>&nbsp;&nbsp;&nbsp;&nbsp;命令生成可推送内容（存放在自动创建的public文件夹中）。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;完成后，推荐在本地端口检查生成好的页面。使用命令<br><code>hexo server</code><br>&nbsp;&nbsp;&nbsp;&nbsp;打开本地服务器。使用浏览器进入hexo默认位置<br><code>localhost:4000</code><br>检查页面内容。确认无误后，使用<br><code>hexo deploy</code><br>&nbsp;&nbsp;&nbsp;&nbsp;命令，将整个页面推送至_config.yml文件中指定的github仓库位置。这之后，在浏览器输入<br><code>&lt;github username&gt;.github.io</code> ，就可以访问你的个人主页了。</p>
+<p><img src="/http://yoursite-url//hexo deplo success.png" alt="hexodeplosuccess"></p>
+<blockquote>
+<p>推送成功时的截图   </p>
+</blockquote>
+<h4 id="nbsp-nbsp-nbsp-nbsp-1-2-5-疑难解答"><a href="#nbsp-nbsp-nbsp-nbsp-1-2-5-疑难解答" class="headerlink" title="&nbsp;&nbsp;&nbsp;&nbsp;1.2.5 疑难解答"></a>&nbsp;&nbsp;&nbsp;&nbsp;1.2.5 疑难解答</h4><p>&nbsp;&nbsp;&nbsp;&nbsp; A. <strong><em>第一次使用Git时，需要登录Github账号。</em></strong>参考：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yelanggu/p/11004716.html">https://www.cnblogs.com/yelanggu/p/11004716.html</a><br>或<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/crazytata/p/10083716.html">https://www.cnblogs.com/crazytata/p/10083716.html</a>   </p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 以修复此问题。链接二的教程进行到步骤十即足够。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; B. <strong><em>推送到Github失败。</em></strong> </p>
+<p> <img src="/http://yoursite-url//connect fail.png" alt="connect fail"><br> <img src="/http://yoursite-url//connect fail 2.png" alt="connect fail when VPN off"></p>
+<blockquote>
+<p>上图分别显示开启或关闭梯子时，未能推送成功的情况。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 首先，按照<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43945983/article/details/110882074">https://blog.csdn.net/weixin_43945983/article/details/110882074</a>，尝试关闭SSL VERIFY，但用处似乎不大。   </p>
+<p> <img src="/http://yoursite-url//SSL connect fail.png" alt="SSL connect fail"></p>
+<blockquote>
+<p>尝试修改SSL的效果，在这里似乎并不好用。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 其次，尝试设置github代理服务器。按<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011476390/article/details/93411139，将端口号修改为目前使用的VPN的端口。随后重新推送以修复此问题。">https://blog.csdn.net/u011476390/article/details/93411139，将端口号修改为目前使用的VPN的端口。随后重新推送以修复此问题。</a></p>
+<p><img src="/http://yoursite-url//github proxy setting2.png" alt="github proxy setting"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; C. <strong><em>在localhost:4000或网页检查页面时发现未生成内容。</em></strong><br><img src="/http://yoursite-url//empty local page.png" alt="empty local page"></p>
+<blockquote>
+<p>空白页面。在localhost中空页面会显示CANNOT GET /，而github.io将会是一片空白。</p>
+</blockquote>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 这可能是由于未能生成index.html文件导致的。<br>&nbsp;&nbsp;&nbsp;&nbsp; 使用命令<br><code>npm install hexo-generator-index</code><br>&nbsp;&nbsp;&nbsp;&nbsp; 安装插件以修复此问题。可参考<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/af83fc73e525">https://www.jianshu.com/p/af83fc73e525</a></p>
+<h2 id="2-新建博文"><a href="#2-新建博文" class="headerlink" title="2.新建博文"></a>2.新建博文</h2><p>&nbsp;&nbsp;&nbsp;&nbsp; 在blog目录下，使用<br><code>hexo new &lt;自定义文件名&gt;</code><br>&nbsp;&nbsp;&nbsp;&nbsp; 生成新的.md文件。这个文件会在下一次生成(hexo generate)-推送(hexo deploy)过程中更新到github仓库，从而在主页上可见。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; 之后我们在这个.md文件中添加内容即可。如果添加内容中有语法问题（例如，标题中出现了冒号），该文件将不会被添加到网站中。</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/tester011701/newBlogPageTester011701/" data-toggle="tooltip" data-placement="top" title="newBlogPageTester011701">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-基于github+hexo创建个人主页&body=Hi,I found this website and thought you might like it http://yoursite-url/Others/How-To-Create-Personal-Page/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Thu Jan 20 2022 16:12:22 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#0-%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">0.安装环境</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#1-%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">1.建立个人主页</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-%E4%BD%BF%E7%94%A8%E9%BB%98%E8%AE%A4%E4%B8%BB%E9%A2%98-%E4%B8%8D%E6%98%AF%E5%BF%85%E9%A1%BB%E6%AD%A5%E9%AA%A4"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1.1 使用默认主题(不是必须步骤)</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-%E4%BD%BF%E7%94%A8hexo%E4%B8%BB%E9%A2%98"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">1.2 使用hexo主题</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nbsp-nbsp-nbsp-nbsp-1-2-1-hexo%E4%B8%BB%E9%A2%98%E7%AB%99"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1.2.1 hexo主题站</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nbsp-nbsp-nbsp-nbsp-1-2-2-%E9%80%9A%E8%BF%87git%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%84%8F%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1.2.2 通过git下载中意的主题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nbsp-nbsp-nbsp-nbsp-1-2-3-%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2.3 修改主题设置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nbsp-nbsp-nbsp-nbsp-1-2-4-%E6%8E%A8%E9%80%81%E5%88%B0github"><span class="toc-nav-number">2.2.4.</span> <span class="toc-nav-text">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2.4 推送到github</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#nbsp-nbsp-nbsp-nbsp-1-2-5-%E7%96%91%E9%9A%BE%E8%A7%A3%E7%AD%94"><span class="toc-nav-number">2.2.5.</span> <span class="toc-nav-text">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.2.5 疑难解答</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#2-%E6%96%B0%E5%BB%BA%E5%8D%9A%E6%96%87"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">2.新建博文</span></a></li></ol>
+        
+        </div>
+      </aside>
     
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
+
+
+      <!-- Sidebar Container -->
+      <div class="
                 col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
-
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
-          
-          <li>
-            01-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Others/How-To-Create-Personal-Page/" style="color: #0085a1">
-              <span>
-                教程-基于github+hexo创建个人主页
-                
-                -- Others
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/tester011701/newBlogPageTester011701/" style="color: #0085a1">
-              <span>
-                newBlogPageTester011701
-                
-                -- tester011701
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
-        </span>
-        <ul>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/en/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-                -- cn
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-
-      <!-- 如果开启评论功能 -->
-      
-    </div>
-
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
         <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#教程" title="教程">教程</a>
+            
+            <a class="tag" href="/tags/#其他" title="其他">其他</a>
+            
+          </div>
+        </section>
+        
 
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#教程" title="教程" rel="1">教程</a>
-    
-    
-    
-    <a href="/tags/#其他" title="其他" rel="1">其他</a>
-    
-    
-    
-    <a href="/tags/#TestPage0117" title="TestPage0117" rel="1">TestPage0117</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife-tag" title="Hexo-Theme-LiveMyLife-tag" rel="1">Hexo-Theme-LiveMyLife-tag</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-    <img id="avatar_pic" src="/img/avatar/fatpeople.jpg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
-    
-
-    
-    <p>A brighter-shining tomorrow, may can be explained as a physical and mental abundant life.</p>
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/V-Vincen">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-      <li>
-        <a target="_blank" href="https://twitter.com/V_Vincen_">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-      <li>
-        <a target="_blank" href="https://www.instagram.com/v_vincen_">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-      <li>
-        <a target="_blank" href="http://weibo.com/WVincen">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../../Others/How-To-Create-Personal-Page/">
-      <li>教程-基于github+hexo创建个人主页</li>
-    </a>
-    
-    <a href="../../../tester011701/newBlogPageTester011701/">
-      <li>newBlogPageTester011701</li>
-    </a>
-    
-    <a href="../../../cn/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-    <a href="../../../en/Hexo-Theme-LiveMyLife/">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
         <!-- Friends Blog -->
-
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
-  
-  <li><a href="https://v-vincen.life/" target="_blank">V_Vincen</a></li>
-  
-  <li><a href="http://beantech.org" target="_blank">Bean Tech</a></li>
-  
-  <li><a href="http://huangxuan.me" target="_blank">Hux Blog</a></li>
-  
-  <li><a href="https://hexo.io/" target="_blank">Hexo</a></li>
-  
-</ul>
-
-
+        
         <hr>
-    
-        <!-- Archives -->
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../2022/01/">January 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="">April 2020</a><span class="archive-list-count">2</span></li></ul>
-</div>
-
-
-        <hr>
-    
-        <!-- Categories -->
-
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#其他">
-      <li>其他</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife-categories">
-      <li>Hexo-Theme-LiveMyLife-categories</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">V_Vincen</a>
+          </li>
+          
+          <li>
+            <a href="http://beantech.org" target="_blank">Bean Tech</a>
+          </li>
+          
+          <li>
+            <a href="http://huangxuan.me" target="_blank">Hux Blog</a>
+          </li>
+          
+          <li>
+            <a href="https://hexo.io/" target="_blank">Hexo</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
