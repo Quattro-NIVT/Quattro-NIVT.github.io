@@ -408,11 +408,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">2</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">0</span> In Total
+              Words <span class="post-count">814</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -474,7 +474,22 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        
+        <p><strong>本页用于展示这一项目的细节，说明其出发点、设计以及效果，而非实现教程。实现教程与控制代码将在未来发布（可能由于学校要求，而不得不在毕业后发布）。</strong></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>我们设计并实现了一个沉浸式跨设备交互可视化系统。该系统结合增强现实设备与大型平面显示器，扩展了有限的屏幕空间，并实现了平面内容与AR内容的联动，结合平面设备精确交互和AR高表现力的优势，综合多种交互手段，支持用户快速、灵活、多角度探索数据。</p>
+<p>本设计动工于2021年4月。<br>使用了python/pythonECharts/Unity(C#)等语言或函数库。</p>
+<h2 id="可视分析任务"><a href="#可视分析任务" class="headerlink" title="可视分析任务"></a>可视分析任务</h2><p>这是基于全国范围的大气污染数据集制作的场景，其分析任务在于：<br>T1. 感知全国地区污染程度空间分布情况，并分析其随时间的演变。<br>T2. 探究各地区污染程度与气象数据（如风向、风速）的关系，发现影响空气质量的气象因素。<br>T3. 发现污染物在不同时间尺度的变化趋势。<br>T4. 观察不同污染物的数值分布，分析不同污染物之间的相关性。</p>
+<h2 id="总体设计"><a href="#总体设计" class="headerlink" title="总体设计"></a>总体设计</h2><p>系统由hololens与大型平面显示器组成，通过socket服务器传递交互数据，实现AR视图与平面视图的联动。AR视图被放置在屏幕的前方区域，扩展屏幕空间，并与屏幕内容联动。</p>
+<p><img src="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/systemDesign.png" alt="GeneralDesign"></p>
+<p>我使用Python搭建了socket服务器，大屏幕可视化是通过pythonECharts制作的（因为涉及到数据分析，使用python在数据接口上更容易实现），hololens使用unity(C#)制作AR场景及三维图表。</p>
+<p>hololens端到服务器使用TCP链接传输交互信息（注视位置、手势动作等），而平面设备到服务器则使用webSocket。这是由于实验室网络不能总是正确地发送websocket消息所致。</p>
+<h2 id="可视化设计"><a href="#可视化设计" class="headerlink" title="可视化设计"></a>可视化设计</h2><p>我们设计了地理聚合视图、平行坐标图、极坐标图等视图以完成分析任务。<br><img src="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/visuDesign.png" alt="GeneralDesign"></p>
+<p>具体视图设计将在日后更新。</p>
+<h2 id="交互设计"><a href="#交互设计" class="headerlink" title="交互设计"></a>交互设计</h2><p>我们集成了手势交互（AR视图可自由移动、旋转观察）、触摸交互（平面显示器触摸屏）、注视交互（选择AR场景中远处目标）等手段，以灵活探索高维数据，改善使用体验。<br><img src="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/interDesign.png" alt="GeneralDesign"></p>
+<p>具体交互设计将在日后更新。</p>
+<h2 id="数据处理与分析算法"><a href="#数据处理与分析算法" class="headerlink" title="数据处理与分析算法"></a>数据处理与分析算法</h2><p>受到hololens存储空间及渲染能力的限制，我们对数据进行了下采样，保留了原始数据采样点的10%。<br>我们使用聚类算法处理空气质量数据并生成了类型分布图，以比较不同污染程度区域。<br>一个LSTM网络被用于提供对大气污染程度的短期预测。</p>
+<h2 id="分析流程"><a href="#分析流程" class="headerlink" title="分析流程"></a>分析流程</h2><p>任务流程图主要是来自于实验室大师兄（链接）的工作。在此表示感谢。<br><img src="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/taskProcess.png" alt="GeneralDesign"></p>
+<h2 id="具体分析任务"><a href="#具体分析任务" class="headerlink" title="具体分析任务"></a>具体分析任务</h2><p>这一部分将在日后进行更新。</p>
+
 
         <hr>
         <!-- Pager -->
@@ -623,7 +638,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E4%BB%BB%E5%8A%A1"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">可视分析任务</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">总体设计</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">可视化设计</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">交互设计</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">数据处理与分析算法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">分析流程</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%85%B7%E4%BD%93%E5%88%86%E6%9E%90%E4%BB%BB%E5%8A%A1"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">具体分析任务</span></a></li></ol>
         
         </div>
       </aside>
