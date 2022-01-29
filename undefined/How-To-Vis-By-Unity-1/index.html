@@ -135,10 +135,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/undefined/PROGRAMME-STC-Exhibit-Page/">
+  <link rel="canonical" href="http://yoursite-url/undefined/How-To-Vis-By-Unity-1/">
   <title>
     
-      项目展示-时空轨迹沉浸式可视化 - Haokai Qin&#39;s Vis Gallery
+      教程-使用Unity进行可视分析(1) - Haokai Qin&#39;s Vis Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -348,19 +348,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('/img/postUsedImgFolder1/stcImg1.png');
-      --intro-header-background-image-url-page: url('//img/postUsedImgFolder1/stcImg1.png');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/postUsedImgFolder1/stcImg1.png');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/postUsedImgFolder1/stcImg1.png');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
     }
 
     header.intro-header {
        /*post*/
         background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url('/img/postUsedImgFolder1/stcImg1.png'); */
+        /* background-image: url(''); */
       
     }
 
@@ -381,24 +381,18 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#AR" title="AR">AR</a>
+              <a class="tag" href="/tags/#教程" title="教程">教程</a>
               
               <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
               
-              <a class="tag" href="/tags/#项目展示" title="项目展示">项目展示</a>
-              
-              <a class="tag" href="/tags/#STC" title="STC">STC</a>
-              
               <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
               
-              <a class="tag" href="/tags/#时空轨迹" title="时空轨迹">时空轨迹</a>
-              
             </div>
-            <h1>项目展示-时空轨迹沉浸式可视化</h1>
-            <h2 class="subheading">使用unity绘制三维轨迹，并进行时空轨迹分析</h2>
+            <h1>教程-使用Unity进行可视分析(1)</h1>
+            <h2 class="subheading">关于三维可视化视图的系列教程其一，本节主要讨论为什么、以及什么场景下要使用unity进行可视化。</h2>
             <span class="meta">
               Posted by 秦浩凯(Haokai Qin) on
-              2022-01-23
+              2022-01-29
             </span>
 
 
@@ -406,11 +400,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">5</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">242</span> In Total
+              Words <span class="post-count">1.2k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,11 +466,38 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p><strong>本页用于展示这一项目的细节，说明其出发点、设计以及效果，而非实现教程。实现教程与控制代码将在未来发布（可能由于学校要求，而不得不在毕业后发布）。</strong></p>
-<p><strong>注：由于目前hololens设备并不在身边，暂时无法提供实际部署照片</strong></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这是STC（Space-time-cube，时空立方体）的实现。这一概念在1990s左右被提出，用于描绘一组轨迹，在二维地理空间上的位置，随时间的变化。<br>位置信息表示在XOZ平面上，Y轴为时间信息；时间沿Y轴正方向增大。   </p>
-<p>本系统使用unity制作。收集了IEEE VAST CHALLENGE 2018数据集，以及MSRA geoLife 1.3数据集（实际并未使用）作为地理信息数据源。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在新冠疫情期间，STC被用于解释‘时空密接’等概念，并进行时空关系分析。</p>
+        <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong></p>
+<h2 id="目录（计划更新表）"><a href="#目录（计划更新表）" class="headerlink" title="目录（计划更新表）"></a>目录（计划更新表）</h2><p>前  言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：整个活——设计与实现一个可视化系统<br>第四章：待续</p>
+<h2 id="前言：为什么、以及什么场景下要使用unity进行可视化？"><a href="#前言：为什么、以及什么场景下要使用unity进行可视化？" class="headerlink" title="前言：为什么、以及什么场景下要使用unity进行可视化？"></a>前言：为什么、以及什么场景下要使用unity进行可视化？</h2><p>这个问题包含了多个环节：   </p>
+<ol>
+<li>主流可视化工具的适应场景是什么？这些技术目前覆盖不到哪些领域？   </li>
+<li>unity适合应用于哪些领域，并且将持续应用下去，而非被其他技术替代？</li>
+</ol>
+<p>以及更大的问题——<br>0. 为什么使用三维视图？三维可视化视图在哪些场景下会（比二维可视化）更好？   </p>
+<p>这里讨论的主流可视化工具，是指d3/echarts等基于web技术的工具，这些技术很好地继承了web的优势：平台间通用性强、灵活，并且（得益于丰富的文档与教程，以及相关服务）便于工程人员进行具体实现，及用户使用，在可视化领域（特别是二维视图可视化）具有不可动摇的地位。   </p>
+<p>而三维场景，情况就大不相同。必须指出的是，在可视化领域的经典论著<a target="_blank" rel="noopener" href="https://clauswilke.com/dataviz/no-3d.html" title="Foundaments of Data Visualization">https://clauswilke.com/dataviz/no-3d.html</a>中，三维视图是不建议作为通常情况的首选的。一方面的确是由于三维视图导致了额外的认知负担（甚至是误导，摘自上文链接），另一方面也是由于在平面设备上浏览三维视图限制了其表达效果。新的可交互设备一定程度上改善了这个问题。   </p>
+<p>事实上，三维可视化场景非常广泛：在工业流水线[1]上，指示零件组装顺序的可视化标记大有用处；在科学可视化领域，三维图能够提供比二维图更丰富（有时也会更准确） 的信息[4][5]；在体育运动领域[2][3]更是大有可为。</p>
+<blockquote>
+<p>[1] F. Jasche, S. Hofmann, and T. Ludwig, “Comparison of diferent types of augmented reality visualizations for instructions,” Conf. Hum. Factors Comput. Syst. - Proc., 2021, doi: 10.1145/3411764.3445724.<br>[2] S. Ye et al., “ShuttleSpace: Exploring and analyzing movement trajectory in immersive visualization,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 860–869, 2021, doi: 10.1109/TVCG.2020.3030392.<br>[3] T. Lin and R. Singh, “Towards an understanding of situated ar visualization for basketball free-throw training,” Conf. Hum. Factors Comput. Syst. - Proc., 2021, doi: 10.1145/3411764.3445649.<br>[4] X. Wang, L. Besançon, D. Rousseau, M. Sereno, M. Ammi, and T. Isenberg, “Towards an Understanding of Augmented Reality Extensions for Existing 3D Data Analysis Tools,” Conf. Hum. Factors Comput. Syst. - Proc., 2020, doi: 10.1145/3313831.3376657.<br>[5] T. Mahmood, E. Butler, N. Davis, J. Huang, and A. Lu, “Building Multiple Coordinated Spaces for Effective Immersive Analytics through Distributed Cognition,” 2018 Int. Symp. Big Data Vis. Immersive Anal. BDVA 2018, 2018, doi: 10.1109/BDVA.2018.8533893.<br>此处应有 Prof.  Shengdong Zhao的论文，但我还没有仔细读到。他们使用AR制作了非常有趣的东西<br>备注：引文【5】实际上是地理信息可视化   </p>
+</blockquote>
+<p>因此，目前可以认为：   </p>
+<ol>
+<li>多属性/维度数据；   </li>
+<li>具有一定几何形状的数据；（地理空间、运动轨迹、体育运动）   </li>
+<li>和物理世界关系紧密的数据；（如流水线、菜谱等）<br>等场景，更适合使用三维可视化。   </li>
+</ol>
+<p>事实上这些观点在沉浸式可视化综述类论文中或多或少有所提及。</p>
+<blockquote>
+<p>[6] S. Ye, X. Chu, and Y. Wu, “A Survey on Immersive Visualization,” Jisuanji Fuzhu Sheji Yu Tuxingxue Xuebao/Journal Comput. Des. Comput. Graph., vol. 33, no. 4, pp. 497–507, 2021, doi: 10.3724/SP.J.1089.2021.18809.<br>[7] B. Ens, B. Bach, M. Cordeil, and U. Engelke, “Grand challenges in immersive analytics,” Conf. Hum. Factors Comput. Syst. - Proc., 2021, doi: 10.1145/3411764.3446866.</p>
+</blockquote>
+<p>Unity是一种非常适合于三维场景的工具。但Unity的适用场景在哪里？不仅是‘三维可视化场景’这种过于广泛的定义。webGL/Unreal等工具一样可以进行三维可视化。unity的一大好处是教程丰富，这会利于新人快速开始工作。   </p>
+<p>然而，基于unity的可视分析任务仍然难以开展——因为还没有一种能够在Unity中创建可视化视图的工具得到有效推广。<br>在下一节中，我将介绍一款unity可视化工具包。<br>在后续章节中，我将介绍如何自行设计与实现unity可视化视图。</p>
+<h2 id="第一章：Unity可视化工具包：IATK-与-u2vis"><a href="#第一章：Unity可视化工具包：IATK-与-u2vis" class="headerlink" title="第一章：Unity可视化工具包：IATK 与 u2vis"></a>第一章：Unity可视化工具包：IATK 与 u2vis</h2><h3 id="1-1-IATK"><a href="#1-1-IATK" class="headerlink" title="1.1 IATK"></a>1.1 IATK</h3><blockquote>
+<p>M. Cordeil and T. Dwyer, “Introduction to IATK: An immersive visual analytics toolkit,” ISS 2019 - Proc. 2019 ACM Int. Conf. Interact. Surfaces Spaces, pp. 431–435, 2019, doi: 10.1145/3343055.3361927.</p>
+</blockquote>
+<h3 id="1-2-u2vis"><a href="#1-2-u2vis" class="headerlink" title="1.2 u2vis"></a>1.2 u2vis</h3><blockquote>
+<p>P. Reipschlager, T. Flemisch, and R. Dachselt, “Personal augmented reality for information visualization on large interactive displays,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 1182–1192, 2021, doi: 10.1109/TVCG.2020.3030460.</p>
+</blockquote>
 
 
         <hr>
@@ -484,12 +505,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/undefined/PROGRAMME-Oil-DETECTION/" data-toggle="tooltip" data-placement="top" title="项目展示-基于自动编码器与聚类算法的缝洞型油藏储层层预测">&larr; Previous Post</a>
+            <a href="/undefined/How-To-Vis-By-Unity-2/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(2)">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/" data-toggle="tooltip" data-placement="top" title="项目展示-沉浸式跨设备交互可视化系统">Next Post &rarr;</a>
+            <a href="/undefined/RESEARCH-Talk-On-Immersive-1/" data-toggle="tooltip" data-placement="top" title="科研随笔-关于沉浸式可视化的讨论1">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -538,7 +559,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=项目展示-时空轨迹沉浸式可视化&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/PROGRAMME-STC-Exhibit-Page/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(1)&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/How-To-Vis-By-Unity-1/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -573,7 +594,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Sun Jan 23 2022 17:25:25 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Sat Jan 29 2022 19:55:48 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -626,7 +647,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">应用</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%88%E8%AE%A1%E5%88%92%E6%9B%B4%E6%96%B0%E8%A1%A8%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录（计划更新表）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%89%8D%E8%A8%80%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E3%80%81%E4%BB%A5%E5%8F%8A%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E4%B8%8B%E8%A6%81%E4%BD%BF%E7%94%A8unity%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">前言：为什么、以及什么场景下要使用unity进行可视化？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9AUnity%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%8C%85%EF%BC%9AIATK-%E4%B8%8E-u2vis"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">第一章：Unity可视化工具包：IATK 与 u2vis</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-IATK"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">1.1 IATK</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-u2vis"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">1.2 u2vis</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -649,17 +670,11 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#AR" title="AR">AR</a>
+            <a class="tag" href="/tags/#教程" title="教程">教程</a>
             
             <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
             
-            <a class="tag" href="/tags/#项目展示" title="项目展示">项目展示</a>
-            
-            <a class="tag" href="/tags/#STC" title="STC">STC</a>
-            
             <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
-            
-            <a class="tag" href="/tags/#时空轨迹" title="时空轨迹">时空轨迹</a>
             
           </div>
         </section>

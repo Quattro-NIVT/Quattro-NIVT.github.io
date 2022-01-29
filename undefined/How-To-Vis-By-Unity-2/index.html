@@ -135,10 +135,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/undefined/PROGRAMME-STC-Exhibit-Page/">
+  <link rel="canonical" href="http://yoursite-url/undefined/How-To-Vis-By-Unity-2/">
   <title>
     
-      项目展示-时空轨迹沉浸式可视化 - Haokai Qin&#39;s Vis Gallery
+      教程-使用Unity进行可视分析(2) - Haokai Qin&#39;s Vis Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -348,19 +348,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('/img/postUsedImgFolder1/stcImg1.png');
-      --intro-header-background-image-url-page: url('//img/postUsedImgFolder1/stcImg1.png');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/postUsedImgFolder1/stcImg1.png');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/postUsedImgFolder1/stcImg1.png');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
     }
 
     header.intro-header {
        /*post*/
         background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url('/img/postUsedImgFolder1/stcImg1.png'); */
+        /* background-image: url(''); */
       
     }
 
@@ -381,24 +381,18 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#AR" title="AR">AR</a>
+              <a class="tag" href="/tags/#教程" title="教程">教程</a>
               
               <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
               
-              <a class="tag" href="/tags/#项目展示" title="项目展示">项目展示</a>
-              
-              <a class="tag" href="/tags/#STC" title="STC">STC</a>
-              
               <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
               
-              <a class="tag" href="/tags/#时空轨迹" title="时空轨迹">时空轨迹</a>
-              
             </div>
-            <h1>项目展示-时空轨迹沉浸式可视化</h1>
-            <h2 class="subheading">使用unity绘制三维轨迹，并进行时空轨迹分析</h2>
+            <h1>教程-使用Unity进行可视分析(2)</h1>
+            <h2 class="subheading">关于三维可视化视图的系列教程其二，本节主要介绍unity可视化工具包。</h2>
             <span class="meta">
               Posted by 秦浩凯(Haokai Qin) on
-              2022-01-23
+              2022-01-29
             </span>
 
 
@@ -410,7 +404,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">242</span> In Total
+              Words <span class="post-count">190</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,24 +466,23 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p><strong>本页用于展示这一项目的细节，说明其出发点、设计以及效果，而非实现教程。实现教程与控制代码将在未来发布（可能由于学校要求，而不得不在毕业后发布）。</strong></p>
-<p><strong>注：由于目前hololens设备并不在身边，暂时无法提供实际部署照片</strong></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>这是STC（Space-time-cube，时空立方体）的实现。这一概念在1990s左右被提出，用于描绘一组轨迹，在二维地理空间上的位置，随时间的变化。<br>位置信息表示在XOZ平面上，Y轴为时间信息；时间沿Y轴正方向增大。   </p>
-<p>本系统使用unity制作。收集了IEEE VAST CHALLENGE 2018数据集，以及MSRA geoLife 1.3数据集（实际并未使用）作为地理信息数据源。</p>
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>在新冠疫情期间，STC被用于解释‘时空密接’等概念，并进行时空关系分析。</p>
+        <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong></p>
+<h2 id="目录（计划更新表）"><a href="#目录（计划更新表）" class="headerlink" title="目录（计划更新表）"></a>目录（计划更新表）</h2><p>前  言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：整个活——设计与实现一个可视化系统<br>第四章：待续</p>
+<h2 id="第一章：Unity可视化工具包：IATK-与-u2vis"><a href="#第一章：Unity可视化工具包：IATK-与-u2vis" class="headerlink" title="第一章：Unity可视化工具包：IATK 与 u2vis"></a>第一章：Unity可视化工具包：IATK 与 u2vis</h2><h3 id="1-1-IATK"><a href="#1-1-IATK" class="headerlink" title="1.1 IATK"></a>1.1 IATK</h3><blockquote>
+<p>M. Cordeil and T. Dwyer, “Introduction to IATK: An immersive visual analytics toolkit,” ISS 2019 - Proc. 2019 ACM Int. Conf. Interact. Surfaces Spaces, pp. 431–435, 2019, doi: 10.1145/3343055.3361927.</p>
+</blockquote>
+<h3 id="1-2-u2vis"><a href="#1-2-u2vis" class="headerlink" title="1.2 u2vis"></a>1.2 u2vis</h3><blockquote>
+<p>P. Reipschlager, T. Flemisch, and R. Dachselt, “Personal augmented reality for information visualization on large interactive displays,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 1182–1192, 2021, doi: 10.1109/TVCG.2020.3030460.</p>
+</blockquote>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
           
-          <li class="previous">
-            <a href="/undefined/PROGRAMME-Oil-DETECTION/" data-toggle="tooltip" data-placement="top" title="项目展示-基于自动编码器与聚类算法的缝洞型油藏储层层预测">&larr; Previous Post</a>
-          </li>
-          
           
           <li class="next">
-            <a href="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/" data-toggle="tooltip" data-placement="top" title="项目展示-沉浸式跨设备交互可视化系统">Next Post &rarr;</a>
+            <a href="/undefined/How-To-Vis-By-Unity-1/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(1)">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -538,7 +531,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=项目展示-时空轨迹沉浸式可视化&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/PROGRAMME-STC-Exhibit-Page/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(2)&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/How-To-Vis-By-Unity-2/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -573,7 +566,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Sun Jan 23 2022 17:25:25 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Sat Jan 29 2022 19:57:47 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -626,7 +619,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概述</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">应用</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%88%E8%AE%A1%E5%88%92%E6%9B%B4%E6%96%B0%E8%A1%A8%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录（计划更新表）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9AUnity%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%8C%85%EF%BC%9AIATK-%E4%B8%8E-u2vis"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第一章：Unity可视化工具包：IATK 与 u2vis</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-IATK"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1.1 IATK</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-u2vis"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">1.2 u2vis</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -649,17 +642,11 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#AR" title="AR">AR</a>
+            <a class="tag" href="/tags/#教程" title="教程">教程</a>
             
             <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
             
-            <a class="tag" href="/tags/#项目展示" title="项目展示">项目展示</a>
-            
-            <a class="tag" href="/tags/#STC" title="STC">STC</a>
-            
             <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
-            
-            <a class="tag" href="/tags/#时空轨迹" title="时空轨迹">时空轨迹</a>
             
           </div>
         </section>
