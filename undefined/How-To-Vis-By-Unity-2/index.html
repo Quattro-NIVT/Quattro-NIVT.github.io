@@ -404,7 +404,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">338</span> In Total
+              Words <span class="post-count">335</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,10 +468,10 @@
 
         <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong></p>
 <h2 id="目录（计划更新表）">目录（计划更新表）</h2>
-<p>前  言：为什么、以及什么场景下要使用unity进行可视化？<br>
+<p>前  言：为什么、以及什么场景下要使用unity进行可视化？<br>
 第一章：unity可视化工具包<br>
 第二章：自行设计与实现unity可视化视图<br>
-第三章：整个活——设计与实现一个可视化系统<br>
+第三章：设计与实现一个可视化系统<br>
 第四章：待续</p>
 <p><strong>本章由于知识产权原因将会缓慢更新，后续章节已经更新</strong></p>
 <h2 id="第一章：Unity可视化工具包：IATK-与-u2vis">第一章：Unity可视化工具包：IATK 与 u2vis</h2>
@@ -1209,5 +1209,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
