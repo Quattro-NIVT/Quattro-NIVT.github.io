@@ -402,11 +402,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">10</span> Minutes
+              Estimated Reading Time <span class="post-count">13</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">3.1k</span> In Total
+              Words <span class="post-count">3.7k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,163 +468,121 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong></p>
-<p><strong>本章节已经部分更新完成</strong></p>
-<h2 id="目录">目录</h2>
-<p>前  言：为什么、以及什么场景下要使用unity进行可视化？<br>
-第一章：unity可视化工具包<br>
-第二章：自行设计与实现unity可视化视图<br>
-第三章：设计与实现一个可视分析系统<br>
-第四章：待续</p>
-<h2 id="第三章：设计与实现一个可视化系统">第三章：设计与实现一个可视化系统</h2>
-<p>本章将会介绍如何设计、建造一个简单的可视分析系统。用我们在ChinaVis 2021的参赛作品，来说明有哪些因素需要考虑、制作工时开销、与可改进的部分。</p>
+        <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong><br><strong>目前前五章已经完成</strong></p>
+<p><strong>由于篇幅较长，本章节将分为两部分更新</strong></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）  </p>
+<h2 id="第三章：设计与实现一个可视化系统（上）"><a href="#第三章：设计与实现一个可视化系统（上）" class="headerlink" title="第三章：设计与实现一个可视化系统（上）"></a>第三章：设计与实现一个可视化系统（上）</h2><p>本章将会介绍如何设计、建造一个简单的可视分析系统。用我们在ChinaVis 2021的参赛作品，来说明有哪些因素需要考虑、制作工时开销、与可改进的部分。</p>
 <blockquote>
 <p>建议阅读： P. Reipschlager, T. Flemisch, and R. Dachselt, “Personal augmented reality for information visualization on large interactive displays,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 1182–1192, 2021, doi: 10.1109/TVCG.2020.3030460.</p>
 </blockquote>
-<h2 id="准备工作">准备工作</h2>
-<p>和上一章一样，需要对数据状况进行了解，并规定可视分析系统的适用场景与任务。</p>
-<p>我们使用2013~2018年的空气质量再分析数据。<br>
-分析主题为污染分布时空态势感知。围绕这个主题，我们确定了四个任务：<br>
-T1. 感知全国地区污染程度空间分布情况，并分析其随时间的演变。<br>
-T2. 探究各地区污染程度与气象数据（如风向、风速）的关系，发现影响空气质量的气象因素。<br>
-T3. 发现污染物在不同时间尺度的变化趋势。<br>
-T4. 观察不同污染物的数值分布，分析不同污染物之间的相关性。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>和上一章一样，需要对数据状况进行了解，并规定可视分析系统的适用场景与任务。</p>
+<p>我们使用2013~2018年的空气质量再分析数据。<br>分析主题为污染分布时空态势感知。围绕这个主题，我们确定了四个任务：<br>T1. 感知全国地区污染程度空间分布情况，并分析其随时间的演变。<br>T2. 探究各地区污染程度与气象数据（如风向、风速）的关系，发现影响空气质量的气象因素。<br>T3. 发现污染物在不同时间尺度的变化趋势。<br>T4. 观察不同污染物的数值分布，分析不同污染物之间的相关性。 </p>
 <p>目标用户为空气污染管控治理相关行业从业者，及希望了解空气质量变化的用户。</p>
-<h2 id="概要设计">概要设计</h2>
-<p>在这个环节，你至少需要给出一个原型系统，规定出系统的硬/软件组成、视图-任务-场景之间的关系、预期的用法或表现效果等。</p>
-<h3 id="挑选合适的视图">------挑选合适的视图------</h3>
-<p>参考了</p>
+<h2 id="概要设计"><a href="#概要设计" class="headerlink" title="概要设计"></a>概要设计</h2><p>在这个环节，你至少需要给出一个原型系统，规定出系统的硬/软件组成、视图-任务-场景之间的关系、预期的用法或表现效果等。</p>
+<h3 id="———挑选合适的视图———"><a href="#———挑选合适的视图———" class="headerlink" title="———挑选合适的视图———"></a>———挑选合适的视图———</h3><p>参考了   </p>
 <blockquote>
-<p>[1] Huamin Qu, Visual Analysis of the Air Pollution Problem in Hong Kong<br>
-[2] QI Mengxi, Temporal and spatial distribution<br>
-characteristics of PM2.5 pollution in Beijing from 2014 to 2016</p>
+<p>[1] Huamin Qu, Visual Analysis of the Air Pollution Problem in Hong Kong<br>[2] QI Mengxi, Temporal and spatial distribution<br>characteristics of PM2.5 pollution in Beijing from 2014 to 2016</p>
 </blockquote>
-<p>为了反映全国范围大尺度空间信息，一个具有地理信息的视图是必要的；<br>
-为了描述时间变化，可以采用柱状图、折线图等视图，UI方面可采用可视化视图矩阵或动画视图播放。<br>
-为了探究空气数据各维度（属性）的关系，可以使用平行坐标图观察规律；也可计算相关性后绘制为力导向节点链接图，显式表达关系。</p>
-<p>因此我们制作了四种视图：</p>
+<p>为了反映全国范围大尺度空间信息，一个具有地理信息的视图是必要的；<br>为了描述时间变化，可以采用柱状图、折线图等视图，UI方面可采用可视化视图矩阵或动画视图播放。<br>为了探究空气数据各维度（属性）的关系，可以使用平行坐标图观察规律；也可计算相关性后绘制为力导向节点链接图，显式表达关系。   </p>
+<p>因此我们制作了四种视图：   </p>
 <ol>
-<li>用于反映全局时空关系的地理聚合视图；</li>
-<li>用于描述某地污染物随时间变化的柱状图；</li>
-<li>用于描绘风向与污染关系的极坐标图；</li>
-<li>用于探索属性关系的平行坐标图。</li>
+<li>用于反映全局时空关系的地理聚合视图（包含污染分布情况、聚类情况等）；      </li>
+<li>用于描述某地污染物随时间变化的柱状图；   </li>
+<li>用于描绘风向与污染关系的极坐标图；   </li>
+<li>用于探索属性关系的平行坐标图。   </li>
+<li>（未采用）描述城市间污染物传递输送关系的节点链接图；   </li>
+<li>（未采用）描述全国风向的二维流场线图；   </li>
+<li>（未实现）描述大气分层扩散的三维流场模拟图；</li>
 </ol>
 <blockquote>
 <p>注1：实际操作中，是先设计了3D视图，再设计2D视图。</p>
 </blockquote>
-<h3 id="挑选合适的数据分析算法">------挑选合适的数据分析算法------</h3>
-<p>数据分析后的结果也可以通过可视化描述。在空气质量可视化领域，常用的做法是聚类可视化，比如：</p>
+<h3 id="———挑选合适的数据分析算法———"><a href="#———挑选合适的数据分析算法———" class="headerlink" title="———挑选合适的数据分析算法———"></a>———挑选合适的数据分析算法———</h3><p>数据分析后的结果也可以通过可视化描述。在空气质量可视化领域，常用的做法是聚类可视化，比如：</p>
 <blockquote>
-<p>[3] Zhiguang Zhou et al, Visual Analytics for Spatial Clusters of<br>
-Air-Quality Data<br>
-[4] Jie Li et al, Visual analytics of smogs in China</p>
+<p>[3] Zhiguang Zhou et al, Visual Analytics for Spatial Clusters of<br>Air-Quality Data<br>[4] Jie Li et al, Visual analytics of smogs in China</p>
 </blockquote>
 <p>在下一小节会继续说明算法部分。</p>
-<h3 id="设计可视分析系统原型">------设计可视分析系统原型------</h3>
-<p>我们认为，在一个与地理信息（时空关系）相关的数据场景中，数据海量高维，在传统的平面屏幕上虽能同时展开多个视图（dashboard布局），但：<br>
-1）视图间会相互遮挡，需要额外交互切换到其他视图；<br>
-2）数据维度高，2D视图可能无法完全描绘全部信息；<br>
-3）为了描绘全部信息，需要使用更大的视图，这导致了进一步的交互困难，以及视野盲区（change blindness）问题。</p>
-<p>据此，使用AR设备扩展平面屏幕，结合AR虚拟环境下的视图和平面设备视图，可能取得更好的效果。AR虚拟环境可以充分利用使用者身边的空间，而非局限在屏幕内；可以更好地支持三维视图；而交互手段也更丰富。</p>
+<h3 id="———设计可视分析系统原型———"><a href="#———设计可视分析系统原型———" class="headerlink" title="———设计可视分析系统原型———"></a>———设计可视分析系统原型———</h3><p>我们认为，在一个与地理信息（时空关系）相关的数据场景中，数据海量高维，在传统的平面屏幕上虽能同时展开多个视图（dashboard布局），但：<br>1）视图间会相互遮挡，需要额外交互切换到其他视图；<br>2）数据维度高，2D视图可能无法完全描绘全部信息；<br>3）为了描绘全部信息，需要使用更大的视图，这导致了进一步的交互困难，以及视野盲区（change blindness）问题。   </p>
+<p>据此，使用AR设备扩展平面屏幕，结合AR虚拟环境下的视图和平面设备视图，可能取得更好的效果。AR虚拟环境可以充分利用使用者身边的空间，而非局限在屏幕内；可以更好地支持三维视图；而交互手段也更丰富。   </p>
 <p>因此，我们设计并建造了一个沉浸式跨设备交互可视化系统。该系统结合增强现实设备与大型平面显示器，实现了平面内容与AR内容的联动，结合平面设备精确交互和AR高表现力的优势，综合多种交互手段，支持用户快速、灵活、多角度探索数据。</p>
-<h2 id="详细设计">详细设计</h2>
-<p>在这个环节，需要具体地考虑如何实现整个系统。与上一章只绘制一个视图不同，一个系统（可能）需要考虑更多的情况，包括但不限于：</p>
+<h2 id="详细设计"><a href="#详细设计" class="headerlink" title="详细设计"></a>详细设计</h2><p>在这个环节，需要具体地考虑如何实现整个系统。与上一章只绘制一个视图不同，一个系统（可能）需要考虑更多的情况，包括但不限于：   </p>
 <ol>
-<li>是否需要数据分析算法以获取更高层的结论？</li>
-<li>如何设计视图细节（配色、形态等）？</li>
-<li>如何处理视图、设备、使用者间的联动？</li>
+<li>是否需要数据分析算法以获取更高层的结论？   </li>
+<li>如何设计视图细节（配色、形态等）？   </li>
+<li>如何处理视图、设备、使用者间的联动？   </li>
 <li>如何设计交互行为？</li>
 </ol>
-<p>对于跨设备系统，还需要考虑：<br>
-5. 不同设备显示相同内容吗？还是不同内容？<br>
-6. 不同设备间的内容，是互补的？还是递进的？或者并列的？</p>
-<h3 id="跨设备详细设计">------跨设备详细设计------</h3>
-<p>我们使用了C/S结构，以实现设备联动。位于主机的SERVER端负责向CLIENT端传递数据；CLIENT端接收需要绘制成视图的数据并显示；在某一CLIENT端发生的交互行为数据，将被发送到SERVER端，并由SERVER转发到其他client，以实现视图联动响应交互。</p>
-<p>平面显示器和AR设备各自作为一个客户端，两者内容不相同。<br>
-AR设备上的三维视图是平面设备上二维视图的扩展（或增强）。</p>
-<h3 id="可视化详细设计">------可视化详细设计------</h3>
-<h4 id="◆-考虑形态">◆ 考虑形态</h4>
-<p>由于使用了跨设备设计，我们的每一种视图都应该具有平面版，及对应的AR版。平面显示器上只有2D视图，但AR显示器中可以显示2D或3D视图。视图尺寸受平面显示器尺寸控制，AR视图尺寸和平面视图尺寸应该相同，以避免错误的理解。</p>
-<h4 id="◆-考虑颜色">◆ 考虑颜色</h4>
-<p>尽管可以在adobe cc上获取配色建议，但空气质量AQI规定文件中给出了推荐颜色表，因此在所有使用AQI数据的视图中配色都按照推荐表填充。</p>
-<h4 id="◆-考虑视图之间的关系">◆ 考虑视图之间的关系</h4>
+<p>对于跨设备系统，还需要考虑：   </p>
 <ol>
-<li>同一设备间的不同视图：可以联动。例如说：我们选择并高亮了柱状图上代表某个对象的元素，那么这个对象如果出现在其他视图上时，应该被同样高亮。</li>
-<li>不同设备间同一任务视图的联动：需要联动，特别是当一个使用者同时操作多个设备时。这里涉及多用户的问题，但并不展开讲。</li>
-<li>可以没有主视图，但对于时空关系任务，我们选择地理聚合视图作为主视图。</li>
+<li>不同设备显示相同内容吗？还是不同内容？   </li>
+<li>不同设备间的内容，是互补的？还是递进的？或者并列的？</li>
 </ol>
-<h3 id="交互详细设计">------交互详细设计------</h3>
-<h4 id="◆-平面设备上的交互">◆ 平面设备上的交互</h4>
-<p>平面设备上的视图应该可被手势（手）操作，以完成放缩、查看细节、调整设置等操作。<br>
-一块触摸屏（一块2.4m * 1.5m的触摸屏，由实验室提供）足以满足平面设备交互的需求。</p>
-<h4 id="◆-AR环境的交互">◆ AR环境的交互</h4>
-<p>得益于AR设备的丰富交互输入手段，我们使用了多种交互手段以应对不同场景需求。<br>
-手势交互被用于操作视图，注视输入被用来提供远程操作。</p>
-<h4 id="◆-传递交互数据">◆ 传递交互数据</h4>
-<p>如何令设备之间联动？联动的来源是使用者的交互行为，因此从交互的角度考虑。我们使用一个交互数据转发服务器来处理这个问题。<br>
-特别地，当使用AR设备时，如何将AR内容与其他设备配准（或对齐）？这里涉及AR设备的空间感知(spatial awareness)问题，将在下一节介绍。</p>
-<h3 id="数据分析详细设计">------数据分析详细设计------</h3>
-<p>我们也可以使用算法分析原始数据，并可视化分析结果。</p>
-<p>我们使用了聚类算法处理空气质量数据，以判断是否有：1）污染程度相似；2）污染成因相似；的区域。</p>
-<p>我们也使用LSTM对短期气象数据变化进行了（很可能不准确的）预测，并以虚化的形式显示在视图中，以与真实数据区分开来。</p>
-<h2 id="实现与部署">实现与部署</h2>
-<h3 id="平面显示器部分的实现">------平面显示器部分的实现------</h3>
-<p>在平面显示器上绘制的视图，使用pyECharts绘制。<br>
-（待续）</p>
-<h4 id="◆-2D视图的绘制及交互">◆ 2D视图的绘制及交互</h4>
-<p>这部分可以参考官方文档，不再详细展开。</p>
-<h3 id="AR部分的实现">------AR部分的实现------</h3>
-<p>在AR虚拟环境绘制的视图，使用unity绘制。<br>
-（待续）</p>
-<h4 id="◆-AR视图的绘制及交互">◆ AR视图的绘制及交互</h4>
-<p>在上一章，我们已经讨论了如何使用unity制作视图。</p>
-<h3 id="server的实现">------server的实现------</h3>
-<p>我们使用python制作了server。<br>
-通过websocket管理服务器到平面显示器的连接。<br>
-通过TCP管理服务器到AR设备的连接。</p>
+<h3 id="———跨设备详细设计———"><a href="#———跨设备详细设计———" class="headerlink" title="———跨设备详细设计———"></a>———跨设备详细设计———</h3><p>我们使用了C/S结构，以实现设备联动。位于主机的SERVER端负责向CLIENT端传递数据；CLIENT端接收需要绘制成视图的数据并显示；在某一CLIENT端发生的交互行为数据，将被发送到SERVER端，并由SERVER转发到其他client，以实现视图联动响应交互。   </p>
+<p>平面显示器和AR设备各自作为一个客户端，两者内容不相同。<br>AR设备上的三维视图是平面设备上二维视图的扩展（或增强）。</p>
+<h3 id="———可视化详细设计———"><a href="#———可视化详细设计———" class="headerlink" title="———可视化详细设计———"></a>———可视化详细设计———</h3><h4 id="◆-考虑形态"><a href="#◆-考虑形态" class="headerlink" title="◆ 考虑形态"></a>◆ 考虑形态</h4><p>由于使用了跨设备设计，我们的每一种视图都应该具有平面版，及对应的AR版。平面显示器上只有2D视图，但AR显示器中可以显示2D或3D视图。视图尺寸受平面显示器尺寸控制，AR视图尺寸和平面视图尺寸应该相同，以避免错误的理解。</p>
+<h4 id="◆-考虑颜色"><a href="#◆-考虑颜色" class="headerlink" title="◆ 考虑颜色"></a>◆ 考虑颜色</h4><p>尽管可以在adobe cc上获取配色建议，但空气质量AQI规定文件中给出了推荐颜色表，因此在所有使用AQI数据的视图中配色都按照推荐表填充。</p>
+<h4 id="◆-考虑视图之间的关系"><a href="#◆-考虑视图之间的关系" class="headerlink" title="◆ 考虑视图之间的关系"></a>◆ 考虑视图之间的关系</h4><ol>
+<li>同一设备间的不同视图：可以联动。例如说：我们选择并高亮了柱状图上代表某个对象的元素，那么这个对象如果出现在其他视图上时，应该被同样高亮。   </li>
+<li>不同设备间同一任务视图的联动：需要联动，特别是当一个使用者同时操作多个设备时。这里涉及多用户的问题，但并不展开讲。</li>
+<li>可以没有主视图，但对于时空关系任务，我们选择地理聚合视图作为主视图。在地理视图上选择某一对象，会在其他图中高亮同样的对象。对于平行坐标图，表示其他对象的折线将被隐藏，以减少视觉遮挡的影响。</li>
+</ol>
+<h3 id="———交互详细设计———"><a href="#———交互详细设计———" class="headerlink" title="———交互详细设计———"></a>———交互详细设计———</h3><h4 id="◆-平面设备上的交互"><a href="#◆-平面设备上的交互" class="headerlink" title="◆ 平面设备上的交互"></a>◆ 平面设备上的交互</h4><p>平面设备上的视图应该可被手势（手）操作，以完成放缩、查看细节、调整设置等操作。<br>一块触摸屏（一块2.4m * 1.5m的触摸屏，由实验室提供）足以满足平面设备交互的需求。</p>
+<h4 id="◆-AR环境的交互"><a href="#◆-AR环境的交互" class="headerlink" title="◆ AR环境的交互"></a>◆ AR环境的交互</h4><p>得益于AR设备的丰富交互输入手段，我们使用了多种交互手段以应对不同场景需求。<br>手势交互被用于操作视图，注视输入被用来提供远程操作。</p>
+<h4 id="◆-传递交互数据"><a href="#◆-传递交互数据" class="headerlink" title="◆ 传递交互数据"></a>◆ 传递交互数据</h4><p>如何令设备之间联动？联动的来源是使用者的交互行为，因此从交互的角度考虑。我们使用一个交互数据转发服务器来处理这个问题。<br>特别地，当使用AR设备时，如何将AR内容与其他设备配准（或对齐）？这里涉及AR设备的空间感知(spatial awareness)问题，将在下一节介绍。</p>
+<h3 id="———数据分析详细设计———"><a href="#———数据分析详细设计———" class="headerlink" title="———数据分析详细设计———"></a>———数据分析详细设计———</h3><p>我们也可以使用算法分析原始数据，并可视化分析结果。 </p>
+<p>1.我尝试使用非线性统计方法，计算各个城市间的关系系数，以辅助判断污染物传递关系，但失败了，计算结果中表明每个城市间都有强相关性，即使在拉萨和上海间也是:-( ；  </p>
+<p>2.我们使用了聚类算法处理空气质量数据，以判断是否有：1）污染程度相似；2）污染成因相似；的区域。   </p>
+<p>3.我们也使用LSTM对短期气象数据变化进行了（很可能不准确的）预测，并以虚化的形式显示在视图中，以与真实数据区分开来。</p>
+<h2 id="实现与部署"><a href="#实现与部署" class="headerlink" title="实现与部署"></a>实现与部署</h2><h3 id="可视化实现概述"><a href="#可视化实现概述" class="headerlink" title="可视化实现概述"></a>可视化实现概述</h3><p>我们设计并实现了以下视图。每个视图都有对应的平面端及AR端版本，且AR端视图是对平面视图的扩展与补充。<br><img src="/undefined/How-To-Vis-By-Unity-4/TOTAL.png" alt="GeneralDesign"></p>
+<h4 id="◆-地理聚合视图"><a href="#◆-地理聚合视图" class="headerlink" title="◆ 地理聚合视图"></a>◆ 地理聚合视图</h4><p>为了直观地编码同一时刻下不同区域的空气质量数据，我们在地图上绘制：(1)大气属性热力图；(2)聚类视图，以直观展示污染物的空间分布情况。该视图的 AR 增强视图设计为时空立方体和非线性切片。</p>
+<blockquote>
+<p>非线性切片的灵感是源自德累斯顿工业大学IML DRESDEN的论文MARVIS </p>
+</blockquote>
+<p><img src="/undefined/How-To-Vis-By-Unity-4/GEOSA.png" alt="GeneralDesign"></p>
+<h4 id="◆-大气属性平行坐标图"><a href="#◆-大气属性平行坐标图" class="headerlink" title="◆ 大气属性平行坐标图"></a>◆ 大气属性平行坐标图</h4><p>使用平行坐标图以反映同一时刻上，不同区域的大气属性测量值间的关系。在 AR 视图中，除相同的平行坐标图外，将每个轴划分为等长的区间，统计每区间内数据的数量，通过柱状图反映统计数据。</p>
+<p><img src="/undefined/How-To-Vis-By-Unity-4/PCVIS.png" alt="GeneralDesign"></p>
+<h4 id="◆-风向-风速-污染程度极坐标图"><a href="#◆-风向-风速-污染程度极坐标图" class="headerlink" title="◆ 风向-风速-污染程度极坐标图"></a>◆ 风向-风速-污染程度极坐标图</h4><p>使用极坐标视图，描述某一地区上，不同时刻的风向、风速以及空气污染指数（AQI），以分析经大气运动输送到该位置的污染物对空气质量的影响。在对应的 AR 视图中，我们统计了处于不同风向区间内点的数量，编码为柱形图的高度环绕在极坐标图周围。</p>
+<p><img src="/undefined/How-To-Vis-By-Unity-4/RRRRR.png" alt="GeneralDesign"></p>
+<h4 id="◆-时间-AQI指数柱状图"><a href="#◆-时间-AQI指数柱状图" class="headerlink" title="◆ 时间-AQI指数柱状图"></a>◆ 时间-AQI指数柱状图</h4><p>时间柱状图用于展示 AQI 数值随时间的变化。对应的AR视图设计为局部增强和整体增强两部分。局部增强为二维柱状图，显示某一天内，AQI 的变化，其横坐标表示以小时为单位的时间，纵坐标和颜色表示该数值；整体增强为三维柱状图，整合显示一个月内每天AQI数值的变化。</p>
+<p><img src="/undefined/How-To-Vis-By-Unity-4/BARVS.png" alt="GeneralDesign"></p>
+<h4 id="◆-（未使用）大气风向风速二维流场线图"><a href="#◆-（未使用）大气风向风速二维流场线图" class="headerlink" title="◆ （未使用）大气风向风速二维流场线图"></a>◆ （未使用）大气风向风速二维流场线图</h4><p>根据风向和风速绘制流场线。<br>被批评为不好看，未使用。<br>实际上没有花太多时间修改美术效果，确实不好看。</p>
+<h4 id="◆-（未使用）城市间污染物输送关系视图"><a href="#◆-（未使用）城市间污染物输送关系视图" class="headerlink" title="◆ （未使用）城市间污染物输送关系视图"></a>◆ （未使用）城市间污染物输送关系视图</h4><p>使用非线性格兰杰因果检验，计算城市间的污染物可能存在的关系。<br>选择了14个城市，包含拉萨和乌鲁木齐。但并未计算出有效的关系。</p>
+<h4 id="◆-（未使用）大气属性相关性视图"><a href="#◆-（未使用）大气属性相关性视图" class="headerlink" title="◆ （未使用）大气属性相关性视图"></a>◆ （未使用）大气属性相关性视图</h4><p>计算大气属性的相关性（协方差），并绘制为节点链接图。<br>由于3D和2D端过于重复而没有使用。</p>
+<blockquote>
+<p>和 Huamin Qu的香港空气污染可视化论文比较相似</p>
+</blockquote>
+<h3 id="———平面显示器部分的实现———"><a href="#———平面显示器部分的实现———" class="headerlink" title="———平面显示器部分的实现———"></a>———平面显示器部分的实现———</h3><p>在平面显示器上绘制的视图，使用pyECharts绘制。<br>这部分可以参考官方文档，不再详细展开。</p>
+<h3 id="———AR部分的实现———"><a href="#———AR部分的实现———" class="headerlink" title="———AR部分的实现———"></a>———AR部分的实现———</h3><p>在AR虚拟环境绘制的视图，使用unity绘制。<br>在上一章，我们已经讨论了如何使用unity制作可交互视图。</p>
+<h3 id="———server的实现———"><a href="#———server的实现———" class="headerlink" title="———server的实现———"></a>———server的实现———</h3><p>我们使用python制作了server。<br>通过websocket管理服务器到平面显示器的连接。<br>通过TCP管理服务器到AR设备的连接。</p>
 <blockquote>
 <p>websocket也可以管理AR设备，但部署后发现并不稳定</p>
 </blockquote>
-<h3 id="专题：如何对齐AR内容与平面内容">------专题：如何对齐AR内容与平面内容------</h3>
-<h4 id="◆-主动式对齐">◆ 主动式对齐</h4>
-<p>这是指由AR设备进行图像识别，识别到平面显示器上的定位标记，将虚拟场景与真实环境对齐的方式。</p>
+<h3 id="———关键问题：如何对齐AR内容与平面内容———"><a href="#———关键问题：如何对齐AR内容与平面内容———" class="headerlink" title="———关键问题：如何对齐AR内容与平面内容———"></a>———关键问题：如何对齐AR内容与平面内容———</h3><h4 id="◆-主动式对齐"><a href="#◆-主动式对齐" class="headerlink" title="◆ 主动式对齐"></a>◆ 主动式对齐</h4><p>这是指由AR设备进行图像识别，识别到平面显示器上的定位标记，将虚拟场景与真实环境对齐的方式。</p>
 <p>可以参考论文：</p>
 <blockquote>
 <p>T. Sun, Y. Ye, I. Fujishiro, and K. L. Ma, “Collaborative visual analysis with multi-level information sharing using a wall-size display and see-through HMDs,” IEEE Pacific Vis. Symp., vol. 2019-April, pp. 11–20, 2019, doi: 10.1109/PacificVis.2019.00010.</p>
 </blockquote>
-<h4 id="◆-被动式对齐">◆ 被动式对齐</h4>
-<p>这是指由额外设备（如红外摄像机）捕捉场景内所有设备的位置信息，由服务器计算AR视图正确位置，并控制AR设备对齐的方式。</p>
+<h4 id="◆-被动式对齐"><a href="#◆-被动式对齐" class="headerlink" title="◆ 被动式对齐"></a>◆ 被动式对齐</h4><p>这是指由额外设备（如红外摄像机）捕捉场景内所有设备的位置信息，由服务器计算AR视图正确位置，并控制AR设备对齐的方式。</p>
 <p>可以参考论文：</p>
 <blockquote>
 <p>P. Reipschlager, T. Flemisch, and R. Dachselt, “Personal augmented reality for information visualization on large interactive displays,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 1182–1192, 2021, doi: 10.1109/TVCG.2020.3030460.</p>
 </blockquote>
-<h3 id="系统部署与测试">------系统部署与测试------</h3>
-<h2 id="小结">小结</h2>
-<h3 id="工时统计">------工时统计------</h3>
-<p>我们使用了大概两个月的时间完成这一系统的设计，并参加了ChinaVis 2021。</p>
+<h4 id="◆-我们的选择"><a href="#◆-我们的选择" class="headerlink" title="◆ 我们的选择"></a>◆ 我们的选择</h4><p>我们指定了AR视图将出现的位置，并固定了位置参数。</p>
+<h3 id="———系统部署与测试———、"><a href="#———系统部署与测试———、" class="headerlink" title="———系统部署与测试———、"></a>———系统部署与测试———、</h3><p>略。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>这一章节已经移动到下一篇博文。请移步：</p>
+<h3 id="———工时统计———"><a href="#———工时统计———" class="headerlink" title="———工时统计———"></a>———工时统计———</h3><p>我们使用了大概两个月的时间完成这一系统的设计，并参加了ChinaVis 2021。   </p>
 <p>这个项目我每天贡献约八到十个小时。后期经历了约半个月的突击开发，每天大概贡献12小时以上。（几乎）所有的编码都是我完成的。</p>
-<p>大概使用两周的时间确定了分析任务与场景，及使用的视图，随后进入实现阶段。<br>
-在进行到第五周时，我们修改了原始设计，将其从纯AR系统修改为了现在的跨设备系统。<br>
-使用四天时间拍摄演示视频、制作说明文档等必要材料。这段时间进行了熬夜战斗。</p>
-<p>整个项目中主要的困难在于如何实现各类代码。<br>
-其次是演示环节的设计。</p>
-<h3 id="专题：如何管理团队合作项目？">------专题：如何管理团队合作项目？------</h3>
-<p>这是一个非常困难的问题。<br>
-至少在我们制作这个系统的过程中，由于我（作者）本人第一次接触可视化工作，难以估计工作量，并没有进行详细的任务分配。这是不合适的。<br>
-我们的小组每周进行一次至少一小时的集中讨论。</p>
-<p>由于只有一个人进行设计与实现，实际上并没有严格完成时间表，整个系统调试完成多花了半周，使得最终的演示环节没有足够时间进行拍摄，这一点应该注意。</p>
-<p>在这里必须要强调的是：</p>
-<ol>
-<li>负责人必须对项目的前因、过程与后果足够清楚，以安排分工；</li>
-<li>分工是可以更改的，但不能不分；</li>
-<li>应该确保所有人都能完成‘必要’的部分，对代码的质量检查也非常重要；</li>
-</ol>
-<p>在未来，或许我们会再次讨论这个问题，但现在就写到这里。</p>
+<p>整个项目中主要的困难在于如何实现各类代码。<br>其次是演示环节的设计。</p>
+<h3 id="———专题：如何管理团队合作项目？———"><a href="#———专题：如何管理团队合作项目？———" class="headerlink" title="———专题：如何管理团队合作项目？———"></a>———专题：如何管理团队合作项目？———</h3><p>在未来，或许我们会再次讨论这个问题，但现在就写到这里。</p>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/undefined/How-To-Vis-By-Unity-5/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(5)">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">
@@ -765,7 +723,7 @@ AR设备上的三维视图是平面设备上二维视图的扩展（或增强）
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第三章：设计与实现一个可视化系统</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">准备工作</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">概要设计</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8C%91%E9%80%89%E5%90%88%E9%80%82%E7%9A%84%E8%A7%86%E5%9B%BE"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">------挑选合适的视图------</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%8C%91%E9%80%89%E5%90%88%E9%80%82%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">------挑选合适的数据分析算法------</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%AE%BE%E8%AE%A1%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">------设计可视分析系统原型------</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">详细设计</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%B7%A8%E8%AE%BE%E5%A4%87%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">------跨设备详细设计------</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">------可视化详细设计------</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%80%83%E8%99%91%E5%BD%A2%E6%80%81"><span class="toc-nav-number">5.2.1.</span> <span class="toc-nav-text">◆ 考虑形态</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%80%83%E8%99%91%E9%A2%9C%E8%89%B2"><span class="toc-nav-number">5.2.2.</span> <span class="toc-nav-text">◆ 考虑颜色</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%80%83%E8%99%91%E8%A7%86%E5%9B%BE%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-nav-number">5.2.3.</span> <span class="toc-nav-text">◆ 考虑视图之间的关系</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%BA%A4%E4%BA%92%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">------交互详细设计------</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E5%B9%B3%E9%9D%A2%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">5.3.1.</span> <span class="toc-nav-text">◆ 平面设备上的交互</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-AR%E7%8E%AF%E5%A2%83%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">5.3.2.</span> <span class="toc-nav-text">◆ AR环境的交互</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E4%BC%A0%E9%80%92%E4%BA%A4%E4%BA%92%E6%95%B0%E6%8D%AE"><span class="toc-nav-number">5.3.3.</span> <span class="toc-nav-text">◆ 传递交互数据</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">------数据分析详细设计------</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%8E%E9%83%A8%E7%BD%B2"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">实现与部署</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B9%B3%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E9%83%A8%E5%88%86%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">------平面显示器部分的实现------</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-2D%E8%A7%86%E5%9B%BE%E7%9A%84%E7%BB%98%E5%88%B6%E5%8F%8A%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">6.1.1.</span> <span class="toc-nav-text">◆ 2D视图的绘制及交互</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#AR%E9%83%A8%E5%88%86%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">------AR部分的实现------</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-AR%E8%A7%86%E5%9B%BE%E7%9A%84%E7%BB%98%E5%88%B6%E5%8F%8A%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">6.2.1.</span> <span class="toc-nav-text">◆ AR视图的绘制及交互</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#server%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">------server的实现------</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%93%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AF%B9%E9%BD%90AR%E5%86%85%E5%AE%B9%E4%B8%8E%E5%B9%B3%E9%9D%A2%E5%86%85%E5%AE%B9"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">------专题：如何对齐AR内容与平面内容------</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E4%B8%BB%E5%8A%A8%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="toc-nav-number">6.4.1.</span> <span class="toc-nav-text">◆ 主动式对齐</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%A2%AB%E5%8A%A8%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="toc-nav-number">6.4.2.</span> <span class="toc-nav-text">◆ 被动式对齐</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="toc-nav-number">6.5.</span> <span class="toc-nav-text">------系统部署与测试------</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">小结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B7%A5%E6%97%B6%E7%BB%9F%E8%AE%A1"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">------工时统计------</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%93%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E9%A1%B9%E7%9B%AE%EF%BC%9F"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">------专题：如何管理团队合作项目？------</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%8A%EF%BC%89"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第三章：设计与实现一个可视化系统（上）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">准备工作</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">概要设计</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E6%8C%91%E9%80%89%E5%90%88%E9%80%82%E7%9A%84%E8%A7%86%E5%9B%BE%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">———挑选合适的视图———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E6%8C%91%E9%80%89%E5%90%88%E9%80%82%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">———挑选合适的数据分析算法———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E8%AE%BE%E8%AE%A1%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F%E5%8E%9F%E5%9E%8B%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">———设计可视分析系统原型———</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">详细设计</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E8%B7%A8%E8%AE%BE%E5%A4%87%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">———跨设备详细设计———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">———可视化详细设计———</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%80%83%E8%99%91%E5%BD%A2%E6%80%81"><span class="toc-nav-number">5.2.1.</span> <span class="toc-nav-text">◆ 考虑形态</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%80%83%E8%99%91%E9%A2%9C%E8%89%B2"><span class="toc-nav-number">5.2.2.</span> <span class="toc-nav-text">◆ 考虑颜色</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%80%83%E8%99%91%E8%A7%86%E5%9B%BE%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-nav-number">5.2.3.</span> <span class="toc-nav-text">◆ 考虑视图之间的关系</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E4%BA%A4%E4%BA%92%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">———交互详细设计———</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E5%B9%B3%E9%9D%A2%E8%AE%BE%E5%A4%87%E4%B8%8A%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">5.3.1.</span> <span class="toc-nav-text">◆ 平面设备上的交互</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-AR%E7%8E%AF%E5%A2%83%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="toc-nav-number">5.3.2.</span> <span class="toc-nav-text">◆ AR环境的交互</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E4%BC%A0%E9%80%92%E4%BA%A4%E4%BA%92%E6%95%B0%E6%8D%AE"><span class="toc-nav-number">5.3.3.</span> <span class="toc-nav-text">◆ 传递交互数据</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">———数据分析详细设计———</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%9E%E7%8E%B0%E4%B8%8E%E9%83%A8%E7%BD%B2"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">实现与部署</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%AE%9E%E7%8E%B0%E6%A6%82%E8%BF%B0"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">可视化实现概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E5%9C%B0%E7%90%86%E8%81%9A%E5%90%88%E8%A7%86%E5%9B%BE"><span class="toc-nav-number">6.1.1.</span> <span class="toc-nav-text">◆ 地理聚合视图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E5%A4%A7%E6%B0%94%E5%B1%9E%E6%80%A7%E5%B9%B3%E8%A1%8C%E5%9D%90%E6%A0%87%E5%9B%BE"><span class="toc-nav-number">6.1.2.</span> <span class="toc-nav-text">◆ 大气属性平行坐标图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E9%A3%8E%E5%90%91-%E9%A3%8E%E9%80%9F-%E6%B1%A1%E6%9F%93%E7%A8%8B%E5%BA%A6%E6%9E%81%E5%9D%90%E6%A0%87%E5%9B%BE"><span class="toc-nav-number">6.1.3.</span> <span class="toc-nav-text">◆ 风向-风速-污染程度极坐标图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E6%97%B6%E9%97%B4-AQI%E6%8C%87%E6%95%B0%E6%9F%B1%E7%8A%B6%E5%9B%BE"><span class="toc-nav-number">6.1.4.</span> <span class="toc-nav-text">◆ 时间-AQI指数柱状图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%EF%BC%88%E6%9C%AA%E4%BD%BF%E7%94%A8%EF%BC%89%E5%A4%A7%E6%B0%94%E9%A3%8E%E5%90%91%E9%A3%8E%E9%80%9F%E4%BA%8C%E7%BB%B4%E6%B5%81%E5%9C%BA%E7%BA%BF%E5%9B%BE"><span class="toc-nav-number">6.1.5.</span> <span class="toc-nav-text">◆ （未使用）大气风向风速二维流场线图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%EF%BC%88%E6%9C%AA%E4%BD%BF%E7%94%A8%EF%BC%89%E5%9F%8E%E5%B8%82%E9%97%B4%E6%B1%A1%E6%9F%93%E7%89%A9%E8%BE%93%E9%80%81%E5%85%B3%E7%B3%BB%E8%A7%86%E5%9B%BE"><span class="toc-nav-number">6.1.6.</span> <span class="toc-nav-text">◆ （未使用）城市间污染物输送关系视图</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%EF%BC%88%E6%9C%AA%E4%BD%BF%E7%94%A8%EF%BC%89%E5%A4%A7%E6%B0%94%E5%B1%9E%E6%80%A7%E7%9B%B8%E5%85%B3%E6%80%A7%E8%A7%86%E5%9B%BE"><span class="toc-nav-number">6.1.7.</span> <span class="toc-nav-text">◆ （未使用）大气属性相关性视图</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E5%B9%B3%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%99%A8%E9%83%A8%E5%88%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">———平面显示器部分的实现———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94AR%E9%83%A8%E5%88%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">———AR部分的实现———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94server%E7%9A%84%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">———server的实现———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AF%B9%E9%BD%90AR%E5%86%85%E5%AE%B9%E4%B8%8E%E5%B9%B3%E9%9D%A2%E5%86%85%E5%AE%B9%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">6.5.</span> <span class="toc-nav-text">———关键问题：如何对齐AR内容与平面内容———</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E4%B8%BB%E5%8A%A8%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="toc-nav-number">6.5.1.</span> <span class="toc-nav-text">◆ 主动式对齐</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%A2%AB%E5%8A%A8%E5%BC%8F%E5%AF%B9%E9%BD%90"><span class="toc-nav-number">6.5.2.</span> <span class="toc-nav-text">◆ 被动式对齐</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E6%88%91%E4%BB%AC%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-nav-number">6.5.3.</span> <span class="toc-nav-text">◆ 我们的选择</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E7%B3%BB%E7%BB%9F%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%B5%8B%E8%AF%95%E2%80%94%E2%80%94%E2%80%94%E3%80%81"><span class="toc-nav-number">6.6.</span> <span class="toc-nav-text">———系统部署与测试———、</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">小结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E5%B7%A5%E6%97%B6%E7%BB%9F%E8%AE%A1%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">———工时统计———</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E4%B8%93%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E9%A1%B9%E7%9B%AE%EF%BC%9F%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">———专题：如何管理团队合作项目？———</span></a></li></ol></li></ol>
         
         </div>
       </aside>
