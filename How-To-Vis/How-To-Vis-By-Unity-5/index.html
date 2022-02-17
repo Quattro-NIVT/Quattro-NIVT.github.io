@@ -135,10 +135,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/undefined/How-To-Vis-By-Unity-2/">
+  <link rel="canonical" href="http://yoursite-url/How-To-Vis/How-To-Vis-By-Unity-5/">
   <title>
     
-      教程-使用Unity进行可视分析(2) - Haokai Qin&#39;s Vis Gallery
+      教程-使用Unity进行可视分析(5) - Haokai Qin&#39;s Vis Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -348,19 +348,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/img/postUsedImgFolder1/headImg.png');
+      --intro-header-background-image-url-page: url('//img/postUsedImgFolder1/headImg.png');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/postUsedImgFolder1/headImg.png');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/postUsedImgFolder1/headImg.png');
     }
 
     header.intro-header {
        /*post*/
         background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url(''); */
+        /* background-image: url('/img/postUsedImgFolder1/headImg.png'); */
       
     }
 
@@ -387,12 +387,14 @@
               
               <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
               
+              <a class="tag" href="/tags/#团队合作" title="团队合作">团队合作</a>
+              
             </div>
-            <h1>教程-使用Unity进行可视分析(2)</h1>
-            <h2 class="subheading">关于三维可视化视图的系列教程其二，本节主要介绍unity可视化工具包。</h2>
+            <h1>教程-使用Unity进行可视分析(5)</h1>
+            <h2 class="subheading">关于三维可视化视图的系列教程其五。本章主要是对IMPAVT的反思。</h2>
             <span class="meta">
               Posted by 秦浩凯(Haokai Qin) on
-              2022-01-29
+              2022-02-12
             </span>
 
 
@@ -400,11 +402,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">361</span> In Total
+              Words <span class="post-count">1.1k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -466,20 +468,28 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong><br><strong>目前前五章已经完成</strong></p>
-<h2 id="目录（计划更新表）"><a href="#目录（计划更新表）" class="headerlink" title="目录（计划更新表）"></a>目录（计划更新表）</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）</p>
-<p><strong>本章由于知识产权原因将会缓慢更新，后续章节已经更新</strong></p>
-<h2 id="第一章：Unity可视化工具包：IATK-与-u2vis"><a href="#第一章：Unity可视化工具包：IATK-与-u2vis" class="headerlink" title="第一章：Unity可视化工具包：IATK 与 u2vis"></a>第一章：Unity可视化工具包：IATK 与 u2vis</h2><h3 id="1-1-IATK"><a href="#1-1-IATK" class="headerlink" title="1.1 IATK"></a>1.1 IATK</h3><blockquote>
-<p>M. Cordeil and T. Dwyer, “Introduction to IATK: An immersive visual analytics toolkit,” ISS 2019 - Proc. 2019 ACM Int. Conf. Interact. Surfaces Spaces, pp. 431–435, 2019, doi: 10.1145/3343055.3361927.</p>
-</blockquote>
-<h3 id="1-2-u2vis"><a href="#1-2-u2vis" class="headerlink" title="1.2 u2vis"></a>1.2 u2vis</h3><blockquote>
-<p>P. Reipschlager, T. Flemisch, and R. Dachselt, “Personal augmented reality for information visualization on large interactive displays,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 1182–1192, 2021, doi: 10.1109/TVCG.2020.3030460.</p>
-</blockquote>
-<p>德累斯顿工业大学交互媒体实验室出品，使用了一部分IATK的读取数据的代码。</p>
-<blockquote>
-<p><em>hololens使用UWP程序，有时UWP繁琐的权限控制很烦人…</em>      </p>
-</blockquote>
-<p>包括多种基础统计图形，如条形图、柱状图、饼图、折线图、平行坐标图等，一部分图表具有2维和3维两种版本。<br>github上下载的版本具有独特的交互控制方法，可能需要自行修改交互逻辑。</p>
+        <h2 id="第四章：设计与实现一个可视化系统（下）"><a href="#第四章：设计与实现一个可视化系统（下）" class="headerlink" title="第四章：设计与实现一个可视化系统（下）"></a>第四章：设计与实现一个可视化系统（下）</h2><p>本章主要是对IMPAVT的反思。</p>
+<h2 id="可视分析之‘分析’"><a href="#可视分析之‘分析’" class="headerlink" title="可视分析之‘分析’"></a>可视分析之‘分析’</h2><p>本节将会简单地介绍‘可视分析’这个概念（不仅仅是“如何使用可视化系统”），包括它在可视化系统的地位，以及如何发挥作用。</p>
+<p>可视分析是指如何使用可视化系统，以及通过阅读视图获得的结论。</p>
+<h2 id="小结：关于可视分析系统的设计、实现"><a href="#小结：关于可视分析系统的设计、实现" class="headerlink" title="小结：关于可视分析系统的设计、实现"></a>小结：关于可视分析系统的设计、实现</h2><h3 id="——工时统计-详细-——"><a href="#——工时统计-详细-——" class="headerlink" title="——工时统计(详细)——"></a>——工时统计(详细)——</h3><p><strong>这是我第一次接触unity-hololens-WEB开发，此前并没有相关经验。</strong><br>我们使用了大概两个月的时间完成这一系统的设计，并参加了ChinaVis 2021。<br>这个项目我每天贡献约八到十个小时。后期经历了约半个月的突击开发，每天大概贡献12小时以上。（几乎）所有的编码都是我完成的。</p>
+<p>大概使用两周的时间确定了分析任务与场景，及使用的视图。我收集了大概15篇相关论文，从而确定了视图，以及能做出的结论。</p>
+<p>随后进入实现阶段。<br>在实现阶段我首先设计了用于AR环境的六个视图；并实现了其中的地理视图、柱状图、平行坐标图、二维流场线图等。<br>在进行到第五周时，我们修改了原始设计，将其从纯AR系统修改为了现在的跨设备系统。由于人手不足，我裁掉了在平面端难以实现的视图，只保留了四个图。</p>
+<p>随后直至最后一周，都在进行编码工作。<br>最后一周使用四天时间拍摄演示视频、制作说明文档等必要材料。这段时间进行了熬夜战斗。</p>
+<p>整个项目中主要的困难在于如何实现各类代码。<br>实现的部分非常困难，因为可参考的代码不多（或者不能用，github上很多看起来可用但实际不行的代码），不得不用unity手搓可视化视图框架。</p>
+<p>其次是演示环节的设计。应该如何讲述可视分析场景的故事？这个问题并没有想清楚。</p>
+<h3 id="——可改进的部分——"><a href="#——可改进的部分——" class="headerlink" title="——可改进的部分——"></a>——可改进的部分——</h3><ol>
+<li>从立意而言，实际上CHINAVIS 2021挑战赛题目更偏重数据分析，以及分析结果（算法结果）的可视化。我们并没有使用太多算法，或没有实现，而是选择了偏重交互的路线。</li>
+<li>从实现而言：<br> 2.1. 视图数量足够，但是平面部分可能过于简单了；<br> 2.2. 极坐标图不是很好的选择，至少最终效果并不好（实际上极坐标图从‘决定要用’到‘调试完成’只用了一个下午，时间太赶了）；<br> 2.3. 算法部分太少。<br> <strong>2.4. 设备成本太高，而可交互增强现实可视分析真的有效吗？</strong>（这是评委的意见）</li>
+</ol>
+<h2 id="专题：如何管理团队合作项目？"><a href="#专题：如何管理团队合作项目？" class="headerlink" title="专题：如何管理团队合作项目？"></a>专题：如何管理团队合作项目？</h2><p>这是一个非常困难的问题。<br>至少在我们制作这个系统的过程中，由于我（作者）本人第一次接触可视化工作，难以估计工作量，并没有进行详细的任务分配。这是不合适的。<br>我们的小组每周进行一次至少一小时的集中讨论，但只安排了一个人写代码。另外有一名同学负责进行数据处理工作。   </p>
+<p>由于只有一个人进行设计与实现，实际上并没有严格完成时间表，整个系统调试完成多花了半周，使得最终的演示环节没有足够时间进行拍摄，这一点应该注意。   </p>
+<p>在这里必须要强调的是：   </p>
+<ol>
+<li>负责人必须对项目的前因、过程与后果足够清楚，以安排分工；   </li>
+<li>分工是可以更改的，但不能不分；   </li>
+<li>应该确保所有人都能完成‘必要’的部分，对代码的质量检查也非常重要；</li>
+</ol>
+<p>遗憾的是，在制作过程中，我并没有很好地领会个人的职责。<br>我个人更喜欢不受任务约束与时间限制地写代码，而非指挥别人写代码。<strong>要改正。</strong>   </p>
 
 
         <hr>
@@ -487,12 +497,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/undefined/How-To-Vis-By-Unity-3/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(3)">&larr; Previous Post</a>
+            <a href="/undefined/RESEARCH-Talk-On-Immersive-2/" data-toggle="tooltip" data-placement="top" title="科研随笔-关于沉浸式可视化的讨论2">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/undefined/How-To-Vis-By-Unity-1/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(1)">Next Post &rarr;</a>
+            <a href="/How-To-Vis/How-To-Vis-By-Unity-4/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(4)">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -541,7 +551,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(2)&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/How-To-Vis-By-Unity-2/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(5)&body=Hi,I found this website and thought you might like it http://yoursite-url/How-To-Vis/How-To-Vis-By-Unity-5/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -576,7 +586,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Sat Jan 29 2022 19:57:47 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Sat Feb 12 2022 17:49:41 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -629,7 +639,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%88%E8%AE%A1%E5%88%92%E6%9B%B4%E6%96%B0%E8%A1%A8%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录（计划更新表）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9AUnity%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%8C%85%EF%BC%9AIATK-%E4%B8%8E-u2vis"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第一章：Unity可视化工具包：IATK 与 u2vis</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-IATK"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1.1 IATK</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-u2vis"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">1.2 u2vis</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%8B%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第四章：设计与实现一个可视化系统（下）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E4%B9%8B%E2%80%98%E5%88%86%E6%9E%90%E2%80%99"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">可视分析之‘分析’</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E3%80%81%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">小结：关于可视分析系统的设计、实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E5%B7%A5%E6%97%B6%E7%BB%9F%E8%AE%A1-%E8%AF%A6%E7%BB%86-%E2%80%94%E2%80%94"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">——工时统计(详细)——</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E5%8F%AF%E6%94%B9%E8%BF%9B%E7%9A%84%E9%83%A8%E5%88%86%E2%80%94%E2%80%94"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">——可改进的部分——</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%93%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E9%A1%B9%E7%9B%AE%EF%BC%9F"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">专题：如何管理团队合作项目？</span></a></li></ol>
         
         </div>
       </aside>
@@ -657,6 +667,8 @@
             <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
             
             <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
+            
+            <a class="tag" href="/tags/#团队合作" title="团队合作">团队合作</a>
             
           </div>
         </section>

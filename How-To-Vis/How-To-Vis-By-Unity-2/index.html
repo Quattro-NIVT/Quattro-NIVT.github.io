@@ -135,10 +135,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/undefined/How-To-Vis-By-Unity-3/">
+  <link rel="canonical" href="http://yoursite-url/How-To-Vis/How-To-Vis-By-Unity-2/">
   <title>
     
-      教程-使用Unity进行可视分析(3) - Haokai Qin&#39;s Vis Gallery
+      教程-使用Unity进行可视分析(2) - Haokai Qin&#39;s Vis Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -348,19 +348,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('/img/postUsedImgFolder1/HVU3-1.png');
-      --intro-header-background-image-url-page: url('//img/postUsedImgFolder1/HVU3-1.png');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/postUsedImgFolder1/HVU3-1.png');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/postUsedImgFolder1/HVU3-1.png');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
     }
 
     header.intro-header {
        /*post*/
         background-image: var(--intro-header-background-image-url-post);
-        /* background-image: url('/img/postUsedImgFolder1/HVU3-1.png'); */
+        /* background-image: url(''); */
       
     }
 
@@ -388,11 +388,11 @@
               <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
               
             </div>
-            <h1>教程-使用Unity进行可视分析(3)</h1>
-            <h2 class="subheading">关于三维可视化视图的系列教程其三，本节描述如何自行设计与实现一个可视化视图。</h2>
+            <h1>教程-使用Unity进行可视分析(2)</h1>
+            <h2 class="subheading">关于三维可视化视图的系列教程其二，本节主要介绍unity可视化工具包。</h2>
             <span class="meta">
               Posted by 秦浩凯(Haokai Qin) on
-              2022-02-02
+              2022-01-29
             </span>
 
 
@@ -400,11 +400,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">8</span> Minutes
+              Estimated Reading Time <span class="post-count">1</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">2.3k</span> In Total
+              Words <span class="post-count">386</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,78 +468,19 @@
 
         <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong><br><strong>目前前五章已经完成</strong></p>
 <h2 id="目录（计划更新表）"><a href="#目录（计划更新表）" class="headerlink" title="目录（计划更新表）"></a>目录（计划更新表）</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）</p>
-<h2 id="第二章：自行设计与实现unity可视化视图"><a href="#第二章：自行设计与实现unity可视化视图" class="headerlink" title="第二章：自行设计与实现unity可视化视图"></a>第二章：自行设计与实现unity可视化视图</h2><p>本章将会介绍如何制作可视化视图。用一个简单的例子————空气质量地理分布柱状图（以下简称：示例），来说明有哪些因素需要考虑、制作工时开销、与可改进的部分。   </p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>设计视图的两个主要问题是：   </p>
-<ol>
-<li>使用什么类型的数据；   </li>
-<li>完成什么样的任务。<h3 id="——————明确使用的数据——————"><a href="#——————明确使用的数据——————" class="headerlink" title="——————明确使用的数据——————"></a>——————明确使用的数据——————</h3>你需要明确你的数据类型：   </li>
-<li>是数值型？文本型？混合型？数据精度如何？数据大小如何？是什么格式？存储在哪？   </li>
-</ol>
-<p><em>对于示例而言，需要使用XLS格式的数值型数据文件12个，共1.1G。</em><br><em>有效属性包括：采样点经度、采样点纬度、六项大气成分浓度</em></p>
-<h3 id="——————明确可视分析任务——————"><a href="#——————明确可视分析任务——————" class="headerlink" title="——————明确可视分析任务——————"></a>——————明确可视分析任务——————</h3><p>你也必须要明确你的视图将被用于何种场合、获取何种结论。   </p>
-<p><em>对于示例而言，需要：<br>描绘某一时间点上，不同区域的空气质量数据，以对比区域间空气质量差异，并寻找其时空分布规律，探索污染时空规律成因。</em></p>
-<h2 id="设计阶段"><a href="#设计阶段" class="headerlink" title="设计阶段"></a>设计阶段</h2><p>在设计中需要考虑的要素是：   </p>
-<ol>
-<li>目标用户是什么人？   </li>
-<li>可以使用什么视图？哪种是最适合这些人在某一环境下使用的？    </li>
-<li>图表的颜色、形态如何设置？<br>如果是AR可视化，那么还需要考虑：   </li>
-<li>视图应该部署在哪个位置、如何与现实环境配合（in-situ visualization）？</li>
-</ol>
-<h3 id="——————目标用户——————"><a href="#——————目标用户——————" class="headerlink" title="——————目标用户——————"></a>——————目标用户——————</h3><p>参考</p>
-<blockquote>
-<p>Z. Chen, Y. Su, Y. Wang, Q. Wang, H. Qu, and Y. Wu, “MARVisT: Authoring Glyph-Based Visualization in Mobile Augmented Reality,” IEEE Trans. Vis. Comput. Graph., vol. 26, no. 8, pp. 2645–2658, 2020, doi: 10.1109/TVCG.2019.2892415.</p>
+<p><strong>本章由于知识产权原因将会缓慢更新，后续章节已经更新</strong></p>
+<h2 id="第一章：Unity可视化工具包：IATK-与-u2vis"><a href="#第一章：Unity可视化工具包：IATK-与-u2vis" class="headerlink" title="第一章：Unity可视化工具包：IATK 与 u2vis"></a>第一章：Unity可视化工具包：IATK 与 u2vis</h2><h3 id="1-1-IATK"><a href="#1-1-IATK" class="headerlink" title="1.1 IATK"></a>1.1 IATK</h3><blockquote>
+<p>M. Cordeil and T. Dwyer, “Introduction to IATK: An immersive visual analytics toolkit,” ISS 2019 - Proc. 2019 ACM Int. Conf. Interact. Surfaces Spaces, pp. 431–435, 2019, doi: 10.1145/3343055.3361927.</p>
 </blockquote>
-<p>不同用户需要不同学习难度、理解难度、使用难度的图表。</p>
-<p><em>对于示例而言，目标用户为需要获取空气质量分布情况的分析人员或行业相关人士。</em></p>
-<h3 id="——————视图总体设计——————"><a href="#——————视图总体设计——————" class="headerlink" title="——————视图总体设计——————"></a>——————视图总体设计——————</h3><p>对于示例而言：<br>我们使用一个柱状图以表达空气质量，每个采样点对应一个可视化柱。柱状图将与一幅地图配准，令可视化柱真实地分布在采样点处。空气质量数据（AQI）使用颜色和高度两个通道编码。<br>由于1）视图尺寸较大，类似沙盘；2）限制了采样点数量，并留出了间隙；3）视图可以被放缩、移动、旋转等交互，并不会导致三维柱状图的遮挡问题。   </p>
-<h4 id="◆-数据流向设计"><a href="#◆-数据流向设计" class="headerlink" title="◆ 数据流向设计"></a>◆ 数据流向设计</h4><p>对于示例而言，用于可视化的数据保存在本地。<br>用于跨设备交互响应的数据通过socket转发到服务器，再由服务器分发到对应设备。跨设备的技术细节将在后续章节介绍。</p>
-<h4 id="◆-可视化视觉设计"><a href="#◆-可视化视觉设计" class="headerlink" title="◆ 可视化视觉设计"></a>◆ 可视化视觉设计</h4><p>基础设计见“总体设计”小节。   </p>
-<h4 id="◆-交互设计"><a href="#◆-交互设计" class="headerlink" title="◆ 交互设计"></a>◆ 交互设计</h4><p>对于示例而言，应该具备：1）视图可移动；2）视图可旋转、缩放；3）局部高亮；等交互功能。<br>交互功能应该通过手势操作实现，并用注视交互辅助（可能存在的远距离交互情况）。<br>在此之上，为了更好地描绘空气污染时空分布关系，探索一段时间上空气质量变化规律，我们设计了动态视图，通过进度条修改视图所在的时间点或播放动画，以观察其他时间上的变化。</p>
-<h2 id="实现阶段"><a href="#实现阶段" class="headerlink" title="实现阶段"></a>实现阶段</h2><p>本节需要一定的unity基础知识。详细代码会在审查后公布在我的github仓库，这里仅提供思路。</p>
-<h3 id="——————总体思路与状态转换图——————"><a href="#——————总体思路与状态转换图——————" class="headerlink" title="——————总体思路与状态转换图——————"></a>——————总体思路与状态转换图——————</h3><p><img src="/undefined/How-To-Vis-By-Unity-3/STATUS.PNG" alt="View3"></p>
-<p>黑色字体：系统状态及转移路径；<br>蓝色字体：用户行为；<br>红色字体：BUG或其他外部因素</p>
-<p>SYS CLOSE表示可视化视图被关闭；<br>通过交互行为USER OPEN启动视图，进入初始化状态SYS INITAL；<br>通过交互行为USER VIEW浏览视图（包括manipulator/navigation等操作，如旋转、缩放、拖动视图、走动观看等），视图会对交互行为进行反应，这个状态标记为SYS ACTIVE；<br>通过交互行为USER HIDE，视图会被隐藏，从而不可见；USER SHOW使得视图恢复显示；<br>用户的初始化/刷新操作USER RE使得系统会带SYS INITAL状态；<br>完成使用后，通过USER CLOSE关闭系统。一些BUG和外部因素也可能导致可视化视图关闭，或回到初始化状态。   </p>
-<h3 id="——————绘制柱状图——————"><a href="#——————绘制柱状图——————" class="headerlink" title="——————绘制柱状图——————"></a>——————绘制柱状图——————</h3><p>使用unity提供的cube图形作为柱状图体素，并对齐cube的底部。<br>根据六项污染物浓度计算AQI数值，归一化后映射到高度和颜色属性上。 </p>
-<p>但为了实现交互响应，推荐将交互响应方法绑定到物体上，制成prefab，通过<br><code>instantiate()</code>生成可交互部件。   </p>
-<p>该视图没有设计图例。</p>
-<h3 id="——————与真实地理坐标配准——————"><a href="#——————与真实地理坐标配准——————" class="headerlink" title="——————与真实地理坐标配准——————"></a>——————与真实地理坐标配准——————</h3><p>需要使用一张地图作为底图，并确定这张地图四角的经纬度坐标信息，以配准位置。柱状图是底图的子物体。<br>可以将地图图片导入到场景中。<br>但在导入前，需要在Unity中将图片<code>texture type</code>设置为<code>Sprite (2D and UI)</code>.<br><img src="/undefined/How-To-Vis-By-Unity-3/sprite.PNG" alt="View2"></p>
-<p>根据简单校准公式：<br>相对坐标系位置（相对unity世界中底图的位置） = （采样点经纬度 - 地图边界经纬度）* 底图在unity中的长宽尺寸   </p>
-<p>求出相对位置。长宽尺寸可通过<code>GameObject.GetComponent&lt;Renderer&gt;().bounds.size.x</code>获取。</p>
-<p>再通过：</p>
-<p>世界坐标系位置（unity世界坐标系位置）= 相对坐标系位置 * 父物体放缩系数 + 底图在unity世界坐标系的位置   </p>
-<p>计算出每个可视化柱的位置。</p>
-<h3 id="——————设置交互行为及响应——————"><a href="#——————设置交互行为及响应——————" class="headerlink" title="——————设置交互行为及响应——————"></a>——————设置交互行为及响应——————</h3><p><strong>本节使用了MRTK工具包。需要有hololens  unity MRTK开发经验。</strong></p>
-<h4 id="◆-高亮的设置"><a href="#◆-高亮的设置" class="headerlink" title="◆ 高亮的设置"></a>◆ 高亮的设置</h4><p>当选中某个可视化柱时，高亮该柱（变为亮红色）。再次选择或选择其他柱时，取消高亮。</p>
-<p>实现思路：<br>为可视化柱prefab添加自定义高亮方法；<br>为prefab添加脚本<code>objectManipulator</code>，将交互响应动作（如<code>onManipulationEnded</code>选项卡）设置为高亮方法。<br><img src="/undefined/How-To-Vis-By-Unity-3/inspector.PNG" alt="View"></p>
-<h4 id="◆-注视的设置"><a href="#◆-注视的设置" class="headerlink" title="◆ 注视的设置"></a>◆ 注视的设置</h4><p>当注视到某个可视化柱时，弹出指示条，显示其具体AQI数值。   </p>
-<p>实现思路：   </p>
-<ol>
-<li>创建指示条prefab。指示条随着可视化柱一同创建，但默认为隐藏，通过响应函数调用显示/隐藏；   </li>
-<li>为可视化柱prefab险些注视响应方法<code>OnWitnessShowToolip</code>，调用该方法时，显示指示条；   </li>
-<li>为prefab添加脚本<code>objectManipulator</code>，在面板（<code>Inspector</code>）中向交互响应事件（如<code>onManipulationEnded</code>选项卡）添加高亮方法<code>OnWitnessShowToolip</code>。</li>
-</ol>
-<p>再编写隐藏指示条的方法并绑定。</p>
-<h4 id="◆-旋转-缩放的设置"><a href="#◆-旋转-缩放的设置" class="headerlink" title="◆ 旋转/缩放的设置"></a>◆ 旋转/缩放的设置</h4><p>可通过手势操作视图。</p>
-<p>实现思路：</p>
-<ol>
-<li>为视图物体添加<code>BoxCollidor objectManipulator 及 nearinteractable</code>脚本，以进行操作。</li>
-</ol>
-<h4 id="◆-进度条的设置"><a href="#◆-进度条的设置" class="headerlink" title="◆ 进度条的设置"></a>◆ 进度条的设置</h4><p>可通过进度条调整可视化视图。</p>
-<p>实现思路：    </p>
-<ol>
-<li>进图条prefab可以在MRTK示例场景handinteractionDemo中找到；  </li>
-<li>编写进度条响应函数<code>OnSliderUpdate(SliderEventData dat)</code>。令该函数调用时，更新视图；SliderEventData参数需要特殊命名空间引用<code>using Microsoft.MixedReality.Toolkit.UI;</code>   </li>
-<li>将响应函数绑定到进度条<code>OnSliderUpdated</code>事件。</li>
-</ol>
-<p>关于如何更新视图：<br>1.1： 函数参数设置为进度条参数dat；<br>1.2： 根据dat数值切换视图使用的数据；<br>1.3： 根据数据修改对应可视化柱的高度；（不需要重新生成，因为位置是不变的）<br>1.4： 重新对齐可视化柱底面。   </p>
-<h2 id="部署与检查"><a href="#部署与检查" class="headerlink" title="部署与检查"></a>部署与检查</h2><p><img src="/undefined/How-To-Vis-By-Unity-3/timeView.png" alt="View"></p>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><h3 id="工时开销统计"><a href="#工时开销统计" class="headerlink" title="工时开销统计"></a>工时开销统计</h3><p>当思路成熟后，编码及设置参数大约需要4~32个工时，视操作者熟练程度而定。<br>笔者第一次设计制作该视图时，不计后续改进，使用了约五天的时间，其中每日花三到五个小时制作视图。<br>在上文的每个环节都会遇到一些问题。<br>明确分析任务、调整底图坐标系参数、调整可视化柱状图底面对齐花去了主要时间。<br>调整对齐的主要问题在于：当视图被翻转（不在水平面）时，如何重新校正对齐。</p>
-<h3 id="可改进的部分"><a href="#可改进的部分" class="headerlink" title="可改进的部分"></a>可改进的部分</h3><ol>
-<li>颜色与形态通道分离：两个通道可以分别编码一个属性，而非都用于AQI数值；   </li>
-<li>颜色本身可以调整：这里使用了AQI规范颜色；</li>
-<li>受HOLOLENS存储空间限制，使用了下采样后的数据；</li>
-<li>改进地理坐标对齐算法的精度；</li>
-</ol>
+<h3 id="1-2-u2vis（推荐）"><a href="#1-2-u2vis（推荐）" class="headerlink" title="1.2 u2vis（推荐）"></a>1.2 u2vis（推荐）</h3><blockquote>
+<p>P. Reipschlager, T. Flemisch, and R. Dachselt, “Personal augmented reality for information visualization on large interactive displays,” IEEE Trans. Vis. Comput. Graph., vol. 27, no. 2, pp. 1182–1192, 2021, doi: 10.1109/TVCG.2020.3030460.</p>
+</blockquote>
+<p>德累斯顿工业大学交互媒体实验室出品，使用了一部分IATK的读取数据的代码。</p>
+<blockquote>
+<p><em>hololens使用UWP程序，有时UWP繁琐的权限控制很烦人…</em>      </p>
+</blockquote>
+<p>包括多种基础统计图形，如条形图、柱状图、饼图、折线图、平行坐标图等，一部分图表具有2维和3维两种版本。<br>github上下载的版本具有独特的交互控制方法，可能需要自行修改交互逻辑。   </p>
+<p>相比之下，u2vis使用mesh绘制的图形更清晰更细腻，推荐使用u2vis。</p>
 
 
         <hr>
@@ -547,12 +488,12 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/undefined/How-To-Vis-By-Unity-4/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(4)">&larr; Previous Post</a>
+            <a href="/How-To-Vis/How-To-Vis-By-Unity-3/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(3)">&larr; Previous Post</a>
           </li>
           
           
           <li class="next">
-            <a href="/undefined/How-To-Vis-By-Unity-2/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(2)">Next Post &rarr;</a>
+            <a href="/How-To-Vis/How-To-Vis-By-Unity-1/" data-toggle="tooltip" data-placement="top" title="教程-使用Unity进行可视分析(1)">Next Post &rarr;</a>
           </li>
           
         </ul>
@@ -601,7 +542,7 @@
       </a>
     </li>
     <li class="social-share-li">
-      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(3)&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/How-To-Vis-By-Unity-3/">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(2)&body=Hi,I found this website and thought you might like it http://yoursite-url/How-To-Vis/How-To-Vis-By-Unity-2/">
         <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
       </a>
     </li>
@@ -636,7 +577,7 @@
       repo: '',
       owner: '',
       admin: '',
-      id: 'Wed Feb 02 2022 17:08:04 GMT+0800', // Ensure uniqueness and length less than 50
+      id: 'Sat Jan 29 2022 19:57:47 GMT+0800', // Ensure uniqueness and length less than 50
       distractionFreeMode: false, // Facebook-like distraction free mode
       perPage: 10,
       pagerDirection: 'last',
@@ -689,7 +630,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%88%E8%AE%A1%E5%88%92%E6%9B%B4%E6%96%B0%E8%A1%A8%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录（计划更新表）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E8%87%AA%E8%A1%8C%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0unity%E5%8F%AF%E8%A7%86%E5%8C%96%E8%A7%86%E5%9B%BE"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第二章：自行设计与实现unity可视化视图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">准备工作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E6%98%8E%E7%A1%AE%E4%BD%BF%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">——————明确使用的数据——————</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E6%98%8E%E7%A1%AE%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E4%BB%BB%E5%8A%A1%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">——————明确可视分析任务——————</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E8%AE%BE%E8%AE%A1%E9%98%B6%E6%AE%B5"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">设计阶段</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%9B%AE%E6%A0%87%E7%94%A8%E6%88%B7%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">——————目标用户——————</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E8%A7%86%E5%9B%BE%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">——————视图总体设计——————</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.2.1.</span> <span class="toc-nav-text">◆ 数据流向设计</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E5%8F%AF%E8%A7%86%E5%8C%96%E8%A7%86%E8%A7%89%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.2.2.</span> <span class="toc-nav-text">◆ 可视化视觉设计</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">4.2.3.</span> <span class="toc-nav-text">◆ 交互设计</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AE%9E%E7%8E%B0%E9%98%B6%E6%AE%B5"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">实现阶段</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E6%80%BB%E4%BD%93%E6%80%9D%E8%B7%AF%E4%B8%8E%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">——————总体思路与状态转换图——————</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">——————绘制柱状图——————</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E4%B8%8E%E7%9C%9F%E5%AE%9E%E5%9C%B0%E7%90%86%E5%9D%90%E6%A0%87%E9%85%8D%E5%87%86%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">——————与真实地理坐标配准——————</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E8%AE%BE%E7%BD%AE%E4%BA%A4%E4%BA%92%E8%A1%8C%E4%B8%BA%E5%8F%8A%E5%93%8D%E5%BA%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E2%80%94"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">——————设置交互行为及响应——————</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E9%AB%98%E4%BA%AE%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">5.4.1.</span> <span class="toc-nav-text">◆ 高亮的设置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E6%B3%A8%E8%A7%86%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">5.4.2.</span> <span class="toc-nav-text">◆ 注视的设置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E6%97%8B%E8%BD%AC-%E7%BC%A9%E6%94%BE%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">5.4.3.</span> <span class="toc-nav-text">◆ 旋转&#x2F;缩放的设置</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E2%97%86-%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-nav-number">5.4.4.</span> <span class="toc-nav-text">◆ 进度条的设置</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%83%A8%E7%BD%B2%E4%B8%8E%E6%A3%80%E6%9F%A5"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">部署与检查</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">小结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B7%A5%E6%97%B6%E5%BC%80%E9%94%80%E7%BB%9F%E8%AE%A1"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">工时开销统计</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%AF%E6%94%B9%E8%BF%9B%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">可改进的部分</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95%EF%BC%88%E8%AE%A1%E5%88%92%E6%9B%B4%E6%96%B0%E8%A1%A8%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录（计划更新表）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9AUnity%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7%E5%8C%85%EF%BC%9AIATK-%E4%B8%8E-u2vis"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第一章：Unity可视化工具包：IATK 与 u2vis</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-1-IATK"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">1.1 IATK</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#1-2-u2vis%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">1.2 u2vis（推荐）</span></a></li></ol></li></ol>
         
         </div>
       </aside>
