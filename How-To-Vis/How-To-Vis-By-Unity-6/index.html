@@ -135,10 +135,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/tags/教程/">
+  <link rel="canonical" href="http://yoursite-url/How-To-Vis/How-To-Vis-By-Unity-6/">
   <title>
     
-      Haokai Qin&#39;s Vis Gallery
+      教程-使用Unity进行可视分析(6) - Haokai Qin&#39;s Vis Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -296,29 +296,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="tags/教程/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -370,19 +348,19 @@
     .body--light {
       /* intro-header */
       --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: url('');
-      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: url('/img/postUsedImgFolder1/headImg.png');
+      --intro-header-background-image-url-page: url('//img/postUsedImgFolder1/headImg.png');
     }
     .body--dark {
       --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
-      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
-      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/postUsedImgFolder1/headImg.png');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/postUsedImgFolder1/headImg.png');
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/postUsedImgFolder1/headImg.png'); */
       
     }
 
@@ -400,10 +378,48 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Haokai Qin&#39;s Vis Gallery</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">- For A Brighter-Shining Tomorrow -</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#教程" title="教程">教程</a>
+              
+              <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
+              
+              <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
+              
+              <a class="tag" href="/tags/#团队合作" title="团队合作">团队合作</a>
+              
+            </div>
+            <h1>教程-使用Unity进行可视分析(6)</h1>
+            <h2 class="subheading">关于三维可视化视图的系列教程其四，本节描述如何建造一个（跨设备的）可视分析系统，以及我们制作IMPAVT时的一些细节。</h2>
+            <span class="meta">
+              Posted by 秦浩凯(Haokai Qin) on
+              2022-03-01
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">4</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">987</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -444,525 +460,333 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
-    
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong><br><strong>目前前五章已经完成</strong></p>
+<p><strong>由于篇幅较长，本章节将分为两部分更新</strong></p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）<br>第五章：设计与实现一个可视分析系统（代码部分专题）</p>
+<h2 id="如何实现不同设备间的通信？"><a href="#如何实现不同设备间的通信？" class="headerlink" title="如何实现不同设备间的通信？"></a>如何实现不同设备间的通信？</h2><h3 id="Hololens-端"><a href="#Hololens-端" class="headerlink" title="Hololens 端"></a>Hololens 端</h3><p>在github上可选择的方法有很多，这里推荐PythonTCPToHololens这个项目。</p>
+<h3 id="web-端"><a href="#web-端" class="headerlink" title="web 端"></a>web 端</h3><p>这里我使用了websocket，是对IMIL DRESDEN的MARVIS的模仿。</p>
+<p>在python生成的.html文件中，srcipt段加入类似下面的语句实现从web到服务器的通信：   </p>
+<details>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      <span class="keyword">function</span> WebSocketTestMsg(msg)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="string">&quot;WebSocket&quot;</span> <span class="keyword">in</span> window)</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="regexp">//</span> alert(<span class="string">&quot;您的浏览器支持 WebSocket!&quot;</span>);</span><br><span class="line"></span><br><span class="line">              <span class="regexp">//</span> 打开一个 web socket</span><br><span class="line">              var ws = new WebSocket(<span class="string">&quot;ws://192.168.1.127:8181&quot;</span>);</span><br><span class="line">               <span class="regexp">//</span>var ws = new WebSocket(<span class="string">&quot;ws://echo.websocket.org&quot;</span>);</span><br><span class="line"></span><br><span class="line">              ws.onopen = <span class="keyword">function</span>()</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;数据发送中...&quot;</span>);</span><br><span class="line">                  <span class="regexp">//</span> Web Socket 已连接上，使用 send() 方法发送数据</span><br><span class="line">                  ws.send(msg);</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;数据发送中...完成&quot;</span>);</span><br><span class="line">              &#125;;</span><br><span class="line"></span><br><span class="line">              ws.onmessage = <span class="keyword">function</span> (evt)</span><br><span class="line">              &#123;</span><br><span class="line">                  var received_msg = evt.data;</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;数据已接收...&quot;</span>+received_msg);</span><br><span class="line">              &#125;;</span><br><span class="line"></span><br><span class="line">              ws.onclose = <span class="keyword">function</span>()</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="regexp">//</span> 关闭 websocket</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;连接已关闭...&quot;</span>);</span><br><span class="line">              &#125;;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">          &#123;</span><br><span class="line">              <span class="regexp">//</span> 浏览器不支持 WebSocket</span><br><span class="line">              alert(<span class="string">&quot;您的浏览器不支持 WebSocket!&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 这一长串是pythonecharts生成的图表的id</span><br><span class="line">      chart_699a070a6c414030ab0fcfe0c1b3be82.on(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(params) &#123;</span><br><span class="line"></span><br><span class="line">		<span class="regexp">//</span> 需要一点WEB基础知识，可以在RUNOOB上，或者echarts官方文档里先练习一下</span><br><span class="line">		<span class="regexp">//</span> WEB交互控制，以及交互参数的获取</span><br><span class="line"></span><br><span class="line">		<span class="regexp">//</span>alert( chart_5965cd9bd1084800846ed7fc47c8e511.convertFromPixel(<span class="string">&#x27;geo&#x27;</span>, [params.event.offsetX, params.event.offsetY]));</span><br><span class="line">              <span class="regexp">//</span> alert(params.name);</span><br><span class="line"></span><br><span class="line">		<span class="regexp">//</span> </span><br><span class="line">		WebSocketTestMsg(<span class="string">&quot;Example&quot;</span> + params.name[<span class="number">6</span>] + params.name[<span class="number">7</span>]);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</details>
 
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
 
-      
+<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><p>我使用python作为消息服务器。<br>由于一些技术原因，hololens和服务器的websocket连接并不稳定，不得不使用TCP通信。</p>
+<p>参考了 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101586682">https://zhuanlan.zhihu.com/p/101586682</a> ，设置了多线程处理的代码。   </p>
+<pre><code>from websocket_server import WebsocketServer
+import asyncio
 
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
+# 新连接
+def new_client(client, server):
+    print(&quot;New client connected and was given id %d&quot; % client[&#39;id&#39;])
+    server.send_message_to_all(&quot;Hey all, a new client has joined us&quot;)
+
+# 断开连接
+# Called for every client disconnecting
+def client_left(client, server):
+    print(&quot;Client(%d) disconnected&quot; % client[&#39;id&#39;])
+
+# Websocket 服务器收到消息
+# Called when a client sends a message
+def message_received(client, server, message):
+    if len(message) &gt; 200:
+        message = message[:200]+&#39;..&#39;
+    print(&quot;Client(%d) said: %s&quot; % (client[&#39;id&#39;], message))
+    server.send_message(client, &quot;got your message&quot;)
+    server.send_message_to_all(&quot;Client(%d) said: %s&quot; % (client[&#39;id&#39;], message))
+
+    pyc(message, 9090)
+    # 直接给hololens发websocket消息不好用，因为websocket使用域名连接。这里加了一段TCP
+
+
+# 转发给hololens，用TCP
+# hololens那头最多接收256字符长度信息，但不够的话hololesn无法读取显示，需要填充
+# 多线程部分参考了zhihu设计，连接在最下方
+def pyc(msg, p):
+    message = msg
+    while(len(message) &lt; 256):
+        message += &#39;^&#39;
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(tcp_echo_clientP(message, p))
+    # loop.close()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(tcp_echo_clientP(message, p, loop))
+
+# 异步通信实现无间断的TCP通信
+# 指定了hololens的IP地址，换了的话记得修改
+async def tcp_echo_clientP(message, port, loop):
+    reader, writer = await asyncio.open_connection(&#39;192.168.1.141&#39;, port)
+
+    print(&#39;Send: %r&#39; % message)
+    writer.write(message.encode())
+
+    data = await reader.read(64)
+    print(&#39;Received: %r&#39; % data.decode())
+
+    print(&#39;Close the socket&#39;)
+    writer.close()
+
+
+PORT = 8181
+server = WebsocketServer(PORT, &#39;192.168.1.116&#39;)
+ # websocket server地址。改成服务器当前IP。
+server.set_fn_new_client(new_client)
+server.set_fn_client_left(client_left)
+server.set_fn_message_received(message_received)
+server.run_forever()
+</code></pre>
+<h3 id="定义交互状态表"><a href="#定义交互状态表" class="headerlink" title="定义交互状态表"></a>定义交互状态表</h3><p>为了在其他设备上同步更新，需要定义消息格式并处理。<br>处理部分的逻辑可以参考手动实现stoi()这类处理字符串的函数，这里不多展开。</p>
+<p>按照<br><code>设备编号-行为-交互目标信息</code>的格式定义消息。<br>例如：<br><code>HLS1^SLECT^BARCT^DAT93</code></p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
           
-          <li>
-            03-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-6/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(6)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
           
-          <li>
-            02-15
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/RESEARCH-Talk-On-Immersive-2/" style="color: #0085a1">
-              <span>
-                科研随笔-关于沉浸式可视化的讨论2
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-12
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-5/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(5)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-07
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-4/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(4)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-3/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(3)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-2/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(2)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-1/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(1)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/RESEARCH-Talk-On-Immersive-1/" style="color: #0085a1">
-              <span>
-                科研随笔-关于沉浸式可视化的讨论1
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-23
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-Oil-DETECTION/" style="color: #0085a1">
-              <span>
-                项目展示-基于自动编码器与聚类算法的缝洞型油藏储层层预测
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-23
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-STC-Exhibit-Page/" style="color: #0085a1">
-              <span>
-                项目展示-时空轨迹沉浸式可视化
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-22
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/" style="color: #0085a1">
-              <span>
-                项目展示-沉浸式跨设备交互可视化系统
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-22
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Others/How-To-Prepare-Hololens-Dev-Environment/" style="color: #0085a1">
-              <span>
-                教程-如何配置适用于hololens 2的Unity开发环境
-                
-                -- Others
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Others/How-To-Create-Personal-Page/" style="color: #0085a1">
-              <span>
-                教程-基于github+hexo创建个人主页
-                
-                -- Others
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/tester011701/newBlogPageTester011701/" style="color: #0085a1">
-              <span>
-                newBlogPageTester011701
-                
-                -- tester011701
-                
-              </span>
-            </a>
+          <li class="next">
+            <a href="/undefined/RESEARCH-Talk-On-Immersive-2/" data-toggle="tooltip" data-placement="top" title="科研随笔-关于沉浸式可视化的讨论2">Next Post &rarr;</a>
           </li>
           
         </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
-        </span>
-        <ul>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-                -- cn
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/en/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-    </div>
-  </div>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
 </div>
+<!-- tip end -->
 
+        <!-- tip end -->
+        
 
-      <!-- 如果开启评论功能 -->
-      
-    </div>
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
 
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
-        <!-- Featured Tags -->
-
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#教程" title="教程" rel="8">教程</a>
-    
-    
-    
-    <a href="/tags/#其他" title="其他" rel="1">其他</a>
-    
-    
-    
-    <a href="/tags/#AR" title="AR" rel="3">AR</a>
-    
-    
-    
-    <a href="/tags/#Hololens" title="Hololens" rel="1">Hololens</a>
-    
-    
-    
-    <a href="/tags/#Unity" title="Unity" rel="9">Unity</a>
-    
-    
-    
-    <a href="/tags/#TestPage0117" title="TestPage0117" rel="1">TestPage0117</a>
-    
-    
-    
-    <a href="/tags/#项目展示" title="项目展示" rel="3">项目展示</a>
-    
-    
-    
-    <a href="/tags/#STC" title="STC" rel="1">STC</a>
-    
-    
-    
-    <a href="/tags/#沉浸式可视化" title="沉浸式可视化" rel="10">沉浸式可视化</a>
-    
-    
-    
-    <a href="/tags/#时空轨迹" title="时空轨迹" rel="1">时空轨迹</a>
-    
-    
-    
-    <a href="/tags/#跨设备" title="跨设备" rel="1">跨设备</a>
-    
-    
-    
-    <a href="/tags/#PythonECharts" title="PythonECharts" rel="1">PythonECharts</a>
-    
-    
-    
-    <a href="/tags/#信息可视化" title="信息可视化" rel="1">信息可视化</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife-tag" title="Hexo-Theme-LiveMyLife-tag" rel="1">Hexo-Theme-LiveMyLife-tag</a>
-    
-    
-    
-    <a href="/tags/#地震波属性" title="地震波属性" rel="1">地震波属性</a>
-    
-    
-    
-    <a href="/tags/#油气勘察" title="油气勘察" rel="1">油气勘察</a>
-    
-    
-    
-    <a href="/tags/#python" title="python" rel="1">python</a>
-    
-    
-    
-    <a href="/tags/#自动编码器" title="自动编码器" rel="1">自动编码器</a>
-    
-    
-    
-    <a href="/tags/#聚类" title="聚类" rel="1">聚类</a>
-    
-    
-    
-    <a href="/tags/#科研随笔" title="科研随笔" rel="2">科研随笔</a>
-    
-    
-    
-    <a href="/tags/#团队合作" title="团队合作" rel="3">团队合作</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/Quattro-NIVT">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../How-To-Vis/How-To-Vis-By-Unity-6/">
-      <li>教程-使用Unity进行可视分析(6)</li>
-    </a>
-    
-    <a href="../../undefined/RESEARCH-Talk-On-Immersive-2/">
-      <li>科研随笔-关于沉浸式可视化的讨论2</li>
-    </a>
-    
-    <a href="../../How-To-Vis/How-To-Vis-By-Unity-5/">
-      <li>教程-使用Unity进行可视分析(5)</li>
-    </a>
-    
-    <a href="../../How-To-Vis/How-To-Vis-By-Unity-4/">
-      <li>教程-使用Unity进行可视分析(4)</li>
-    </a>
-    
-    <a href="../../How-To-Vis/How-To-Vis-By-Unity-3/">
-      <li>教程-使用Unity进行可视分析(3)</li>
-    </a>
-    
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=教程-使用Unity进行可视分析(6)&body=Hi,I found this website and thought you might like it http://yoursite-url/How-To-Vis/How-To-Vis-By-Unity-6/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
   </ul>
 </div>
 
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
+        <!-- Sharing End -->
+        
         <hr>
-    
-        <!-- Friends Blog -->
 
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
   
-</ul>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Tue Mar 01 2022 10:28:15 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
 
 
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
         <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
-        <!-- Archives -->
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何实现不同设备间的通信？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hololens-%E7%AB%AF"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Hololens 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#web-%E7%AB%AF"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">web 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">服务器端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%A4%E4%BA%92%E7%8A%B6%E6%80%81%E8%A1%A8"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">定义交互状态表</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">January 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li></ul>
-</div>
 
 
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#教程" title="教程">教程</a>
+            
+            <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
+            
+            <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
+            
+            <a class="tag" href="/tags/#团队合作" title="团队合作">团队合作</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
         <hr>
-    
-        <!-- Categories -->
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
 
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#其他">
-      <li>其他</li>
-    </a>
-    
-    <a href="/categories/#项目展示">
-      <li>项目展示</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife-categories">
-      <li>Hexo-Theme-LiveMyLife-categories</li>
-    </a>
-    
-    <a href="/categories/#科研随笔">
-      <li>科研随笔</li>
-    </a>
-    
-    <a href="/categories/#教程">
-      <li>教程</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->

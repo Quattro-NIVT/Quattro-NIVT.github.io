@@ -402,11 +402,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">3</span> Minutes
+              Estimated Reading Time <span class="post-count">4</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.1k</span> In Total
+              Words <span class="post-count">1.4k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -476,12 +476,18 @@
 <p>随后进入实现阶段。<br>在实现阶段我首先设计了用于AR环境的六个视图；并实现了其中的地理视图、柱状图、平行坐标图、二维流场线图等。<br>在进行到第五周时，我们修改了原始设计，将其从纯AR系统修改为了现在的跨设备系统。由于人手不足，我裁掉了在平面端难以实现的视图，只保留了四个图。</p>
 <p>随后直至最后一周，都在进行编码工作。<br>最后一周使用四天时间拍摄演示视频、制作说明文档等必要材料。这段时间进行了熬夜战斗。</p>
 <p>整个项目中主要的困难在于如何实现各类代码。<br>实现的部分非常困难，因为可参考的代码不多（或者不能用，github上很多看起来可用但实际不行的代码），不得不用unity手搓可视化视图框架。</p>
-<p>其次是演示环节的设计。应该如何讲述可视分析场景的故事？这个问题并没有想清楚。</p>
+<p>其次是演示环节的设计。应该如何讲述可视分析场景的故事？这个问题并没有想清楚。我的选择是照搬某篇论文的演示视频的镜头进行录制。</p>
 <h3 id="——可改进的部分——"><a href="#——可改进的部分——" class="headerlink" title="——可改进的部分——"></a>——可改进的部分——</h3><ol>
-<li>从立意而言，实际上CHINAVIS 2021挑战赛题目更偏重数据分析，以及分析结果（算法结果）的可视化。我们并没有使用太多算法，或没有实现，而是选择了偏重交互的路线。</li>
-<li>从实现而言：<br> 2.1. 视图数量足够，但是平面部分可能过于简单了；<br> 2.2. 极坐标图不是很好的选择，至少最终效果并不好（实际上极坐标图从‘决定要用’到‘调试完成’只用了一个下午，时间太赶了）；<br> 2.3. 算法部分太少。<br> <strong>2.4. 设备成本太高，而可交互增强现实可视分析真的有效吗？</strong>（这是评委的意见）</li>
+<li><p>从立意而言，实际上这次的挑战赛题目可能更偏重数据分析，以及分析结果（算法结果）的可视化。我们并没有使用太多算法，或没有实现，而是选择了偏重交互的路线。</p>
+</li>
+<li><p>从实现而言：<br> 2.1. 视图数量足够，但是平面部分可能过于简单了；而AR部分未必“好看”；这需要更多经验积累；<br> 2.2. 极坐标图不是很好的选择，至少最终效果并不好（实际上极坐标图从‘决定要用’到‘调试完成’只用了一个下午，时间太赶了）；<br> 2.3. 算法部分太少。实际上这个题目可以用LSTM进行短期预测，但由于时间问题并没有真正实现；<br> <strong>2.4. 设备成本太高，而强交互的增强现实可视分析真的有效吗？</strong>（这是评委的意见）   </p>
+</li>
+<li><p>从任务进度规划而言：<br> 3.1. 由于设计不明确，设计上反复修改的次数太多。实际上就评委意见而言，很多当时纠结的细节（比如是否要使用某视图）完全可以不需要反复考虑。可以认为在这个层级的任务中，论文使用过的视图就足够了；<br> 3.2. 前期决心不明确；前期还打算兼顾科研进度，投入时间过少；实际上应该在完成科研方面必要文档后就转入这个项目，而不应该拖太久；<br> 3.3. 前期每天六小时的工作量还是太少。最好的状态可能是6<del>8小时，然后留出额外1</del>4小时处理科研和其他问题。   </p>
+</li>
+<li><p>从技术而言：<br> 4.1. 代码复用做的不是很好；</p>
+</li>
 </ol>
-<h2 id="专题：如何管理团队合作项目？"><a href="#专题：如何管理团队合作项目？" class="headerlink" title="专题：如何管理团队合作项目？"></a>专题：如何管理团队合作项目？</h2><p>这是一个非常困难的问题。<br>至少在我们制作这个系统的过程中，由于我（作者）本人第一次接触可视化工作，难以估计工作量，并没有进行详细的任务分配。这是不合适的。<br>我们的小组每周进行一次至少一小时的集中讨论，但只安排了一个人写代码。另外有一名同学负责进行数据处理工作。   </p>
+<h2 id="问题：如何管理团队合作项目？"><a href="#问题：如何管理团队合作项目？" class="headerlink" title="问题：如何管理团队合作项目？"></a>问题：如何管理团队合作项目？</h2><p>这是一个非常困难的问题。<br>至少在我们制作这个系统的过程中，由于我（作者）本人第一次接触可视化工作，难以估计工作量，并没有进行详细的任务分配。这是不合适的。<br>我们的小组每周进行一次至少一小时的集中讨论，但只安排了一个人写代码。另外有一名同学负责进行数据处理工作。   </p>
 <p>由于只有一个人进行设计与实现，实际上并没有严格完成时间表，整个系统调试完成多花了半周，使得最终的演示环节没有足够时间进行拍摄，这一点应该注意。   </p>
 <p>在这里必须要强调的是：   </p>
 <ol>
@@ -489,7 +495,7 @@
 <li>分工是可以更改的，但不能不分；   </li>
 <li>应该确保所有人都能完成‘必要’的部分，对代码的质量检查也非常重要；</li>
 </ol>
-<p>遗憾的是，在制作过程中，我并没有很好地领会个人的职责。<br>我个人更喜欢不受任务约束与时间限制地写代码，而非指挥别人写代码。<strong>要改正。</strong>   </p>
+<p>遗憾的是，在制作过程中，我并没有很好地领会负责人的职责。<br>我个人更喜欢不受任务约束与时间限制地写代码，而非指挥别人写代码。<strong>要注意。</strong>   </p>
 
 
         <hr>
@@ -639,7 +645,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%8B%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第四章：设计与实现一个可视化系统（下）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E4%B9%8B%E2%80%98%E5%88%86%E6%9E%90%E2%80%99"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">可视分析之‘分析’</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E3%80%81%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">小结：关于可视分析系统的设计、实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E5%B7%A5%E6%97%B6%E7%BB%9F%E8%AE%A1-%E8%AF%A6%E7%BB%86-%E2%80%94%E2%80%94"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">——工时统计(详细)——</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E5%8F%AF%E6%94%B9%E8%BF%9B%E7%9A%84%E9%83%A8%E5%88%86%E2%80%94%E2%80%94"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">——可改进的部分——</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E4%B8%93%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E9%A1%B9%E7%9B%AE%EF%BC%9F"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">专题：如何管理团队合作项目？</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F%EF%BC%88%E4%B8%8B%EF%BC%89"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">第四章：设计与实现一个可视化系统（下）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E4%B9%8B%E2%80%98%E5%88%86%E6%9E%90%E2%80%99"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">可视分析之‘分析’</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%8F%AF%E8%A7%86%E5%88%86%E6%9E%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E3%80%81%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">小结：关于可视分析系统的设计、实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E5%B7%A5%E6%97%B6%E7%BB%9F%E8%AE%A1-%E8%AF%A6%E7%BB%86-%E2%80%94%E2%80%94"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">——工时统计(详细)——</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E2%80%94%E2%80%94%E5%8F%AF%E6%94%B9%E8%BF%9B%E7%9A%84%E9%83%A8%E5%88%86%E2%80%94%E2%80%94"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">——可改进的部分——</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E5%A6%82%E4%BD%95%E7%AE%A1%E7%90%86%E5%9B%A2%E9%98%9F%E5%90%88%E4%BD%9C%E9%A1%B9%E7%9B%AE%EF%BC%9F"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">问题：如何管理团队合作项目？</span></a></li></ol>
         
         </div>
       </aside>
