@@ -387,8 +387,6 @@
               
               <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
               
-              <a class="tag" href="/tags/#团队合作" title="团队合作">团队合作</a>
-              
             </div>
             <h1>教程-使用Unity进行可视分析(6)</h1>
             <h2 class="subheading">关于三维可视化视图的系列教程其四，本节描述如何建造一个（跨设备的）可视分析系统，以及我们制作IMPAVT时的一些细节。</h2>
@@ -402,11 +400,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">4</span> Minutes
+              Estimated Reading Time <span class="post-count">5</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">987</span> In Total
+              Words <span class="post-count">1.2k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -471,8 +469,9 @@
         <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong><br><strong>目前前五章已经完成</strong></p>
 <p><strong>由于篇幅较长，本章节将分为两部分更新</strong></p>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）<br>第五章：设计与实现一个可视分析系统（代码部分专题）</p>
-<h2 id="如何实现不同设备间的通信？"><a href="#如何实现不同设备间的通信？" class="headerlink" title="如何实现不同设备间的通信？"></a>如何实现不同设备间的通信？</h2><h3 id="Hololens-端"><a href="#Hololens-端" class="headerlink" title="Hololens 端"></a>Hololens 端</h3><p>在github上可选择的方法有很多，这里推荐PythonTCPToHololens这个项目。</p>
-<h3 id="web-端"><a href="#web-端" class="headerlink" title="web 端"></a>web 端</h3><p>这里我使用了websocket，是对IMIL DRESDEN的MARVIS的模仿。</p>
+<h2 id="如何实现不同设备间的通信？"><a href="#如何实现不同设备间的通信？" class="headerlink" title="如何实现不同设备间的通信？"></a>如何实现不同设备间的通信？</h2><p>设计部分请参考第三章，我使用了消息服务器，将设备交互状态转发到其他设备上。</p>
+<h3 id="Hololens-端"><a href="#Hololens-端" class="headerlink" title="Hololens 端"></a>Hololens 端</h3><p>在github上可选择的方法有很多，但未必好用，这里推荐PythonTCPToHololens这个项目。</p>
+<h3 id="Web-端"><a href="#Web-端" class="headerlink" title="Web 端"></a>Web 端</h3><p>这里我使用了websocket，是对IMIL DRESDEN的MARVIS的模仿。</p>
 <p>在python生成的.html文件中，srcipt段加入类似下面的语句实现从web到服务器的通信：   </p>
 <details>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">      <span class="keyword">function</span> WebSocketTestMsg(msg)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="keyword">if</span> (<span class="string">&quot;WebSocket&quot;</span> <span class="keyword">in</span> window)</span><br><span class="line">          &#123;</span><br><span class="line">              <span class="regexp">//</span> alert(<span class="string">&quot;您的浏览器支持 WebSocket!&quot;</span>);</span><br><span class="line"></span><br><span class="line">              <span class="regexp">//</span> 打开一个 web socket</span><br><span class="line">              var ws = new WebSocket(<span class="string">&quot;ws://192.168.1.127:8181&quot;</span>);</span><br><span class="line">               <span class="regexp">//</span>var ws = new WebSocket(<span class="string">&quot;ws://echo.websocket.org&quot;</span>);</span><br><span class="line"></span><br><span class="line">              ws.onopen = <span class="keyword">function</span>()</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;数据发送中...&quot;</span>);</span><br><span class="line">                  <span class="regexp">//</span> Web Socket 已连接上，使用 send() 方法发送数据</span><br><span class="line">                  ws.send(msg);</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;数据发送中...完成&quot;</span>);</span><br><span class="line">              &#125;;</span><br><span class="line"></span><br><span class="line">              ws.onmessage = <span class="keyword">function</span> (evt)</span><br><span class="line">              &#123;</span><br><span class="line">                  var received_msg = evt.data;</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;数据已接收...&quot;</span>+received_msg);</span><br><span class="line">              &#125;;</span><br><span class="line"></span><br><span class="line">              ws.onclose = <span class="keyword">function</span>()</span><br><span class="line">              &#123;</span><br><span class="line">                  <span class="regexp">//</span> 关闭 websocket</span><br><span class="line">                  <span class="regexp">//</span> alert(<span class="string">&quot;连接已关闭...&quot;</span>);</span><br><span class="line">              &#125;;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          <span class="keyword">else</span></span><br><span class="line">          &#123;</span><br><span class="line">              <span class="regexp">//</span> 浏览器不支持 WebSocket</span><br><span class="line">              alert(<span class="string">&quot;您的浏览器不支持 WebSocket!&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span> 这一长串是pythonecharts生成的图表的id</span><br><span class="line">      chart_699a070a6c414030ab0fcfe0c1b3be82.on(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(params) &#123;</span><br><span class="line"></span><br><span class="line">		<span class="regexp">//</span> 需要一点WEB基础知识，可以在RUNOOB上，或者echarts官方文档里先练习一下</span><br><span class="line">		<span class="regexp">//</span> WEB交互控制，以及交互参数的获取</span><br><span class="line"></span><br><span class="line">		<span class="regexp">//</span>alert( chart_5965cd9bd1084800846ed7fc47c8e511.convertFromPixel(<span class="string">&#x27;geo&#x27;</span>, [params.event.offsetX, params.event.offsetY]));</span><br><span class="line">              <span class="regexp">//</span> alert(params.name);</span><br><span class="line"></span><br><span class="line">		<span class="regexp">//</span> </span><br><span class="line">		WebSocketTestMsg(<span class="string">&quot;Example&quot;</span> + params.name[<span class="number">6</span>] + params.name[<span class="number">7</span>]);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -481,76 +480,27 @@
 
 <h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><p>我使用python作为消息服务器。<br>由于一些技术原因，hololens和服务器的websocket连接并不稳定，不得不使用TCP通信。</p>
 <p>参考了 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/101586682">https://zhuanlan.zhihu.com/p/101586682</a> ，设置了多线程处理的代码。   </p>
-<pre><code>from websocket_server import WebsocketServer
-import asyncio
-
-# 新连接
-def new_client(client, server):
-    print(&quot;New client connected and was given id %d&quot; % client[&#39;id&#39;])
-    server.send_message_to_all(&quot;Hey all, a new client has joined us&quot;)
-
-# 断开连接
-# Called for every client disconnecting
-def client_left(client, server):
-    print(&quot;Client(%d) disconnected&quot; % client[&#39;id&#39;])
-
-# Websocket 服务器收到消息
-# Called when a client sends a message
-def message_received(client, server, message):
-    if len(message) &gt; 200:
-        message = message[:200]+&#39;..&#39;
-    print(&quot;Client(%d) said: %s&quot; % (client[&#39;id&#39;], message))
-    server.send_message(client, &quot;got your message&quot;)
-    server.send_message_to_all(&quot;Client(%d) said: %s&quot; % (client[&#39;id&#39;], message))
-
-    pyc(message, 9090)
-    # 直接给hololens发websocket消息不好用，因为websocket使用域名连接。这里加了一段TCP
+<details>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> websocket_server import WebsocketServer</span><br><span class="line">import asyncio</span><br><span class="line"></span><br><span class="line"><span class="meta"># 新连接</span></span><br><span class="line">def new_client(<span class="keyword">client</span>, <span class="keyword">server</span>):</span><br><span class="line">   	<span class="keyword">print</span>(<span class="string">&quot;New client connected and was given id %d&quot;</span> % <span class="keyword">client</span>[<span class="string">&#x27;id&#x27;</span>])</span><br><span class="line">   	<span class="keyword">server</span>.send_message_to_all(<span class="string">&quot;Hey all, a new client has joined us&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta"># 断开连接</span></span><br><span class="line"><span class="meta"># Called for every client disconnecting</span></span><br><span class="line">def client_left(<span class="keyword">client</span>, <span class="keyword">server</span>):</span><br><span class="line">   	<span class="keyword">print</span>(<span class="string">&quot;Client(%d) disconnected&quot;</span> % <span class="keyword">client</span>[<span class="string">&#x27;id&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="meta"># Websocket 服务器收到消息</span></span><br><span class="line"><span class="meta"># Called when a client sends a message</span></span><br><span class="line">def message_received(<span class="keyword">client</span>, <span class="keyword">server</span>, message):</span><br><span class="line">   	<span class="keyword">if</span> len(message) &gt; <span class="number">200</span>:</span><br><span class="line">       	message = message[:<span class="number">200</span>]+<span class="string">&#x27;..&#x27;</span></span><br><span class="line">   	<span class="keyword">print</span>(<span class="string">&quot;Client(%d) said: %s&quot;</span> % (<span class="keyword">client</span>[<span class="string">&#x27;id&#x27;</span>], message))</span><br><span class="line">   	<span class="keyword">server</span>.send_message(<span class="keyword">client</span>, <span class="string">&quot;got your message&quot;</span>)</span><br><span class="line">   	<span class="keyword">server</span>.send_message_to_all(<span class="string">&quot;Client(%d) said: %s&quot;</span> % (<span class="keyword">client</span>[<span class="string">&#x27;id&#x27;</span>], message))</span><br><span class="line"></span><br><span class="line">   	pyc(message, <span class="number">9090</span>)</span><br><span class="line">   	<span class="meta"># 直接给hololens发websocket消息不好用，因为websocket使用域名连接。这里加了一段TCP</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta"># 转发给hololens，用TCP</span></span><br><span class="line"><span class="meta"># hololens那头最多接收256字符长度信息，但不够的话hololesn无法读取显示，需要填充</span></span><br><span class="line"><span class="meta"># 多线程部分参考了zhihu设计，连接在最下方</span></span><br><span class="line">def pyc(msg, p):</span><br><span class="line">   	message = msg</span><br><span class="line">   	<span class="keyword">while</span>(len(message) &lt; <span class="number">256</span>):</span><br><span class="line">       	message += <span class="string">&#x27;^&#x27;</span></span><br><span class="line">   	<span class="meta"># loop = asyncio.get_event_loop()</span></span><br><span class="line">   	<span class="meta"># loop.run_until_complete(tcp_echo_clientP(message, p))</span></span><br><span class="line">   	<span class="meta"># loop.close()</span></span><br><span class="line">   	loop = asyncio.new_event_loop()</span><br><span class="line">   	asyncio.set_event_loop(loop)</span><br><span class="line">   	loop.run_until_complete(tcp_echo_clientP(message, p, loop))</span><br><span class="line"></span><br><span class="line"><span class="meta"># 异步通信实现无间断的TCP通信</span></span><br><span class="line"><span class="meta"># 指定了hololens的IP地址，换了的话记得修改</span></span><br><span class="line">async def tcp_echo_clientP(message, port, loop):</span><br><span class="line">   	reader, writer = await asyncio.open_connection(<span class="string">&#x27;192.168.1.141&#x27;</span>, port)</span><br><span class="line"></span><br><span class="line">   	<span class="keyword">print</span>(<span class="string">&#x27;Send: %r&#x27;</span> % message)</span><br><span class="line">   	writer.write(message.encode())</span><br><span class="line"></span><br><span class="line">   	data = await reader.read(<span class="number">64</span>)</span><br><span class="line">   	<span class="keyword">print</span>(<span class="string">&#x27;Received: %r&#x27;</span> % data.decode())</span><br><span class="line"></span><br><span class="line">   	<span class="keyword">print</span>(<span class="string">&#x27;Close the socket&#x27;</span>)</span><br><span class="line">   	writer.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PORT = <span class="number">8181</span></span><br><span class="line"><span class="keyword">server</span> = WebsocketServer(PORT, <span class="string">&#x27;192.168.1.116&#x27;</span>)</span><br><span class="line"> <span class="meta"># websocket server地址。改成服务器当前IP。</span></span><br><span class="line"><span class="keyword">server</span>.set_fn_new_client(new_client)</span><br><span class="line"><span class="keyword">server</span>.set_fn_client_left(client_left)</span><br><span class="line"><span class="keyword">server</span>.set_fn_message_received(message_received)</span><br><span class="line"><span class="keyword">server</span>.run_forever()</span><br></pre></td></tr></table></figure>
+</details>
 
 
-# 转发给hololens，用TCP
-# hololens那头最多接收256字符长度信息，但不够的话hololesn无法读取显示，需要填充
-# 多线程部分参考了zhihu设计，连接在最下方
-def pyc(msg, p):
-    message = msg
-    while(len(message) &lt; 256):
-        message += &#39;^&#39;
-    # loop = asyncio.get_event_loop()
-    # loop.run_until_complete(tcp_echo_clientP(message, p))
-    # loop.close()
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    loop.run_until_complete(tcp_echo_clientP(message, p, loop))
 
-# 异步通信实现无间断的TCP通信
-# 指定了hololens的IP地址，换了的话记得修改
-async def tcp_echo_clientP(message, port, loop):
-    reader, writer = await asyncio.open_connection(&#39;192.168.1.141&#39;, port)
-
-    print(&#39;Send: %r&#39; % message)
-    writer.write(message.encode())
-
-    data = await reader.read(64)
-    print(&#39;Received: %r&#39; % data.decode())
-
-    print(&#39;Close the socket&#39;)
-    writer.close()
-
-
-PORT = 8181
-server = WebsocketServer(PORT, &#39;192.168.1.116&#39;)
- # websocket server地址。改成服务器当前IP。
-server.set_fn_new_client(new_client)
-server.set_fn_client_left(client_left)
-server.set_fn_message_received(message_received)
-server.run_forever()
-</code></pre>
 <h3 id="定义交互状态表"><a href="#定义交互状态表" class="headerlink" title="定义交互状态表"></a>定义交互状态表</h3><p>为了在其他设备上同步更新，需要定义消息格式并处理。<br>处理部分的逻辑可以参考手动实现stoi()这类处理字符串的函数，这里不多展开。</p>
 <p>按照<br><code>设备编号-行为-交互目标信息</code>的格式定义消息。<br>例如：<br><code>HLS1^SLECT^BARCT^DAT93</code></p>
+<h2 id="绘制逻辑的优化"><a href="#绘制逻辑的优化" class="headerlink" title="绘制逻辑的优化"></a>绘制逻辑的优化</h2><h3 id="动画逻辑的优化"><a href="#动画逻辑的优化" class="headerlink" title="动画逻辑的优化"></a>动画逻辑的优化</h3><p>得益于SVG，重绘整个二维视图的时间开销是可以忍受的。但受到hololens 设备性能的限制，重绘相当数量的3D物体可能会导致比较严重的卡顿。这里通过</p>
+<h2 id="AR空间感知问题-对齐AR内容与真实内容"><a href="#AR空间感知问题-对齐AR内容与真实内容" class="headerlink" title="AR空间感知问题/对齐AR内容与真实内容"></a>AR空间感知问题/对齐AR内容与真实内容</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoom.com/question/4JglD">https://stackoom.com/question/4JglD</a><br>StackOverflow镜像页<br><a target="_blank" rel="noopener" href="https://stackoom.com/question/38WP3">https://stackoom.com/question/38WP3</a><br>另一个镜像问题<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-gb/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview">https://docs.microsoft.com/en-gb/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview</a><br>MS官方文档   </p>
+</blockquote>
 
 
         <hr>
         <!-- Pager -->
         <ul class="pager">
+          
+          <li class="previous">
+            <a href="/undefined/EIR-AR-tech-1/" data-toggle="tooltip" data-placement="top" title="产学研慢递-京东AR技术分享会">&larr; Previous Post</a>
+          </li>
           
           
           <li class="next">
@@ -691,7 +641,7 @@ server.run_forever()
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何实现不同设备间的通信？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hololens-%E7%AB%AF"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Hololens 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#web-%E7%AB%AF"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">web 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">服务器端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%A4%E4%BA%92%E7%8A%B6%E6%80%81%E8%A1%A8"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">定义交互状态表</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何实现不同设备间的通信？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hololens-%E7%AB%AF"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Hololens 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-%E7%AB%AF"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Web 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">服务器端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%A4%E4%BA%92%E7%8A%B6%E6%80%81%E8%A1%A8"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">定义交互状态表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BB%98%E5%88%B6%E9%80%BB%E8%BE%91%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">绘制逻辑的优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%A8%E7%94%BB%E9%80%BB%E8%BE%91%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">动画逻辑的优化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#AR%E7%A9%BA%E9%97%B4%E6%84%9F%E7%9F%A5%E9%97%AE%E9%A2%98-%E5%AF%B9%E9%BD%90AR%E5%86%85%E5%AE%B9%E4%B8%8E%E7%9C%9F%E5%AE%9E%E5%86%85%E5%AE%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">AR空间感知问题&#x2F;对齐AR内容与真实内容</span></a></li></ol>
         
         </div>
       </aside>
@@ -719,8 +669,6 @@ server.run_forever()
             <a class="tag" href="/tags/#Unity" title="Unity">Unity</a>
             
             <a class="tag" href="/tags/#沉浸式可视化" title="沉浸式可视化">沉浸式可视化</a>
-            
-            <a class="tag" href="/tags/#团队合作" title="团队合作">团队合作</a>
             
           </div>
         </section>

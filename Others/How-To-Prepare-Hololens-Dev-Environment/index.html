@@ -402,11 +402,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">6</span> Minutes
+              Estimated Reading Time <span class="post-count">7</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.8k</span> In Total
+              Words <span class="post-count">1.9k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,109 +468,49 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="前言">前言</h2>
-<p>    本教程使用的环境是：<br>
-    Unity 2019.4.23 LTS + Visual Studio 2019 16.8<br>
-    目前可确认适用于:<br>
-    Hololens 2 系统版本18362-19041 + MRTK 2.4.0</p>
-<p>    1. 温馨提示：注意记录hololens及其对应账户的各种密码，以及开机的PIN码 :-)<br>
-    2. 无论如何，我强烈建议留出足够的磁盘空间用于hololens 2开发，因为MRTK 2打包后的文件真的很大。比holoToolKit(MRTK 1)大得多。这是由于MRTK进行了额外的C#到C++的编译。这部分将在未来详细介绍。</p>
-<p>    如果你更愿意阅读官方文档，那么我建议阅读以下内容：</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;本教程使用的环境是：<br>&nbsp;&nbsp;&nbsp;&nbsp;Unity 2019.4.23 LTS + Visual Studio 2019 16.8<br>&nbsp;&nbsp;&nbsp;&nbsp;目前可确认适用于:<br>&nbsp;&nbsp;&nbsp;&nbsp;Hololens 2 系统版本18362-19041 + MRTK 2.4.0</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;1. 温馨提示：注意记录hololens及其对应账户的各种密码，以及开机的PIN码 :-)<br>&nbsp;&nbsp;&nbsp;&nbsp;2. 无论如何，我强烈建议留出足够的磁盘空间用于hololens 2开发，因为MRTK 2打包后的文件真的很大。比holoToolKit(MRTK 1)大得多。这是由于MRTK进行了额外的C#到C++的编译。这部分将在未来详细介绍。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;如果你更愿意阅读官方文档，那么我建议阅读以下内容：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/hololens/hololens2-setup">https://docs.microsoft.com/zh-cn/hololens/hololens2-setup</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2</a></p>
 <p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/learn/paths/beginner-hololens-2-tutorials/">https://docs.microsoft.com/zh-cn/learn/paths/beginner-hololens-2-tutorials/</a></p>
-<h2 id="准备工作">准备工作</h2>
-<p>    常用的hololens开发环境是：UNITY、UNREAL、WEBGL。其中unity可参考资料最多，而webgl和unreal的资料都较少。本教程使用unity作为开发环境。<br>
-<strong>（这主要是为了使用德累斯顿工业大学交互媒体实验室(<a target="_blank" rel="noopener" href="http://iml-dresden.org">iml-dresden.org</a>)开发的UNITY程序库u2vis，在此表示感谢。我从他们的论文中受益良多。）</strong></p>
-<p>    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist</a><br>
-    这个链接提供了安装对应环境的官方指引，因此我不会写太多。</p>
-<h3 id="体验hololens">体验hololens</h3>
-<p>    尽管这个部分没有什么可写的，我建议在正式开始学习之前先体验一下这台梦幻设备。</p>
-<h3 id="查阅微软官方文档">查阅微软官方文档</h3>
-<blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;常用的hololens开发环境是：UNITY、UNREAL、WEBGL。其中unity可参考资料最多，而webgl和unreal的资料都较少。本教程使用unity作为开发环境。<br><strong>（这主要是为了使用德累斯顿工业大学交互媒体实验室(iml-dresden.org)开发的UNITY程序库u2vis，在此表示感谢。我从他们的论文中受益良多。）</strong></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist</a><br>&nbsp;&nbsp;&nbsp;&nbsp;这个链接提供了安装对应环境的官方指引，因此我不会写太多。</p>
+<h3 id="体验hololens"><a href="#体验hololens" class="headerlink" title="体验hololens"></a>体验hololens</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;尽管这个部分没有什么可写的，我建议在正式开始学习之前先体验一下这台梦幻设备。</p>
+<h3 id="查阅微软官方文档"><a href="#查阅微软官方文档" class="headerlink" title="查阅微软官方文档"></a>查阅微软官方文档</h3><blockquote>
 <p>在之后的开发过程中你会经常查看这些文档的。基本上总能找到答案（包括但不限于stackoverflow，那里资料丰富；不要奢望所有问题在中文互联网内有答案。）</p>
 </blockquote>
-<p>    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist</a><br>
-    这个链接提供了安装对应环境的官方指引，因此我不会写太多。</p>
-<h3 id="安装unity">安装unity</h3>
-<p>    略。</p>
-<h3 id="安装Visual-Studio">安装Visual Studio</h3>
-<p>    略。注意安装win10 SDK。</p>
-<h3 id="获取MRTK包">获取MRTK包</h3>
-<p>    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/mrtk-unity/?view=mrtkunity-2021-05">https://docs.microsoft.com/zh-cn/windows/mixed-reality/mrtk-unity/?view=mrtkunity-2021-05</a><br>
-    在‘包’页面内可以找到github仓库链接。</p>
-<h3 id="可选-安装HoloLens模拟器">(可选)安装HoloLens模拟器</h3>
-<p>    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator</a><br>
-    同样地，官方文档大概能回答你的所有疑问。<br>
-    模拟器是给暂时拿不到真机的开发者准备的，而且需要比较大的空间。运行模拟器需要win10专业版系统。模拟器版本需要和电脑的win10版本匹配。</p>
-<h2 id="编辑AR场景（及代码）">编辑AR场景（及代码）</h2>
-<p>    实验室的同学有一次问到，unity在编程流程中的地位是什么。我认为是绘制整个AR场景并控制场景逻辑。本节将会通过创建一个基础场景来说明如何使用unity。</p>
-<p>    我开始接触AR开发时同样没有unity基础，因此可以不必担心unity的学习难度。</p>
-<p>    关于unity开发的资料也有很多，这里举个例子：<br>
-<a target="_blank" rel="noopener" href="https://catlikecoding.com/unity/tutorials/">https://catlikecoding.com/unity/tutorials/</a></p>
-<p>    对于整个AR开发流程，可以参考：<br>
-    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2</a><br>
-    或者<br>
-    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/learn/paths/beginner-hololens-2-tutorials/">https://docs.microsoft.com/zh-cn/learn/paths/beginner-hololens-2-tutorials/</a><br>
-    或者<br>
-    <a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/learn/modules/pc-holographic-remoting-tutorials/">https://docs.microsoft.com/zh-cn/learn/modules/pc-holographic-remoting-tutorials/</a></p>
-<p>    其中最后一个链接是直接相关的，可以直接看。</p>
-<h3 id="新建unity工程">新建unity工程</h3>
-<p>    略。</p>
-<h3 id="导入MRTK包">导入MRTK包</h3>
-<p>    将下载好的unitypackage文件导入到unity中。<br>
-步骤是:<br>
-<code>Asset-&gt; Import Package</code><br>
-    对于2.4.0版本，至少需要导入的是<code>Microsoft.MixedReality.Toolkit.Unity.Foundation.2.4.0</code>及<code>Microsoft.MixedReality.Toolkit.Unity.Examples.2.4.0</code>。当然全部导入也可。</p>
-<h3 id="设置mrtkconfig文件">设置mrtkconfig文件</h3>
-<p>    通常，对于初学者而言暂时不需要处理，但需要知道这个文件在哪里修改。<br>
-    一般而言修改这个文件主要是为了调试交互。但有些设置可能会挡住画面内容，建议关闭。</p>
-<h4 id="关闭性能调试指示器-diagnoses">关闭性能调试指示器 diagnoses</h4>
-<p>    这在调试阶段会很有用，但会挡住部分画面。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/install-the-tools#installation-checklist</a><br>&nbsp;&nbsp;&nbsp;&nbsp;这个链接提供了安装对应环境的官方指引，因此我不会写太多。</p>
+<h3 id="安装unity"><a href="#安装unity" class="headerlink" title="安装unity"></a>安装unity</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;略。</p>
+<h3 id="安装Visual-Studio"><a href="#安装Visual-Studio" class="headerlink" title="安装Visual Studio"></a>安装Visual Studio</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;略。注意安装win10 SDK。</p>
+<h3 id="获取MRTK包"><a href="#获取MRTK包" class="headerlink" title="获取MRTK包"></a>获取MRTK包</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/mrtk-unity/?view=mrtkunity-2021-05">https://docs.microsoft.com/zh-cn/windows/mixed-reality/mrtk-unity/?view=mrtkunity-2021-05</a><br>&nbsp;&nbsp;&nbsp;&nbsp;在‘包’页面内可以找到github仓库链接。</p>
+<h3 id="可选-安装HoloLens模拟器"><a href="#可选-安装HoloLens模拟器" class="headerlink" title="(可选)安装HoloLens模拟器"></a>(可选)安装HoloLens模拟器</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-the-hololens-emulator</a><br>&nbsp;&nbsp;&nbsp;&nbsp;同样地，官方文档大概能回答你的所有疑问。<br>&nbsp;&nbsp;&nbsp;&nbsp;模拟器是给暂时拿不到真机的开发者准备的，而且需要比较大的空间。运行模拟器需要win10专业版系统。模拟器版本需要和电脑的win10版本匹配。</p>
+<h2 id="编辑AR场景（及代码）"><a href="#编辑AR场景（及代码）" class="headerlink" title="编辑AR场景（及代码）"></a>编辑AR场景（及代码）</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;实验室的同学有一次问到，unity在编程流程中的地位是什么。我认为是绘制整个AR场景并控制场景逻辑。本节将会通过创建一个基础场景来说明如何使用unity。   </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;我开始接触AR开发时同样没有unity基础，因此可以不必担心unity的学习难度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;关于unity开发的资料也有很多，这里举个例子：<br><a target="_blank" rel="noopener" href="https://catlikecoding.com/unity/tutorials/">https://catlikecoding.com/unity/tutorials/</a>   </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;对于整个AR开发流程，可以参考：<br>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/unity/unity-development-overview?tabs=arr%2CD365%2Chl2</a><br>&nbsp;&nbsp;&nbsp;&nbsp;或者<br>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/learn/paths/beginner-hololens-2-tutorials/">https://docs.microsoft.com/zh-cn/learn/paths/beginner-hololens-2-tutorials/</a><br>&nbsp;&nbsp;&nbsp;&nbsp;或者<br>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/learn/modules/pc-holographic-remoting-tutorials/">https://docs.microsoft.com/zh-cn/learn/modules/pc-holographic-remoting-tutorials/</a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;其中最后一个链接是直接相关的，可以直接看。</p>
+<h3 id="新建unity工程"><a href="#新建unity工程" class="headerlink" title="新建unity工程"></a>新建unity工程</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;略。</p>
+<h3 id="导入MRTK包"><a href="#导入MRTK包" class="headerlink" title="导入MRTK包"></a>导入MRTK包</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;将下载好的unitypackage文件导入到unity中。<br>步骤是:<br><code>Asset-&gt; Import Package</code><br>&nbsp;&nbsp;&nbsp;&nbsp;对于2.4.0版本，至少需要导入的是<code>Microsoft.MixedReality.Toolkit.Unity.Foundation.2.4.0</code>及<code>Microsoft.MixedReality.Toolkit.Unity.Examples.2.4.0</code>。当然全部导入也可。</p>
+<h3 id="设置mrtkconfig文件"><a href="#设置mrtkconfig文件" class="headerlink" title="设置mrtkconfig文件"></a>设置mrtkconfig文件</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;通常，对于初学者而言暂时不需要处理，但需要知道这个文件在哪里修改。<br>&nbsp;&nbsp;&nbsp;&nbsp;一般而言修改这个文件主要是为了调试交互。但有些设置可能会挡住画面内容，建议关闭。</p>
+<h4 id="关闭性能调试指示器-diagnoses"><a href="#关闭性能调试指示器-diagnoses" class="headerlink" title="关闭性能调试指示器 diagnoses"></a>关闭性能调试指示器 diagnoses</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;这在调试阶段会很有用，但会挡住部分画面。   </p>
 <p>注：设备拍照或录像时会自动隐藏这个工具条。</p>
-<h4 id="关闭空间感知网格-spatial-awareness">关闭空间感知网格 spatial awareness</h4>
-<p>    一般而言用不到这个网格，可以直接关闭。</p>
-<h2 id="部署到hololens">部署到hololens</h2>
-<p>通常可以采用的方式是：无线调试、有线调试及安装包旁加载。<br>
-<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2</a></p>
-<h3 id="无线调试（需要hololens-2系统版本-不低于-19041）">无线调试（需要hololens 2系统版本 不低于 19041）</h3>
-<p>可以在VS或Unity中启动这一调试方法。我的建议是在unity中进行有线连接。<br>
-需要在hololens 2中安装holographics remote.</p>
-<h3 id="有线调试">有线调试</h3>
-<p>很遗憾我没试过。实验室没有对应的usb type-C接口设备。（甩锅）</p>
-<h3 id="安装包旁加载">安装包旁加载</h3>
-<p>这个方法意味着需要将整个程序打包成安装包(.appx)，进行部署。</p>
-<h4 id="1-从unity生成VS工程文件">1. 从unity生成VS工程文件</h4>
-<h4 id="2-从VS工程文件生成安装包">2. 从VS工程文件生成安装包</h4>
-<h4 id="3-部署安装包（首次部署）">3. 部署安装包（首次部署）</h4>
-<p>在设备门户（windows device portal）中部署程序。<br>
-令电脑与hololens处在同一局域网，在电脑端浏览器输入hololens的局域网IP地址，即可打开设备门户。</p>
-<p>这里需要特别注明的是，如果是“首次部署”，需要一同部署附加项。<br>
-附加项会在打包的同时生成好。</p>
-<h2 id="hololens的使用">hololens的使用</h2>
-<blockquote>
-<p>实际上，对于初次接触头戴式AR设备的同学，我建议首先去(找有经验的人帮忙)体验一下hololens的使用。<br>
-在hololens里安装一个MRTK EXAMPLES程序，熟悉如何与虚拟物体交互，以及这台设备的性能。该程序可以在microsoft store中找到。</p>
+<h4 id="关闭空间感知网格-spatial-awareness"><a href="#关闭空间感知网格-spatial-awareness" class="headerlink" title="关闭空间感知网格 spatial awareness"></a>关闭空间感知网格 spatial awareness</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;一般而言用不到这个网格，可以直接关闭。</p>
+<h2 id="部署到hololens"><a href="#部署到hololens" class="headerlink" title="部署到hololens"></a>部署到hololens</h2><p>通常可以采用的方式是：无线调试、有线调试及安装包旁加载。<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2">https://docs.microsoft.com/zh-cn/windows/mixed-reality/develop/advanced-concepts/using-visual-studio?tabs=hl2</a></p>
+<h3 id="无线调试（需要hololens-2系统版本-不低于-19041）"><a href="#无线调试（需要hololens-2系统版本-不低于-19041）" class="headerlink" title="无线调试（需要hololens 2系统版本 不低于 19041）"></a>无线调试（需要hololens 2系统版本 不低于 19041）</h3><p>可以在VS或Unity中启动这一调试方法。我的建议是在unity中进行有线连接。<br>需要在hololens 2中安装holographics remote.</p>
+<h3 id="有线调试"><a href="#有线调试" class="headerlink" title="有线调试"></a>有线调试</h3><p>很遗憾我没试过。实验室没有对应的usb type-C接口设备。（甩锅）</p>
+<h3 id="安装包旁加载"><a href="#安装包旁加载" class="headerlink" title="安装包旁加载"></a>安装包旁加载</h3><p>这个方法意味着需要将整个程序打包成安装包(.appx)，进行部署。</p>
+<h4 id="1-从unity生成VS工程文件"><a href="#1-从unity生成VS工程文件" class="headerlink" title="1. 从unity生成VS工程文件"></a>1. 从unity生成VS工程文件</h4><h4 id="2-从VS工程文件生成安装包"><a href="#2-从VS工程文件生成安装包" class="headerlink" title="2. 从VS工程文件生成安装包"></a>2. 从VS工程文件生成安装包</h4><h4 id="3-部署安装包（首次部署）"><a href="#3-部署安装包（首次部署）" class="headerlink" title="3. 部署安装包（首次部署）"></a>3. 部署安装包（首次部署）</h4><p>在设备门户（windows device portal）中部署程序。<br>令电脑与hololens处在同一局域网，在电脑端浏览器输入hololens的局域网IP地址，即可打开设备门户。</p>
+<p>这里需要特别注明的是，如果是“首次部署”，需要一同部署附加项。<br>附加项会在打包的同时生成好。</p>
+<h2 id="hololens的使用"><a href="#hololens的使用" class="headerlink" title="hololens的使用"></a>hololens的使用</h2><blockquote>
+<p>实际上，对于初次接触头戴式AR设备的同学，我建议首先去(找有经验的人帮忙)体验一下hololens的使用。<br>在hololens里安装一个MRTK EXAMPLES程序，熟悉如何与虚拟物体交互，以及这台设备的性能。该程序可以在microsoft store中找到。</p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/hololens/hololens2-setup">https://docs.microsoft.com/zh-cn/hololens/hololens2-setup</a><br>
-这个链接提供了初次使用的注意事项。</p>
-<h3 id="如何拍摄实时画面？">如何拍摄实时画面？</h3>
-<p>可以在设备门户（windows device portal）中管理设备状态。<br>
-令电脑与hololens处在同一局域网，在电脑端浏览器输入hololens的局域网IP地址，即可打开设备门户。在设备门户的Mixed Reality Capture选项卡内可以查看实时画面。<br>
-同样地，也可以在电脑上安装Microsoft hololens应用。这一应用和浏览器里的设备门户的功能是一样的。</p>
-<h3 id="如何传输hololens上的文件？">如何传输hololens上的文件？</h3>
-<p>对于捕获的混合现实照片或视频，可以在mixed reality capture页内直接下载。<br>
-一部分文件具有权限保护，则可能需要使用有线连接以上传-下载文件。<br>
-（UWP提供了复杂的权限控制，这会对科研导向的代码开发产生一些影响）</p>
-<h3 id="设备门户的其他功能">设备门户的其他功能</h3>
-<p>借助hololens自身传感器，可以在设备门户内生成设备所处空间环境的三维模型。<br>
-这一设备门户还有很多功能，不过本教程内并不会用到。</p>
-<h2 id="这之后…">这之后…</h2>
-<h3 id="深入了解各项功能">深入了解各项功能</h3>
-<h3 id="为你的程序添加交互方法">为你的程序添加交互方法</h3>
-<h3 id="在unity中绘制自定义图形">在unity中绘制自定义图形</h3>
-
+<p><a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/hololens/hololens2-setup">https://docs.microsoft.com/zh-cn/hololens/hololens2-setup</a><br>这个链接提供了初次使用的注意事项。</p>
+<h3 id="如何拍摄实时画面？"><a href="#如何拍摄实时画面？" class="headerlink" title="如何拍摄实时画面？"></a>如何拍摄实时画面？</h3><p>可以在设备门户（windows device portal）中管理设备状态。<br>令电脑与hololens处在同一局域网，在电脑端浏览器输入hololens的局域网IP地址，即可打开设备门户。在设备门户的Mixed Reality Capture选项卡内可以查看实时画面。<br>同样地，也可以在电脑上安装Microsoft hololens应用。这一应用和浏览器里的设备门户的功能是一样的。</p>
+<h3 id="如何传输hololens上的文件？"><a href="#如何传输hololens上的文件？" class="headerlink" title="如何传输hololens上的文件？"></a>如何传输hololens上的文件？</h3><p>对于捕获的混合现实照片或视频，可以在mixed reality capture页内直接下载。<br>一部分文件具有权限保护，则可能需要使用有线连接以上传-下载文件。<br>（UWP提供了复杂的权限控制，这会对科研导向的代码开发产生一些影响）</p>
+<h3 id="设备门户的其他功能"><a href="#设备门户的其他功能" class="headerlink" title="设备门户的其他功能"></a>设备门户的其他功能</h3><p>借助hololens自身传感器，可以在设备门户内生成设备所处空间环境的三维模型。<br>这一设备门户还有很多功能，不过本教程内并不会用到。</p>
+<h2 id="这之后…"><a href="#这之后…" class="headerlink" title="这之后…"></a>这之后…</h2><h3 id="深入了解各项功能"><a href="#深入了解各项功能" class="headerlink" title="深入了解各项功能"></a>深入了解各项功能</h3><h3 id="为你的程序添加交互方法"><a href="#为你的程序添加交互方法" class="headerlink" title="为你的程序添加交互方法"></a>为你的程序添加交互方法</h3><h3 id="在unity中绘制自定义图形"><a href="#在unity中绘制自定义图形" class="headerlink" title="在unity中绘制自定义图形"></a>在unity中绘制自定义图形</h3>
 
         <hr>
         <!-- Pager -->
