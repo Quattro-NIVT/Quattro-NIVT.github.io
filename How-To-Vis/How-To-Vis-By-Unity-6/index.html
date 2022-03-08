@@ -59,7 +59,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="description" content="It&#39;s an IT blog..."/>
   <meta name="keyword" content="v-vincen,v-vincen,livemylife,IT  blog,Blog"/>
-  <link rel="shortcut icon" href="/img/avatar/roguerabbit.jpg"/>
+  <link rel="shortcut icon" href="/img/avatar/SOL_emblem.PNG"/>
 
   <!-- Place this tag in your head or just before your close body tag. -->
   <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
@@ -389,7 +389,7 @@
               
             </div>
             <h1>教程-使用Unity进行可视分析(6)</h1>
-            <h2 class="subheading">关于三维可视化视图的系列教程其四，本节描述如何建造一个（跨设备的）可视分析系统，以及我们制作IMPAVT时的一些细节。</h2>
+            <h2 class="subheading">关于三维可视化视图的系列教程其六，本节整理一些技术细节问题，如跨设备的实现、性能优化、测试等。</h2>
             <span class="meta">
               Posted by 秦浩凯(Haokai Qin) on
               2022-03-01
@@ -400,11 +400,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">5</span> Minutes
+              Estimated Reading Time <span class="post-count">6</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.2k</span> In Total
+              Words <span class="post-count">1.6k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -468,9 +468,13 @@
 
         <p><strong>本系列教程将在2022年新年期间进行更新，敬请关注！欢迎批评指正！</strong><br><strong>目前前五章已经完成</strong></p>
 <p><strong>由于篇幅较长，本章节将分为两部分更新</strong></p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）<br>第五章：设计与实现一个可视分析系统（代码部分专题）</p>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前&nbsp;&nbsp;&nbsp;&nbsp;言：为什么、以及什么场景下要使用unity进行可视化？<br>第一章：unity可视化工具包<br>第二章：自行设计与实现unity可视化视图<br>第三章：设计与实现一个可视分析系统（上）<br>第四章：设计与实现一个可视分析系统（下）<br>第五章：设计与实现一个可视分析系统（技术细节专题）</p>
 <h2 id="如何实现不同设备间的通信？"><a href="#如何实现不同设备间的通信？" class="headerlink" title="如何实现不同设备间的通信？"></a>如何实现不同设备间的通信？</h2><p>设计部分请参考第三章，我使用了消息服务器，将设备交互状态转发到其他设备上。</p>
 <h3 id="Hololens-端"><a href="#Hololens-端" class="headerlink" title="Hololens 端"></a>Hololens 端</h3><p>在github上可选择的方法有很多，但未必好用，这里推荐PythonTCPToHololens这个项目。</p>
+<p><strong>程序在unity环境运行(C# standard)，和hololens环境运行（UWP）时，在一些需要权限级别的部分具有区别。 使用#endif等代码</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#if !UNITY_EDITOR &amp;&amp; UNITY_METRO    </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">System</span>.Threading.Tasks;   </span><br><span class="line"><span class="keyword">using</span> Windows.<span class="keyword">Storage</span>;   </span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
+
+<p>*<strong>控制环境和代码的对应关系。</strong></p>
 <h3 id="Web-端"><a href="#Web-端" class="headerlink" title="Web 端"></a>Web 端</h3><p>这里我使用了websocket，是对IMIL DRESDEN的MARVIS的模仿。</p>
 <p>在python生成的.html文件中，srcipt段加入类似下面的语句实现从web到服务器的通信：   </p>
 <details>
@@ -488,7 +492,14 @@
 
 <h3 id="定义交互状态表"><a href="#定义交互状态表" class="headerlink" title="定义交互状态表"></a>定义交互状态表</h3><p>为了在其他设备上同步更新，需要定义消息格式并处理。<br>处理部分的逻辑可以参考手动实现stoi()这类处理字符串的函数，这里不多展开。</p>
 <p>按照<br><code>设备编号-行为-交互目标信息</code>的格式定义消息。<br>例如：<br><code>HLS1^SLECT^BARCT^DAT93</code></p>
-<h2 id="绘制逻辑的优化"><a href="#绘制逻辑的优化" class="headerlink" title="绘制逻辑的优化"></a>绘制逻辑的优化</h2><h3 id="动画逻辑的优化"><a href="#动画逻辑的优化" class="headerlink" title="动画逻辑的优化"></a>动画逻辑的优化</h3><p>得益于SVG，重绘整个二维视图的时间开销是可以忍受的。但受到hololens 设备性能的限制，重绘相当数量的3D物体可能会导致比较严重的卡顿。这里通过</p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="数据IO的优化"><a href="#数据IO的优化" class="headerlink" title="数据IO的优化"></a>数据IO的优化</h3><p>目前采用的方法是将数据存放在场景内读取-调用（以绕开UWP繁复的权限控制）。一个可能的修改是改为存放在数据库中，根据用户行为读取数据，但这要比现有流程慢。</p>
+<h3 id="动画逻辑的优化"><a href="#动画逻辑的优化" class="headerlink" title="动画逻辑的优化"></a>动画逻辑的优化</h3><p>得益于SVG，重绘整个二维视图的时间开销是可以忍受的。但受到hololens 设备性能的限制，重绘相当数量的3D物体可能会导致比较严重的卡顿。   </p>
+<p>一个很常用的方法是：只更新感兴趣区域的内容（只有交互行为，或者高优先级事件，才触发更新）。</p>
+<p>另外特别需要提及一个细节，即在MRTK Unity Inspector中，交互行为响应函数应该在“Ended”或“dwell”状态下调用。立即调用很可能会导致卡顿（视函数具体内容而定）。</p>
+<h2 id="功能测试"><a href="#功能测试" class="headerlink" title="功能测试"></a>功能测试</h2><p>如前文所言，系统中具有多个视图，且视图之间会联动。<br>测试过程中应该首先确保无交互状态下视图正常表现； 其次是交互行为及联动部分。   </p>
+<h3 id="注意Unity-Player和真机的不同"><a href="#注意Unity-Player和真机的不同" class="headerlink" title="注意Unity Player和真机的不同"></a>注意Unity Player和真机的不同</h3><p>MRTK在Unity环境中，将交互行为映射到键盘/鼠标操作上。<br>即使unity测试通过，在真机也未必好用，这一点在调试交互方法时尤为明显。   </p>
+<p>我的建议是检查当前设置和mrtk官方文档中是否有不对应的地方，或者参考mrtk demo以更快地检查区别。</p>
+<p>此外，由于UWP程序独特的权限控制，一些读写文件操作可能不会在hololens正常运行，需要谨慎调试，并使用#endif控制环境（见第一小节）。</p>
 <h2 id="AR空间感知问题-对齐AR内容与真实内容"><a href="#AR空间感知问题-对齐AR内容与真实内容" class="headerlink" title="AR空间感知问题/对齐AR内容与真实内容"></a>AR空间感知问题/对齐AR内容与真实内容</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://stackoom.com/question/4JglD">https://stackoom.com/question/4JglD</a><br>StackOverflow镜像页<br><a target="_blank" rel="noopener" href="https://stackoom.com/question/38WP3">https://stackoom.com/question/38WP3</a><br>另一个镜像问题<br><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-gb/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview">https://docs.microsoft.com/en-gb/windows/mixed-reality/develop/advanced-concepts/qr-code-tracking-overview</a><br>MS官方文档   </p>
 </blockquote>
@@ -641,7 +652,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何实现不同设备间的通信？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hololens-%E7%AB%AF"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Hololens 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-%E7%AB%AF"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Web 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">服务器端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%A4%E4%BA%92%E7%8A%B6%E6%80%81%E8%A1%A8"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">定义交互状态表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%BB%98%E5%88%B6%E9%80%BB%E8%BE%91%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">绘制逻辑的优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%A8%E7%94%BB%E9%80%BB%E8%BE%91%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">动画逻辑的优化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#AR%E7%A9%BA%E9%97%B4%E6%84%9F%E7%9F%A5%E9%97%AE%E9%A2%98-%E5%AF%B9%E9%BD%90AR%E5%86%85%E5%AE%B9%E4%B8%8E%E7%9C%9F%E5%AE%9E%E5%86%85%E5%AE%B9"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">AR空间感知问题&#x2F;对齐AR内容与真实内容</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%B8%8D%E5%90%8C%E8%AE%BE%E5%A4%87%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">如何实现不同设备间的通信？</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Hololens-%E7%AB%AF"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Hololens 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-%E7%AB%AF"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">Web 端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">服务器端</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%A4%E4%BA%92%E7%8A%B6%E6%80%81%E8%A1%A8"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">定义交互状态表</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">性能优化</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%95%B0%E6%8D%AEIO%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">数据IO的优化</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8A%A8%E7%94%BB%E9%80%BB%E8%BE%91%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">动画逻辑的优化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">功能测试</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%B3%A8%E6%84%8FUnity-Player%E5%92%8C%E7%9C%9F%E6%9C%BA%E7%9A%84%E4%B8%8D%E5%90%8C"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">注意Unity Player和真机的不同</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#AR%E7%A9%BA%E9%97%B4%E6%84%9F%E7%9F%A5%E9%97%AE%E9%A2%98-%E5%AF%B9%E9%BD%90AR%E5%86%85%E5%AE%B9%E4%B8%8E%E7%9C%9F%E5%AE%9E%E5%86%85%E5%AE%B9"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">AR空间感知问题&#x2F;对齐AR内容与真实内容</span></a></li></ol>
         
         </div>
       </aside>
