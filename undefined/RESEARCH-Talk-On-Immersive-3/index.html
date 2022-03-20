@@ -485,7 +485,7 @@
         <ul class="pager">
           
           <li class="previous">
-            <a href="/Road-To-Graphics/Road-To-Graphics-3/" data-toggle="tooltip" data-placement="top" title="图形学之路3：Draw Call优化">&larr; Previous Post</a>
+            <a href="/Road-To-Graphics/Road-To-Graphics-2/" data-toggle="tooltip" data-placement="top" title="图形学之路2：自定义渲染管线">&larr; Previous Post</a>
           </li>
           
           
@@ -1196,5 +1196,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

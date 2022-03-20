@@ -548,7 +548,7 @@
   <div class="tags">
     
     
-    <a href="/tags/#教程" title="教程" rel="8">教程</a>
+    <a href="/tags/#教程" title="教程" rel="9">教程</a>
     
     
     
@@ -651,6 +651,14 @@
     <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
     
     
+    
+    <a href="/tags/#计算机图形学" title="计算机图形学" rel="1">计算机图形学</a>
+    
+    
+    
+    <a href="/tags/#‘Unity’" title="‘Unity’" rel="1">‘Unity’</a>
+    
+    
   </div>
 </section>
 
@@ -709,6 +717,10 @@
       <li>图形学之路3：Draw Call优化</li>
     </a>
     
+    <a href="../Road-To-Graphics/Road-To-Graphics-2/">
+      <li>图形学之路2：自定义渲染管线</li>
+    </a>
+    
     <a href="../undefined/RESEARCH-Talk-On-Immersive-3/">
       <li>科研随笔-关于交互问题的讨论1</li>
     </a>
@@ -719,10 +731,6 @@
     
     <a href="../undefined/EIR-AR-tech-1/">
       <li>产学研慢递-京东AR技术分享会</li>
-    </a>
-    
-    <a href="../How-To-Vis/How-To-Vis-By-Unity-6/">
-      <li>教程-使用Unity进行可视分析(6)</li>
     </a>
     
   </ul>
@@ -745,7 +753,7 @@
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/03/">March 2022</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/01/">January 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/1998/07/">July 1998</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/1970/01/">January 1970</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/03/">March 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2022/01/">January 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/1998/07/">July 1998</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../archives/1970/01/">January 1970</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -1270,5 +1278,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>

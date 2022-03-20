@@ -459,7 +459,7 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
-        <a href="#教程" title="教程" rel="8">教程</a>
+        <a href="#教程" title="教程" rel="9">教程</a>
         
         <a href="#技术讨论" title="技术讨论" rel="2">技术讨论</a>
         
@@ -646,6 +646,24 @@
             <h3 class="post-subtitle">
               关于三维可视化视图的系列教程其四，本节描述如何建造一个（跨设备的）可视分析系统，以及我们制作IMPAVT时的一些细节。
             </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/Road-To-Graphics/Road-To-Graphics-2/">
+            <h2 class="post-title">
+              图形学之路2：自定义渲染管线
+              
+              -- Road-To-Graphics
+              
+            </h2>
             
           </a>
           <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -1384,5 +1402,20 @@ start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </scrip
 
 
 		
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
