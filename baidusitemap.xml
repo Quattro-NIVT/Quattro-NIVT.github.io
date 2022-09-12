@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite-url/Road-To-EngineTools/R2ET3/</loc>
+    <lastmod>2022-09-06</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Road-To-EngineTools/R2ET1/</loc>
+    <lastmod>2022-09-05</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/undefined/Road-To-Graphics-4/</loc>
+    <lastmod>2022-04-24</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/Road-To-Graphics/Road-To-Graphics-3/</loc>
     <lastmod>2022-03-20</lastmod>
   </url>
@@ -83,6 +95,10 @@
   <url>
     <loc>http://yoursite-url/en/Hexo-Theme-LiveMyLife/</loc>
     <lastmod>2020-04-16</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Road-To-EngineTools/R2ET2/</loc>
+    <lastmod>1998-09-05</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/undefined/PROFILE-PAGE/</loc>

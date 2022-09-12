@@ -408,7 +408,7 @@
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">1.9k</span> In Total
+              Words <span class="post-count">2k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -472,96 +472,87 @@
 
         <p>尚未完成的页面。</p>
 <p>占位用。</p>
-<h2 id="前言">前言</h2>
-<h2 id="目标">目标</h2>
-<p>在本页进行的实验中，目的是：</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>在本页进行的实验中，目的是：   </p>
 <ol>
-<li>控制物体是否被渲染
+<li><p>控制物体是否被渲染</p>
 <ul>
-<li>尽管可以通过<code>setActive()</code>修改物体状态，使得物体不被显示；但我们的目的是从渲染角度，减少draw call开销。</li>
+<li>   尽管可以通过<code>setActive()</code>修改物体状态，使得物体不被显示；但我们的目的是从渲染角度，减少draw call开销。</li>
+<li>   更具体一些，我们希望定制渲染流程，以控制物体的剔除/过滤/排序渲染顺序等，并分离透明/不透明物体或通道。</li>
 </ul>
 </li>
-<li>提供其他视野
+<li><p>提供其他视野</p>
 <ul>
-<li>我们希望获得其他角度的视角观察物体。</li>
+<li>   我们希望获得其他角度的视角观察物体。</li>
 </ul>
 </li>
 </ol>
-<p>因此，选择自定义渲染管线，以达到目的。<br>
-在一些教程中，这被称为SRP（Scripted Render Pipeline），或URP。</p>
-<h2 id="必要知识">必要知识</h2>
-<h3 id="什么是渲染管线？">什么是渲染管线？</h3>
-<h3 id="什么是材质？">什么是材质？</h3>
-<h3 id="什么是着色器？">什么是着色器？</h3>
-<h2 id="参考资料">参考资料</h2>
-<blockquote>
-<p>实验一<br>
-<a target="_blank" rel="noopener" href="https://catlikecoding.com/unity/tutorials/custom-srp/custom-render-pipeline/">https://catlikecoding.com/unity/tutorials/custom-srp/custom-render-pipeline/</a><br>
-<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/133144555">https://zhuanlan.zhihu.com/p/133144555</a><br>
-实验二<br>
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38913715/article/details/122308196">https://blog.csdn.net/qq_38913715/article/details/122308196</a></p>
+<p>因此，选择自定义渲染管线，以达到目的。<br>在一些教程中，这被称为SRP（Scripted Render Pipeline），或URP。    </p>
+<h2 id="必要知识"><a href="#必要知识" class="headerlink" title="必要知识"></a>必要知识</h2><h3 id="什么是渲染管线？"><a href="#什么是渲染管线？" class="headerlink" title="什么是渲染管线？"></a>什么是渲染管线？</h3><p>渲染管线是把3D场景内的物体投影到2D屏幕上的过程。</p>
+<h3 id="什么是材质？"><a href="#什么是材质？" class="headerlink" title="什么是材质？"></a>什么是材质？</h3><p>着色器的实例。给一个确定的几何体指定颜色。</p>
+<h3 id="什么是着色器？"><a href="#什么是着色器？" class="headerlink" title="什么是着色器？"></a>什么是着色器？</h3><p>为GPU指定场景内几何体（顶点）和像素颜色的代码。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
+<p>实验一<br><a target="_blank" rel="noopener" href="https://catlikecoding.com/unity/tutorials/custom-srp/custom-render-pipeline/">https://catlikecoding.com/unity/tutorials/custom-srp/custom-render-pipeline/</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/133144555">https://zhuanlan.zhihu.com/p/133144555</a><br>实验二<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38913715/article/details/122308196">https://blog.csdn.net/qq_38913715/article/details/122308196</a></p>
 </blockquote>
-<h2 id="实验一：渲染指定材质的物体">实验一：渲染指定材质的物体</h2>
-<h3 id="准备工作：创建场景">准备工作：创建场景</h3>
-<p>在Unity中创建一个简单场景，放置数个具有不同材质的物体。</p>
-<h3 id="创建自定义渲染管线">创建自定义渲染管线</h3>
-<ol>
-<li>新建一个脚本，我把它取名为<code>myRenderPipeline</code> , 令其继承<code>RenderPipeline</code>类。<br>
-这个类将用于控制场景内的camera，设置其渲染管线参数。</li>
-</ol>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="symbol">myRenderPipeline</span> : <span class="symbol">RenderPipeline</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">```    </span><br><span class="line"><span class="number">2.</span> 创建一个myRenderPipeline对象：定义`myRenderPipelineAsset`类，使得可以通过unity编辑器菜单栏创建渲染管线对象。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="实验一：渲染指定材质的物体"><a href="#实验一：渲染指定材质的物体" class="headerlink" title="实验一：渲染指定材质的物体"></a>实验一：渲染指定材质的物体</h2><h3 id="准备工作：创建场景"><a href="#准备工作：创建场景" class="headerlink" title="准备工作：创建场景"></a>准备工作：创建场景</h3><p>在Unity中创建一个简单场景，放置数个具有不同材质的物体。</p>
+<h3 id="创建自定义渲染管线"><a href="#创建自定义渲染管线" class="headerlink" title="创建自定义渲染管线"></a>创建自定义渲染管线</h3><p>1.新建一个脚本，我把它取名为<code>myRenderPipeline</code> , 令其继承<code>RenderPipeline</code>类。<br>这个类将用于控制场景内的camera，设置其渲染管线参数。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">class</span> <span class="symbol">myRenderPipeline</span> : <span class="symbol">RenderPipeline</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>创建一个myRenderPipeline对象：定义`myRenderPipelineAsset`类，使得可以通过unity编辑器菜单栏创建渲染管线对象。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <pre><code>[CreateAssetMenu(menuName = &quot;Rendering/my Render Pipeline&quot;)]
 public class myRenderPipelineAsset : RenderPipelineAsset 
 &#123;
-	protected override RenderPipeline CreatePipeline() 
-	&#123;
-		return new myRenderPipeline();
-	&#125;
+    protected override RenderPipeline CreatePipeline() 
+    &#123;
+        return new myRenderPipeline();
+    &#125;
 &#125;
 </code></pre>
-<figure class="highlight plain"><figcaption><span>新建一个myCameraRender类。这个类用于实现camera的具体渲染控制方法。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3.</span>新建一个myCameraRender类。这个类用于实现<span class="keyword">camera</span>的具体渲染控制方法。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <pre><code>using UnityEngine;
 using UnityEngine.Rendering;
 
 public class myCameraRenderer 
 &#123;
 
-	ScriptableRenderContext context;
+    ScriptableRenderContext context;
 
-	Camera camera;
+    Camera camera;
 
-	public void Render(ScriptableRenderContext context, Camera camera) 
-	&#123;
-    	this.context = context;
-    	this.camera = camera;
-	&#125;
+    public void Render(ScriptableRenderContext context, Camera camera) 
+    &#123;
+        this.context = context;
+        this.camera = camera;
+    &#125;
 &#125;
 </code></pre>
-<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4.</span>这时pipelinerender类的继承方法<span class="keyword">render</span>尚未实现。根据这几个类型的关系，我们设置<span class="string">`myPipelineRender`</span>类的<span class="keyword">render</span>方法为:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>这时pipelinerender类的继承方法<span class="keyword">render</span>尚未实现。根据这几个类型的关系，我们设置<span class="string">`myPipelineRender`</span>类的<span class="keyword">render</span>方法为:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <pre><code>myCameraRenderer mCR = new myCameraRenderer();
 
 protected override void Render(ScriptableRenderContext context, Camera[] cameras) 
 &#123;
     foreach (Camera camera in cameras) 
-	&#123;
+    &#123;
         mCR.Render(context, camera);
     &#125;
 &#125;
 </code></pre>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">5.在project settings-&gt;player中，将SRP设置为新建的渲染管线对象。</span><br><span class="line"></span><br><span class="line"><span class="section">#### 小结：关于参数，及其意义</span></span><br><span class="line"><span class="bullet">+</span> RenderPipeline.Render()</span><br><span class="line"><span class="bullet">	+</span> protect方法，具有override标记以保证重写。控制自定义渲染方法。</span><br><span class="line"><span class="bullet">+</span> ScriptableRenderContext</span><br><span class="line"><span class="bullet">	+</span> https://docs.unity3d.com/cn/2019.4/ScriptReference/Rendering.ScriptableRenderContext.html</span><br><span class="line"><span class="bullet">	+</span> 简单地说，这个类定义（或者说，承载）自定义渲染管线使用的状态和绘制命令，并能控制GPU开始/结束渲染。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">### 设置渲染流程</span></span><br><span class="line">在上一步完成设置后，场景内的物体应该都不可见。这是由于：</span><br><span class="line"><span class="bullet">1.</span> 我们的渲染管线缺少待渲染物体列表；</span><br><span class="line"><span class="bullet">2.</span> 未发送渲染指令到GPU。</span><br><span class="line"></span><br><span class="line">现在就是上一小节刚提到的SRC的用途了。   </span><br><span class="line">注意SRC控制GPU渲染的方式与openGL的操作非常接近，都需要缓冲区处理，以及绘制语句，才能实现渲染。   </span><br><span class="line"><span class="strong">**接下来在myCameraRender类中添加语句**</span>。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1.定义<span class="code">`drawVisibleGeometry()`</span>方法，这个方法用作控制绘制可见几何体的接口。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <pre><code>void DrawVisibleGeometry () 
 &#123;
-	// 绘制天空盒
+    // 绘制天空盒
     context.DrawSkybox(camera);
 &#125;
 </code></pre>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2</span>.定义`Submit()`方法，用作向GPU提交指令的接口。</span><br></pre></td></tr></table></figure>
+
 <pre><code>void Submit () 
 &#123;
     context.Submit();
 &#125;
 </code></pre>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3</span>.在`Render()`中设置语句，以实现基础的渲染流程。   </span><br></pre></td></tr></table></figure>
+
 <pre><code>public void Render(ScriptableRenderContext context, Camera camera)
 &#123;
     this.context = context;
@@ -572,6 +563,7 @@ protected override void Render(ScriptableRenderContext context, Camera[] cameras
 &#125;
 </code></pre>
 <figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">这时天空盒已经可以看到了，但角度似乎不太正常。这是由于未从世界坐标系转换到相机视角坐标系所致。</span><br><span class="line">![set](<span class="regexp">/Road-To-Graphics-2/u</span>naligned_SKYBOX.PNG)</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 定义一个<span class="string">`SetUp()`</span>函数以进行渲染前的设置，并修改<span class="string">`render()`</span>方法。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <pre><code>public void Render(ScriptableRenderContext context, Camera camera)
 &#123;
     this.context = context;
@@ -586,13 +578,14 @@ void Setup()
 &#123;
     context.SetupCameraProperties(camera);
 
-	// 下一步用到
+    // 下一步用到
     buffer.ClearRenderTarget(true, true, Color.clear);
     buffer.BeginSample(bufferName);
     ExecuteBuffer();
 &#125;
 </code></pre>
 <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>.命令缓冲区</span><br><span class="line">&gt; 除了像DrawSkybox这样的接口我们可以通过设备上下文直接调用外，其他命令我们都需要通过单独的命令缓冲区间接发出。为了获得一个缓冲区，我们需要一个CommandBuffer对象。我们暂时只需要一个缓冲区，所以我们将它缓存起来。</span><br><span class="line"></span><br><span class="line">在`myCameraRenderPipeline`类内定义一个缓冲区   </span><br></pre></td></tr></table></figure>
+
 <pre><code>const string bufferName = &quot;Render Camera&quot;;
 CommandBuffer buffer = new CommandBuffer 
 &#123;
@@ -600,29 +593,30 @@ CommandBuffer buffer = new CommandBuffer
 &#125;;
 </code></pre>
 <figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">并修改<span class="function"><span class="title">submit</span>()</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <pre><code>void Submit () 
 &#123;
-	// 从缓冲区读取，需要与BeginSample()配对
+    // 从缓冲区读取，需要与BeginSample()配对
     buffer.EndSample(bufferName);
 
-	// 清理深度缓冲区 （另见：渲染管线知识 一文）
+    // 清理深度缓冲区 （另见：渲染管线知识 一文）
     buffer.ClearRenderTarget(true, true, Color.clear);
     
-	// 执行缓冲区命令，这个函数是自己定义的
-	ExecuteBuffer();
+    // 执行缓冲区命令，这个函数是自己定义的
+    ExecuteBuffer();
 
-	// 提交
+    // 提交
     context.Submit();
 &#125;
 
 
 void ExecuteBuffer () 
 &#123;
-	// 执行命令，这个方法是unity提供的
-	context.ExecuteCommandBuffer(buffer);
+    // 执行命令，这个方法是unity提供的
+    context.ExecuteCommandBuffer(buffer);
 
-	// 清楚命令缓冲区
-	buffer.Clear();
+    // 清楚命令缓冲区
+    buffer.Clear();
 &#125;
 </code></pre>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="bullet">6.</span> 相机剔除   </span><br><span class="line">这一步用于删除不在视野内的物体。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -630,35 +624,36 @@ void ExecuteBuffer ()
 
 bool Cull () 
 &#123;
-	if (camera.TryGetCullingParameters(out ScriptableCullingParameters p)) 
-	&#123;
-    	cullingResults = context.Cull(ref p);
-    	return true;
-	&#125;
-	return false;
+    if (camera.TryGetCullingParameters(out ScriptableCullingParameters p)) 
+    &#123;
+        cullingResults = context.Cull(ref p);
+        return true;
+    &#125;
+    return false;
 &#125;
 </code></pre>
 <figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">同时，<span class="function"><span class="title">render</span>()函数也需要调整</span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
+
 <pre><code>public void Render (ScriptableRenderContext context, Camera camera) 
 &#123;
-	this.context = context;
-	this.camera = camera;
-	if (!Cull()) 
-	&#123;
-    	return;
-	&#125;
-	Setup();
-	DrawVisibleGeometry();
-	Submit();
+    this.context = context;
+    this.camera = camera;
+    if (!Cull()) 
+    &#123;
+        return;
+    &#125;
+    Setup();
+    DrawVisibleGeometry();
+    Submit();
 &#125;
 </code></pre>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">### 绘制可见物体</span><br><span class="line">这一步修改`drawVisibleGeometry()`</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<pre><code>static ShaderTagId unlitShaderTagId = new ShaderTagId(&quot;SRPDefaultUnlit&quot;);
+<pre><code>   static ShaderTagId unlitShaderTagId = new ShaderTagId(&quot;SRPDefaultUnlit&quot;);
 
-void DrawVisibleGeometry()
+   void DrawVisibleGeometry()
 &#123;
 
-	// 设置渲染对象排序方法
+    // 设置渲染对象排序方法
     var sortingSettings = new SortingSettings(camera)
     &#123;
         criteria = SortingCriteria.CommonOpaque
@@ -668,24 +663,25 @@ void DrawVisibleGeometry()
         unlitShaderTagId, sortingSettings
     );
 
-	// 选取不透明物体渲染
+    // 选取不透明物体渲染
     var filteringSettings = new FilteringSettings(RenderQueueRange.opaque);
     context.DrawRenderers(
         cullingResults, ref drawingSettings, ref filteringSettings
     );
 
 
-	// 选取透明物体渲染
+    // 选取透明物体渲染
     filteringSettings = new FilteringSettings(RenderQueueRange.transparent);
     context.DrawRenderers(
         cullingResults, ref drawingSettings, ref filteringSettings
     );
 
-	// 最后绘制天空盒
-	context.DrawSkybox(camera);
+    // 最后绘制天空盒
+    context.DrawSkybox(camera);
 &#125;
 </code></pre>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![set](<span class="regexp">/Road-To-Graphics-2/</span>final1-nodeal.PNG)</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 小结：参数设置及其意义</span></span><br><span class="line">+ SortingSettings</span><br><span class="line">	+ https:<span class="regexp">//</span>docs.unity3d.com<span class="regexp">/cn/</span><span class="number">2019.4</span><span class="regexp">/ScriptReference/</span>Rendering.SortingSettings.html</span><br><span class="line">	+ 渲染对象排序 </span><br><span class="line">+ DrawingSettings</span><br><span class="line">	+ https:<span class="regexp">//</span>docs.unity3d.com<span class="regexp">/cn/</span><span class="number">2019.4</span><span class="regexp">/ScriptReference/</span>Rendering.DrawingSettings.html</span><br><span class="line">	+ 为排序后的对象设置材质</span><br><span class="line">+ FilteringSettings</span><br><span class="line">	+ https:<span class="regexp">//</span>docs.unity3d.com<span class="regexp">/cn/</span><span class="number">2019.4</span><span class="regexp">/ScriptReference/</span>Rendering.FilteringSettings.html</span><br><span class="line">	+ 过滤器，保留渲染其材质渲染器在此范围内排队的对象。</span><br><span class="line">+ DrawRenderers</span><br><span class="line">	+ https:<span class="regexp">//</span>docs.unity3d.com<span class="regexp">/cn/</span><span class="number">2019.4</span><span class="regexp">/ScriptReference/</span>Rendering.ScriptableRenderContext.DrawRenderers.html</span><br><span class="line">	+ 注册绘制参数到执行命令表中</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 处理指定材质外的物体</span></span><br><span class="line">现在，所有Unlit类型材质的物体都应被显示了，其余材质的物体尚未渲染。</span><br><span class="line"></span><br><span class="line">我们定义</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <pre><code>static Material errorMaterial;
 
 static ShaderTagId[] legacyShaderTagIds = &#123;
@@ -760,7 +756,6 @@ void DrawUnsupportedShaders()
 5. 调整相机和画布位置。现在可以看到多个摄像机画面了。
 
 ![set](/Road-To-Graphics-2/final2.PNG)
-
 </code></pre>
 
 
