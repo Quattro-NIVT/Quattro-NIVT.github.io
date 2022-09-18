@@ -404,11 +404,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">10</span> Minutes
+              Estimated Reading Time <span class="post-count">11</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">3.1k</span> In Total
+              Words <span class="post-count">3.4k</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -470,13 +470,13 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前言<br>第一章：工具链开发概述<br>第二章：游戏工具案例<br>第三章：实习内容</p>
-<p>暂时只有第三章是写完的。</p>
-<h2 id="第三章：关于实习的内容"><a href="#第三章：关于实习的内容" class="headerlink" title="第三章：关于实习的内容"></a>第三章：关于实习的内容</h2><p>实习内容：写工具实现新功能；修BUG；写文档；翻TX知识库。<br>本章写的都是我主要负责的；有些工作或者不能明说，或者只是按着别人思路实现，我就不记录在此了。</p>
-<p>[delete]另一个主要原因是没给我分配太难的活，不想多写[/delete]</p>
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>前言<br>第一章：工具链开发概述<br>第二章：游戏工具案例<br>第三章：实习内容<br>第四章：工具开发实践1——认识Unity Editor<br>第五章：工具开发实践2——开发最基本的profiler<br>专题：unity自带profiler的代码赏析</p>
+<p><strong>只有第三章写完了</strong></p>
+<p>profiler的话知道怎么写但是没能整理完。<br>unity自带profiler的代码仅限于知道怎么看，这个文档的工作量过于巨大了。</p>
+<h2 id="第三章：关于实习的内容"><a href="#第三章：关于实习的内容" class="headerlink" title="第三章：关于实习的内容"></a>第三章：关于实习的内容</h2><p>实习内容：写工具实现新功能；修BUG；写文档；翻TX知识库；蹭课。<br>本章写的都是我主要负责的。有些工作太过于详细、与项目实机画面关系密切，或者只是按别人思路堆代码，我就不记录在此了。</p>
 <h3 id="表格工具-WeaponFactoryCorrector"><a href="#表格工具-WeaponFactoryCorrector" class="headerlink" title="表格工具 WeaponFactoryCorrector"></a>表格工具 WeaponFactoryCorrector</h3><p>第一个需求单，恐怕是为了尽快熟悉项目才选了这个让我做。</p>
 <h4 id="需求与沟通环节"><a href="#需求与沟通环节" class="headerlink" title="需求与沟通环节"></a>需求与沟通环节</h4><ul>
-<li>策划：我们现在有一个主表格，记录游戏所有道具的详细信息，这是万恶之源，但先不管他…总之我想自动纠错已经写入表格的内容。</li>
+<li>策划：我们现在有一个主表格，记录游戏所有道具的详细信息，这是万恶之源，但这次先处理一些子表格…总之我想自动纠错已经写入表格的内容。</li>
 <li>【 一长段沟通之后 】</li>
 <li>我：也就是说核心的需求是“覆盖”已经写入的内容。对于需要修改的道具，策划输入KEY以及要修改的内容，程序生成符合格式的内容字符串，找到并修改KEY对应的那个道具。而修改范围由策划指定。</li>
 <li>MT：最好还有其他的机制减少出错。</li>
@@ -521,18 +521,19 @@
 <blockquote>
 <p>一些示意图，如果看不清的话，可以切换回“网页白天模式”</p>
 </blockquote>
-<h4 id="工时与代码量"><a href="#工时与代码量" class="headerlink" title="工时与代码量"></a>工时与代码量</h4><p>代码量没有统计。</p>
-<p>但是 MVC设计模式 + 单例方法类 加起来也不会太少。<br>只是UI部分很多细碎的代码。</p>
-<p>具体代码就unityEditor那套。</p>
+<h4 id="工时与代码量"><a href="#工时与代码量" class="headerlink" title="工时与代码量"></a>工时与代码量</h4><p>工时里三分之一左右是在到处沟通需求和确定方案。<br>剩下大部分时间都在读代码，尽量理解项目风格和逻辑。</p>
+<p>代码量没有统计，但UI + 功能不会少于2400行。</p>
+<p>UI代码就unityEditor那套。</p>
+<h4 id="反馈"><a href="#反馈" class="headerlink" title="反馈"></a>反馈</h4><p>策划觉得可以。<br>然而这个工具最终要外包来用……总觉得沟通机制存在一些问题。</p>
 <h4 id="扩展1：表格工具需要什么"><a href="#扩展1：表格工具需要什么" class="headerlink" title="扩展1：表格工具需要什么"></a>扩展1：表格工具需要什么</h4><p>尽管这里很想吐槽项目规划问题，但表格总是会越来越多的，无奈。<br>这里只讨论一些代码和工程细节。</p>
 <ol>
-<li><p>表格文件的统一读取/写入方法<br>吐槽：已有代码里14个表格有14个openFile语句。项目有个统一接口但是没人用。</p>
+<li><p>表格文件应该有统一读取/写入方法<br>吐槽：已有代码里14个表格有单独14个方法对应。项目有个统一接口但是没人用。这里有一些BUG但最终改好了。这玩意没人去沟通吗？</p>
 </li>
-<li><p>每个表格对应一个数据结构<br>每个表格有一个数据类型类。</p>
+<li><p>每个表格应该对应一个数据结构<br>每个表格有一个数据类型类。</p>
 </li>
 </ol>
 <p>比如说上文提到的表格<br>其中一个表格有 ID, FATHER_ID, NAME, POSITION, FILE_PATH等等项；那么应该有个类型</p>
-<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class TableType</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">	public</span><span class="built_in"> int/ulong </span>ID;</span><br><span class="line">public string FATHER_ID;</span><br><span class="line">// 原始项目如此，父ID和子ID类型不同，此处不做修改</span><br><span class="line"></span><br><span class="line">public string NAME;</span><br><span class="line">public Verctor3 POSITION;</span><br><span class="line"></span><br><span class="line">public<span class="keyword"> static</span> string GetPrimaryKey()</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">	return </span>ID.to_String();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">class TableType</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">	public</span><span class="built_in"> int/ulong </span>ID;</span><br><span class="line">public string FATHER_ID;</span><br><span class="line">// 原始项目如此，父ID和子ID类型不同，此处不做修改</span><br><span class="line"></span><br><span class="line">public string NAME;</span><br><span class="line">public Verctor3 POSITION;</span><br><span class="line"></span><br><span class="line">public string GetPrimaryKey()</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">	return </span>ID.to_String();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 <ol start="3">
@@ -556,14 +557,15 @@
 <h4 id="任务拆解与重难点-1"><a href="#任务拆解与重难点-1" class="headerlink" title="任务拆解与重难点"></a>任务拆解与重难点</h4><p>整合工具的需求也比较清晰（理论上）。</p>
 <ol>
 <li>确定两个工具的作用范围；</li>
-<li>找出两个工具的差异，与美术讨论，确定是否要保留、变更；</li>
+<li>找出两个工具的差异，与美术讨论，确定是否要保留或是变更；</li>
 <li>合并到其中一个。</li>
 </ol>
 <p>实际上两个工具各自有一些独特功能，其中一个还作用在独特测试场景（与游戏玩法无关）内。<br>最终的妥协方案是独特场景可以不要，在独特场景内可用的功能（镜像、反转）等应该在其他场景或新工具内可用。</p>
 <p>听上去不难，实际执行也不难，读表写表而已。但还是有个繁琐的点：</p>
 <p>姿态控制功能在工具两边表现不一致。</p>
 <p>一番调查之后发现是模型prefab方向没统一，美术解决不了这问题，那就加段代码处理一下吧。</p>
-<h4 id="程序设计与实现-1"><a href="#程序设计与实现-1" class="headerlink" title="程序设计与实现"></a>程序设计与实现</h4><p>这里倒是没什么好说的，主要都是修UI。<br>功能BUG每个BUG点也就一小时左右能解决。</p>
+<h4 id="程序设计与实现-1"><a href="#程序设计与实现-1" class="headerlink" title="程序设计与实现"></a>程序设计与实现</h4><p>这里倒是没什么好说的，主要都是修EditorUI，以及流程合并带来的零碎BUG。   </p>
+<p>仍然不难，仍然只是繁琐。</p>
 <h3 id="武器道具ID问题及解决"><a href="#武器道具ID问题及解决" class="headerlink" title="武器道具ID问题及解决"></a>武器道具ID问题及解决</h3><p>这玩意完全就是安全隐患…</p>
 <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>一把武器可以分成主武器、副武器、近战武器、投掷武器等。<br>主武器下又有各种类型，步枪、机枪、霰弹枪等等；<br>步枪里又可分成AK M4 等等。<br>而M4系列枪可能有换皮或者其他操作。</p>
 <p>因此项目用一个8位ID记录信息：</p>
@@ -583,11 +585,13 @@
 <p>可问题是写进去的ID还是错的。</p>
 <p>前人又做了第二个补救：分成两个表分别保存旧ID和新ID，两种ID都写表。</p>
 <p>可是升级之后没有写表啊…这样升级之后的武器还是和不存在一样。</p>
-<h4 id="应对方式一：统一ID系统"><a href="#应对方式一：统一ID系统" class="headerlink" title="应对方式一：统一ID系统"></a>应对方式一：统一ID系统</h4><p>一名Tier比我更高的同事建议我把整个系统的ID统一回8位。</p>
-<p>找出所有修改范围以后逐个调整代码并记录。</p>
+<h4 id="应对方式一：统一ID系统"><a href="#应对方式一：统一ID系统" class="headerlink" title="应对方式一：统一ID系统"></a>应对方式一：统一ID系统</h4><p>一名Tier比我更高的同事建议我把整个系统的ID统一回8位并删一个表。</p>
+<p>我找出所有修改范围以后逐个调整代码并记录。</p>
 <p>然后在封版发包的前一天他觉得这样不妥又给改回去了。</p>
 <h4 id="应对方式二：特殊处理流程"><a href="#应对方式二：特殊处理流程" class="headerlink" title="应对方式二：特殊处理流程"></a>应对方式二：特殊处理流程</h4><p>这是我本来的计划。</p>
-<p>检查当前场景，是老场景就读写8位，新场景就11/12位。旧ID的改造通过读取道具等级实现准确的修改。</p>
+<p>检查当前场景，是老场景就读写8位，新场景就11/12位。<br>如果需要从旧ID转换到新ID，通过读取道具等级实现准确的转换。<br>新ID转旧ID就除法。（字符串装拆箱，runtime开销控制）。   </p>
+<p>此外删了一些runtime下前人的补救措施。<br><strong>runtime反复读写表</strong></p>
+<p>前人留下的两个表格仍然生效（不得不生效，两个表格各有其他用途，还是不要删表了），但用途不同。</p>
 <h3 id="其他日常BUG"><a href="#其他日常BUG" class="headerlink" title="其他日常BUG"></a>其他日常BUG</h3><p>美术和策划会发现一些问题，找出出错的原因并修复。<br>这活还得程序来干。美术和策划并不擅长找原因。</p>
 <h4 id="枪械动画问题"><a href="#枪械动画问题" class="headerlink" title="枪械动画问题"></a>枪械动画问题</h4><p>描述：有把武器拿在手里的动画和模型都不对。</p>
 <p>原因：武器用的是复制过来的属性，美术填错了avatar数据，导致模型错位。</p>
@@ -604,11 +608,11 @@
 <p>原因：ID系统问题。</p>
 <p>解决：参见 武器道具ID问题及解决 一节。</p>
 <h4 id="SVN功能"><a href="#SVN功能" class="headerlink" title="SVN功能"></a>SVN功能</h4><p>描述：策划和美术想要个一键提交到SVN的功能。</p>
-<p>解决：</p>
+<p>解决：   </p>
 <ol>
-<li>这就纯封装API。</li>
-<li>实际上原本已经有个快捷键了，但是美术不知道。</li>
-<li>改动：增加了SVN一键提交按钮、</li>
+<li>这就纯封装API。   </li>
+<li>实际上原本已经有个快捷键了，但是美术不知道/键位太别扭不符合工作习惯。   </li>
+<li>改动：增加了SVN一键提交按钮，似乎显式的按钮更符合他们的工作习惯。</li>
 </ol>
 <h3 id="一些想法"><a href="#一些想法" class="headerlink" title="一些想法"></a>一些想法</h3><h4 id="关于游戏工具"><a href="#关于游戏工具" class="headerlink" title="关于游戏工具"></a>关于游戏工具</h4><p>这个项目果然还是太老了。</p>
 <p>杂乱的工具、冗余的ID系统、一堆陈年BUG（我接的需求单都是20、21年那些）；</p>
@@ -624,10 +628,10 @@
 <li>和策划及美术沟通确定最终效果。   </li>
 </ol>
 <h4 id="关于项目管理工具"><a href="#关于项目管理工具" class="headerlink" title="关于项目管理工具"></a>关于项目管理工具</h4><p>纯吐槽。</p>
-<p>这个项目似乎有相当多需要调整的问题，我接的都是遗留问题，有作用但不紧急的单子。</p>
+<p>这个项目似乎有相当多需要调整的问题，我接的都是遗留问题，有作用但不十万火急的单子。</p>
 <p>项目里是策划负责部分任务的人员安排，那么他确实应该知道这些需求。但是如果需求单也是他在写，那么就可能有填写不准的问题。虽然目前看来填不准也没啥问题，总是要和实际人员对接的。</p>
 <p>那么为啥还要在需求单写那么详细？</p>
-<p>尽管IEG有通用需求平台，但是项目策划更喜欢维护一个EXCEL表。这可能也是原因所在。</p>
+<p>尽管IEG有通用需求平台，但是项目策划更喜欢维护一个EXCEL表。或许策划也不喜欢TAPD。</p>
 
 
         <hr>
@@ -773,7 +777,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%AE%9E%E4%B9%A0%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第三章：关于实习的内容</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A1%A8%E6%A0%BC%E5%B7%A5%E5%85%B7-WeaponFactoryCorrector"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">表格工具 WeaponFactoryCorrector</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%9C%80%E6%B1%82%E4%B8%8E%E6%B2%9F%E9%80%9A%E7%8E%AF%E8%8A%82"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">需求与沟通环节</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%BB%E5%8A%A1%E6%8B%86%E8%A7%A3%E4%B8%8E%E9%87%8D%E9%9A%BE%E7%82%B9"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">任务拆解与重难点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">2.1.3.</span> <span class="toc-nav-text">程序设计与实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">2.1.3.1.</span> <span class="toc-nav-text">概要设计</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">2.1.3.2.</span> <span class="toc-nav-text">详细设计</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B7%A5%E6%97%B6%E4%B8%8E%E4%BB%A3%E7%A0%81%E9%87%8F"><span class="toc-nav-number">2.1.4.</span> <span class="toc-nav-text">工时与代码量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%951%EF%BC%9A%E8%A1%A8%E6%A0%BC%E5%B7%A5%E5%85%B7%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88"><span class="toc-nav-number">2.1.5.</span> <span class="toc-nav-text">扩展1：表格工具需要什么</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BE%8E%E6%9C%AF%E5%B7%A5%E5%85%B7%E7%9A%84%E6%95%B4%E5%90%88-Ugc-Factory-Ugc-Decorator"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">美术工具的整合 Ugc Factory &#x2F; Ugc Decorator</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%9C%80%E6%B1%82%E4%B8%8E%E6%B2%9F%E9%80%9A%E7%8E%AF%E8%8A%82-1"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">需求与沟通环节</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%BB%E5%8A%A1%E6%8B%86%E8%A7%A3%E4%B8%8E%E9%87%8D%E9%9A%BE%E7%82%B9-1"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">任务拆解与重难点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0-1"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">程序设计与实现</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A6%E5%99%A8%E9%81%93%E5%85%B7ID%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">武器道具ID问题及解决</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text">背景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text">问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%BA%94%E5%AF%B9%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E7%BB%9F%E4%B8%80ID%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">2.3.3.</span> <span class="toc-nav-text">应对方式一：统一ID系统</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%BA%94%E5%AF%B9%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-nav-number">2.3.4.</span> <span class="toc-nav-text">应对方式二：特殊处理流程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96%E6%97%A5%E5%B8%B8BUG"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">其他日常BUG</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9E%AA%E6%A2%B0%E5%8A%A8%E7%94%BB%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">枪械动画问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9E%AA%E6%A2%B0%E6%97%8B%E8%BD%AC%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">枪械旋转问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%81%AF%E5%85%89%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">灯光失效问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#SVN%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">2.4.4.</span> <span class="toc-nav-text">SVN功能</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">一些想法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">2.5.1.</span> <span class="toc-nav-text">关于游戏工具</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">2.5.2.</span> <span class="toc-nav-text">关于项目管理工具</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">目录</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E5%85%B3%E4%BA%8E%E5%AE%9E%E4%B9%A0%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">第三章：关于实习的内容</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%A1%A8%E6%A0%BC%E5%B7%A5%E5%85%B7-WeaponFactoryCorrector"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">表格工具 WeaponFactoryCorrector</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%9C%80%E6%B1%82%E4%B8%8E%E6%B2%9F%E9%80%9A%E7%8E%AF%E8%8A%82"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">需求与沟通环节</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%BB%E5%8A%A1%E6%8B%86%E8%A7%A3%E4%B8%8E%E9%87%8D%E9%9A%BE%E7%82%B9"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">任务拆解与重难点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-nav-number">2.1.3.</span> <span class="toc-nav-text">程序设计与实现</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%A6%82%E8%A6%81%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">2.1.3.1.</span> <span class="toc-nav-text">概要设计</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1"><span class="toc-nav-number">2.1.3.2.</span> <span class="toc-nav-text">详细设计</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B7%A5%E6%97%B6%E4%B8%8E%E4%BB%A3%E7%A0%81%E9%87%8F"><span class="toc-nav-number">2.1.4.</span> <span class="toc-nav-text">工时与代码量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8F%8D%E9%A6%88"><span class="toc-nav-number">2.1.5.</span> <span class="toc-nav-text">反馈</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%951%EF%BC%9A%E8%A1%A8%E6%A0%BC%E5%B7%A5%E5%85%B7%E9%9C%80%E8%A6%81%E4%BB%80%E4%B9%88"><span class="toc-nav-number">2.1.6.</span> <span class="toc-nav-text">扩展1：表格工具需要什么</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BE%8E%E6%9C%AF%E5%B7%A5%E5%85%B7%E7%9A%84%E6%95%B4%E5%90%88-Ugc-Factory-Ugc-Decorator"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">美术工具的整合 Ugc Factory &#x2F; Ugc Decorator</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%9C%80%E6%B1%82%E4%B8%8E%E6%B2%9F%E9%80%9A%E7%8E%AF%E8%8A%82-1"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">需求与沟通环节</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%BB%BB%E5%8A%A1%E6%8B%86%E8%A7%A3%E4%B8%8E%E9%87%8D%E9%9A%BE%E7%82%B9-1"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">任务拆解与重难点</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0-1"><span class="toc-nav-number">2.2.3.</span> <span class="toc-nav-text">程序设计与实现</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%AD%A6%E5%99%A8%E9%81%93%E5%85%B7ID%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">武器道具ID问题及解决</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-nav-number">2.3.1.</span> <span class="toc-nav-text">背景</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.3.2.</span> <span class="toc-nav-text">问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%BA%94%E5%AF%B9%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E7%BB%9F%E4%B8%80ID%E7%B3%BB%E7%BB%9F"><span class="toc-nav-number">2.3.3.</span> <span class="toc-nav-text">应对方式一：统一ID系统</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%BA%94%E5%AF%B9%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-nav-number">2.3.4.</span> <span class="toc-nav-text">应对方式二：特殊处理流程</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96%E6%97%A5%E5%B8%B8BUG"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">其他日常BUG</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9E%AA%E6%A2%B0%E5%8A%A8%E7%94%BB%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">枪械动画问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9E%AA%E6%A2%B0%E6%97%8B%E8%BD%AC%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.2.</span> <span class="toc-nav-text">枪械旋转问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%81%AF%E5%85%89%E5%A4%B1%E6%95%88%E9%97%AE%E9%A2%98"><span class="toc-nav-number">2.4.3.</span> <span class="toc-nav-text">灯光失效问题</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#SVN%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">2.4.4.</span> <span class="toc-nav-text">SVN功能</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%BA%9B%E6%83%B3%E6%B3%95"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">一些想法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%88%8F%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">2.5.1.</span> <span class="toc-nav-text">关于游戏工具</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">2.5.2.</span> <span class="toc-nav-text">关于项目管理工具</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
