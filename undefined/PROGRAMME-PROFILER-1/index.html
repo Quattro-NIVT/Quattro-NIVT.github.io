@@ -387,7 +387,7 @@
               
             </div>
             <h1>DIY Profiler 1</h1>
-            <h2 class="subheading">关于Unity性能检测工具的开发练习1.</h2>
+            <h2 class="subheading">关于Unity性能监控工具的开发练习1.</h2>
             <span class="meta">
               Posted by 秦浩凯(Haokai Qin) on
               2023-01-28
@@ -398,11 +398,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">1</span> Minutes
+              Estimated Reading Time <span class="post-count">4</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">415</span> In Total
+              Words <span class="post-count">983</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -464,7 +464,11 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h2 id="Visual-Profiler解析"><a href="#Visual-Profiler解析" class="headerlink" title="Visual Profiler解析"></a>Visual Profiler解析</h2><p>这是一款非常简单的性能监视工具，用于获取帧率和程序总体内存占用。可以通过这一工具熟悉相关API。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>性能监控工具一直是软件开发中的重要组成。然而，应该如何开发这种程序？如何为项目需求定制性能监控？</p>
+<p>本文是实习工作内容，结合GAMES 104课程的实践。<br>VISUAL PROFILER也用于AR开发。</p>
+<h2 id="基础款：Visual-Profiler解析"><a href="#基础款：Visual-Profiler解析" class="headerlink" title="基础款：Visual Profiler解析"></a>基础款：Visual Profiler解析</h2><p>这是一款非常简单的性能监视工具，用于获取帧率和程序总体内存占用。</p>
+<p>runtime可用。</p>
+<p>可以通过这一工具熟悉相关API。</p>
 <p><img src="/undefined/PROGRAMME-PROFILER-1/S1.png" alt="PF"></p>
 <h3 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a>帧率</h3><h4 id="帧率的统计"><a href="#帧率的统计" class="headerlink" title="帧率的统计"></a>帧率的统计</h4><p>我们用帧率来监测卡顿情况。<br>在Visual Profiler中，程序使用<code>FrameTimingManager</code>来获取帧率相关的信息。</p>
 <p>帧数通过计数器<code>frameCount</code>统计;<br>运行时间<code>elapsedSeconds</code>通过<code>System.Diagnostics.stopwatch</code>相关来获取（而非Time）;<br>通过这两个参数计算出 <code>FrameRate = 1.0f / (elapsedSecond / frameCount)</code></p>
@@ -501,13 +505,36 @@
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56822948/estimate-an-assetbundle-size-in-ram">https://stackoverflow.com/questions/56822948/estimate-an-assetbundle-size-in-ram</a>   </p>
 </blockquote>
 <p>中也被提到。</p>
-<ol start="2">
-<li> 一个API： ProfilerRecorder<blockquote>
+<ol>
+<li>一个API： ProfilerRecorder<blockquote>
 <p><a target="_blank" rel="noopener" href="https://thegamedev.guru/unity-memory/profiler-module-metrics-programatically/">https://thegamedev.guru/unity-memory/profiler-module-metrics-programatically/</a></p>
 </blockquote>
 </li>
 </ol>
-<h2 id="Unity-Profiler解析"><a href="#Unity-Profiler解析" class="headerlink" title="Unity Profiler解析"></a>Unity Profiler解析</h2>
+<p>个人思路就是 Resource API获取列表再计算。</p>
+<h2 id="Append1-内存占用获取"><a href="#Append1-内存占用获取" class="headerlink" title="Append1: 内存占用获取"></a>Append1: 内存占用获取</h2><h3 id="MemoryProfiler-API"><a href="#MemoryProfiler-API" class="headerlink" title="MemoryProfiler API"></a>MemoryProfiler API</h3><p>可以用来获取某一类资源总体的占用（当前所有纹理的内存、所有网格、GC回收等）</p>
+<p>参考<br><a target="_blank" rel="noopener" href="https://thegamedev.guru/unity-memory/profiler-module-metrics-programatically/">https://thegamedev.guru/unity-memory/profiler-module-metrics-programatically/</a></p>
+<p>文档<br><a target="_blank" rel="noopener" href="https://docs.unity3d.com/2020.2/Documentation/Manual/ProfilerMemory.html">https://docs.unity3d.com/2020.2/Documentation/Manual/ProfilerMemory.html</a></p>
+<h3 id="获取指定类型的obj"><a href="#获取指定类型的obj" class="headerlink" title="获取指定类型的obj"></a>获取指定类型的obj</h3><p>Resource.FindObjectsOfTypeAll(<Typename>);</Typename></p>
+<p>另见</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.unity3d.com/ScriptReference/ResourcesAPI.html">https://docs.unity3d.com/ScriptReference/ResourcesAPI.html</a><br><a target="_blank" rel="noopener" href="https://github.com/handcircus/Unity-Resource-Checker/blob/master/ResourceChecker.cs">https://github.com/handcircus/Unity-Resource-Checker/blob/master/ResourceChecker.cs</a></p>
+</blockquote>
+<h3 id="Texture系列（-LTS-2019-4-or-later）"><a href="#Texture系列（-LTS-2019-4-or-later）" class="headerlink" title="Texture系列（ LTS 2019.4 or later）"></a>Texture系列（ LTS 2019.4 or later）</h3><p>Texture.targetTextureMemory<br>The total amount of Texture memory that Unity allocates to the Textures in the scene after it applies the memory budget and fin…</p>
+<p>Texture.desiredTextureMemory<br>The total size of the Textures, in bytes, that Unity loads if there were no other constraints. Before Unity loads any Textures,…</p>
+<p>Texture.currentTextureMemory<br>The amount of memory that all Textures in the scene use.</p>
+<p>currentTextureMemory<br>The amount of memory that all Textures in the scene use.</p>
+<p>desiredTextureMemory<br>    The total size of the Textures, in bytes, that Unity loads if there were no other constraints. Before Unity loads any Textures, it applies the memory budget which reduces the loaded Texture resolution if the Texture sizes exceed its value. The <code>desiredTextureMemory</code> value takes into account the mipmap levels that Unity has requested or that you have set manually. For example, if Unity does not load a Texture at full resolution because it is far away or its requested mipmap level is greater than 0, Unity reduces the <code>desiredTextureMemory</code> value to match the total memory needed. The <code>desiredTextureMemory</code> value can be greater than the <code>targetTextureMemory</code> value.</p>
+<p>targetTextureMemory<br>    The total amount of Texture memory that Unity allocates to the Textures in the scene after it applies the memory budget and finishes loading Textures. <code>targetTextureMemory</code>also takes mipmap streaming settings into account. This value only includes instances of Texture2D and CubeMap Textures. This value does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally.</p>
+<p>totalTextureMemory<br>    The total amount of Texture memory that Unity would use if it loads all Textures at mipmap level 0. This is a theoretical value that does not take into account any input from the streaming system or any other input, for example when you set the<code>Texture2D.requestedMipmapLevel</code> manually. To see a Texture memory value that takes inputs into account, use <code>desiredTextureMemory</code>. <code>totalTextureMemory</code> only includes instances of Texture2D and CubeMap Textures. This value does not include any other Texture types, or 2D and CubeMap Textures that Unity creates internally.</p>
+<h3 id="DC"><a href="#DC" class="headerlink" title="DC"></a>DC</h3><p>UnityEditor.UnityStats.batches</p>
+<h3 id="一些参数"><a href="#一些参数" class="headerlink" title="一些参数"></a>一些参数</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SHIYUEDYX/article/details/80928332">https://blog.csdn.net/SHIYUEDYX/article/details/80928332</a></p>
+<h2 id="学习：ParticleEffectProfiler"><a href="#学习：ParticleEffectProfiler" class="headerlink" title="学习：ParticleEffectProfiler"></a>学习：ParticleEffectProfiler</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/sunbrando/ParticleEffectProfiler">https://github.com/sunbrando/ParticleEffectProfiler</a></p>
+</blockquote>
+<p>除了熟悉相关API外，也可作为ANIMATONCURVE教程使用。</p>
+<p>在UNITY INSPECTOR面板和SCENE(使用gizmos)生效。</p>
+<h3 id="PARTICLEEFFECTSCRIPT"><a href="#PARTICLEEFFECTSCRIPT" class="headerlink" title="PARTICLEEFFECTSCRIPT"></a>PARTICLEEFFECTSCRIPT</h3>
 
         <hr>
         <!-- Pager -->
@@ -652,7 +679,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Visual-Profiler%E8%A7%A3%E6%9E%90"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Visual Profiler解析</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B8%A7%E7%8E%87"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">帧率</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B8%A7%E7%8E%87%E7%9A%84%E7%BB%9F%E8%AE%A1"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">帧率的统计</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%9A%E5%B8%A7%E7%8E%87%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">扩展：帧率的获取</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B8%A7%E7%8E%87%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">帧率显示控制</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">其他</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">内存占用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">其他</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%8C%9C%E6%83%B3%E4%B8%8E%E6%89%A9%E5%B1%95%EF%BC%9A%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E4%B8%8D%E5%90%8C%E8%B5%84%E6%BA%90%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%EF%BC%9F"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">猜想与扩展：如何获取不同资源的内存占用？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Unity-Profiler%E8%A7%A3%E6%9E%90"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Unity Profiler解析</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9F%BA%E7%A1%80%E6%AC%BE%EF%BC%9AVisual-Profiler%E8%A7%A3%E6%9E%90"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">基础款：Visual Profiler解析</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B8%A7%E7%8E%87"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">帧率</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B8%A7%E7%8E%87%E7%9A%84%E7%BB%9F%E8%AE%A1"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">帧率的统计</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A9%E5%B1%95%EF%BC%9A%E5%B8%A7%E7%8E%87%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">扩展：帧率的获取</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B8%A7%E7%8E%87%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6"><span class="toc-nav-number">2.1.3.</span> <span class="toc-nav-text">帧率显示控制</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-nav-number">2.1.4.</span> <span class="toc-nav-text">其他</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">内存占用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">其他</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E7%8C%9C%E6%83%B3%E4%B8%8E%E6%89%A9%E5%B1%95%EF%BC%9A%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E4%B8%8D%E5%90%8C%E8%B5%84%E6%BA%90%E7%9A%84%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%EF%BC%9F"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">猜想与扩展：如何获取不同资源的内存占用？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Append1-%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E8%8E%B7%E5%8F%96"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Append1: 内存占用获取</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#MemoryProfiler-API"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">MemoryProfiler API</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A%E7%B1%BB%E5%9E%8B%E7%9A%84obj"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">获取指定类型的obj</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Texture%E7%B3%BB%E5%88%97%EF%BC%88-LTS-2019-4-or-later%EF%BC%89"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">Texture系列（ LTS 2019.4 or later）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DC"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">DC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%82%E6%95%B0"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">一些参数</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%AD%A6%E4%B9%A0%EF%BC%9AParticleEffectProfiler"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">学习：ParticleEffectProfiler</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#PARTICLEEFFECTSCRIPT"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">PARTICLEEFFECTSCRIPT</span></a></li></ol></li></ol>
         
         </div>
       </aside>
