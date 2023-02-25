@@ -139,10 +139,10 @@
   <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
 
   <!-- ga & ba script hoook -->
-  <link rel="canonical" href="http://yoursite-url/categories/教程/">
+  <link rel="canonical" href="http://yoursite-url/undefined/TEASER-20230225/">
   <title>
     
-      Haokai Qin&#39;s Vis Gallery
+      一些正在制作的关于渲染的小玩意儿的进展 - Haokai Qin&#39;s Vis Gallery
     
   </title>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -300,29 +300,7 @@
           <!-- LangSelect -->
           
           
-          <!-- LangSelect start -->
-          <!-- LangSelect -->
-<li>
-  <a id="lang-select-label"><i class="fa fa-globe"></i>
-    <span>
-      English
-    </span>
-    <select id="lang-select" data-canonical="categories/教程/index.html">
-      
-      
-      <option value="en"  selected >
-        English
-      </option>
-      
-      <option value="cn" >
-        简体中文
-      </option>
-      
-    </select>
-  </a>
-</li>
-
-          <!-- LangSelect end -->
+          
           
           
         </ul>
@@ -384,9 +362,9 @@
     }
 
     header.intro-header {
-       /*page*/
-        background-image: var(--intro-header-background-image-url-page);
-        /* background-image: url('/img/header_img/archive_bg2.jpg'); */
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
       
     }
 
@@ -404,10 +382,40 @@
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           
-          <div class="site-heading">
-            <h1>Haokai Qin&#39;s Vis Gallery</h1>
-            <!--<hr class="small">-->
-            <span class="subheading">- For A Brighter-Shining Tomorrow -</span>
+          <div class="post-heading">
+            <div class="tags">
+              
+            </div>
+            <h1>一些正在制作的关于渲染的小玩意儿的进展</h1>
+            <h2 class="subheading">地理场景、汽车座舱（筹）、软渲染器</h2>
+            <span class="meta">
+              Posted by 秦浩凯(Haokai Qin) on
+              2023-02-25
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">1</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">279</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
           </div>
           
         </div>
@@ -448,762 +456,264 @@
 	Friends Blog、
 	anchorjs、
 	) -->
-		<!-- Main Content -->
-<div class="container">
-  <div class="row">
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="地理场景渲染"><a href="#地理场景渲染" class="headerlink" title="地理场景渲染"></a>地理场景渲染</h2><h3 id="各种云"><a href="#各种云" class="headerlink" title="各种云"></a>各种云</h3><p>视差云。<br><img src="/undefined/TEASER-20230225/cloud1.JPG" alt="clouds"></p>
+<h3 id="天气：雨"><a href="#天气：雨" class="headerlink" title="天气：雨"></a>天气：雨</h3><h4 id="玻璃（shader）"><a href="#玻璃（shader）" class="headerlink" title="玻璃（shader）"></a>玻璃（shader）</h4><p>传 统 艺 能<br><img src="/undefined/TEASER-20230225/glass2.JPG" alt="clouds"></p>
+<h4 id="雨滴（粒子）"><a href="#雨滴（粒子）" class="headerlink" title="雨滴（粒子）"></a>雨滴（粒子）</h4><h4 id="涟漪（法线贴图）"><a href="#涟漪（法线贴图）" class="headerlink" title="涟漪（法线贴图）"></a>涟漪（法线贴图）</h4><h4 id="积水和水面（）"><a href="#积水和水面（）" class="headerlink" title="积水和水面（）"></a>积水和水面（）</h4><p>波浪效果，正弦波加法线贴图</p>
+<p>不同水深颜色不同的效果，使用顶点深度和顶点坐标的差值来计算深度映射到颜色（透明物体不写入深度，顶点深度=第一个不透明物体深度，取当前观察方向的深度纹理计算）</p>
+<p>折射效果，用grabpass，采样之后进行偏移，最后叠加上去。（有点BUG）</p>
+<p><img src="/undefined/TEASER-20230225/sea1.JPG" alt="clouds"></p>
+<p>(中间那层是个Plane当作不透明物体用的。颜色是因为加了高光材质。拿builder拼了个简单沉船模型但是拍出来不好看)</p>
+<h3 id="地形分块加载与拼合"><a href="#地形分块加载与拼合" class="headerlink" title="地形分块加载与拼合"></a>地形分块加载与拼合</h3><p>进度：换用现成插件了。</p>
+<h2 id="汽车座舱"><a href="#汽车座舱" class="headerlink" title="汽车座舱"></a>汽车座舱</h2><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=z_i_jQgJyy8">CGI Studio</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=3y2AQ6Tu8rM">CGI Studio</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.embedic.com/applications/details/digital-dashboard-solution-for-cars-based-on-socionext-miranda-s-cgi-studio">EmbedIC</a></p>
+<p>openGL ES的学习进度因为论文的问题暂停了…<br>要是允许用UNITY的话倒是能很快做个原型。</p>
+<p><strong>这是CGI STUDIO的产品图，我没整完</strong><br><img src="/undefined/TEASER-20230225/ES2.JPG" alt="COCKPIT"></p>
+<h2 id="TINY-RENDERER2"><a href="#TINY-RENDERER2" class="headerlink" title="TINY RENDERER2"></a>TINY RENDERER2</h2><p>传统艺能环节</p>
+<p><img src="/undefined/TEASER-20230225/RENDERER.JPG" alt="clouds"></p>
+<h2 id="unity扩展工具"><a href="#unity扩展工具" class="headerlink" title="unity扩展工具"></a>unity扩展工具</h2><p>ParticleEffectProfiler的截图</p>
+<p><img src="/undefined/TEASER-20230225/tool.JPG" alt="clouds"></p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/undefined/PROGRAMME-PROFILER-1/" data-toggle="tooltip" data-placement="top" title="DIY Profiler 1">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
     
-
-    <!-- USE SIDEBAR -->
-    <!-- Post Container -->
-    <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
-
-      <!-- Main Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-0 col-md-10 col-md-offset-1">
-      <!-- 归档列表 -->
-
-      
-
-      <!-- 归档列表 -->
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2023">
-          <span class="tag-text">2023</span>
-        </span>
-        <ul>
-          
-          <li>
-            02-25
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/TEASER-20230225/" style="color: #0085a1">
-              <span>
-                一些正在制作的关于渲染的小玩意儿的进展
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-28
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-PROFILER-1/" style="color: #0085a1">
-              <span>
-                DIY Profiler 1
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-28
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-USHADER-1/" style="color: #0085a1">
-              <span>
-                Shader练习1
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2022">
-          <span class="tag-text">2022</span>
-        </span>
-        <ul>
-          
-          <li>
-            09-06
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Road-To-EngineTools/R2ET3/" style="color: #0085a1">
-              <span>
-                引擎工具链开发3-关于实习内容
-                
-                -- Road-To-EngineTools
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            09-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Road-To-EngineTools/R2ET1/" style="color: #0085a1">
-              <span>
-                引擎工具链开发1-概述
-                
-                -- Road-To-EngineTools
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/Road-To-Graphics-4/" style="color: #0085a1">
-              <span>
-                图形学之路4：光照计算与平行光
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Road-To-Graphics/Road-To-Graphics-3/" style="color: #0085a1">
-              <span>
-                图形学之路3：Draw Call优化
-                
-                -- Road-To-Graphics
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-19
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Road-To-Graphics/Road-To-Graphics-2/" style="color: #0085a1">
-              <span>
-                图形学之路2：自定义渲染管线
-                
-                -- Road-To-Graphics
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-14
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/RESEARCH-Talk-On-Immersive-3/" style="color: #0085a1">
-              <span>
-                科研随笔-关于交互问题的讨论1
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-09
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/EIR-Summary-of-HWVR-1/" style="color: #0085a1">
-              <span>
-                产学研慢递-关于华为云VR技术的讨论1
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/EIR-AR-tech-1/" style="color: #0085a1">
-              <span>
-                产学研慢递-京东AR技术分享会
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            03-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-6/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(6)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-15
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/RESEARCH-Talk-On-Immersive-2/" style="color: #0085a1">
-              <span>
-                科研随笔-关于沉浸式可视化的讨论2
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-12
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-5/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(5)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-07
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-4/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(4)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            02-02
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-3/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(3)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-2/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(2)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-29
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/How-To-Vis/How-To-Vis-By-Unity-1/" style="color: #0085a1">
-              <span>
-                教程-使用Unity进行可视分析(1)
-                
-                -- How-To-Vis
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-24
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/RESEARCH-Talk-On-Immersive-1/" style="color: #0085a1">
-              <span>
-                科研随笔-关于沉浸式可视化的讨论1
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-23
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-Oil-DETECTION/" style="color: #0085a1">
-              <span>
-                项目展示-基于自动编码器与聚类算法的缝洞型油藏储层预测
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-23
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-STC-Exhibit-Page/" style="color: #0085a1">
-              <span>
-                项目展示-时空轨迹沉浸式可视化
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-22
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROGRAMME-IMPAVT-Exhibit-Page/" style="color: #0085a1">
-              <span>
-                项目展示-沉浸式跨设备交互可视化系统
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-22
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Others/How-To-Prepare-Hololens-Dev-Environment/" style="color: #0085a1">
-              <span>
-                教程-如何配置适用于hololens 2的Unity开发环境
-                
-                -- Others
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-20
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Others/How-To-Create-Personal-Page/" style="color: #0085a1">
-              <span>
-                教程-基于github+hexo创建个人主页
-                
-                -- Others
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            01-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/tester011701/newBlogPageTester011701/" style="color: #0085a1">
-              <span>
-                newBlogPageTester011701
-                
-                -- tester011701
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="2020">
-          <span class="tag-text">2020</span>
-        </span>
-        <ul>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/en/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            04-17
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/cn/Hexo-Theme-LiveMyLife/" style="color: #0085a1">
-              <span>
-                Hexo-Theme-LiveMyLife
-                
-                -- cn
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="1998">
-          <span class="tag-text">1998</span>
-        </span>
-        <ul>
-          
-          <li>
-            09-05
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Road-To-EngineTools/R2ET2/" style="color: #0085a1">
-              <span>
-                引擎工具链开发2-一些案例
-                
-                -- Road-To-EngineTools
-                
-              </span>
-            </a>
-          </li>
-          
-          <li>
-            07-13
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/undefined/PROFILE-PAGE/" style="color: #0085a1">
-              <span>
-                简历页
-                
-                -- undefined
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-calendar-times-o listing-seperator" id="1970">
-          <span class="tag-text">1970</span>
-        </span>
-        <ul>
-          
-          <li>
-            01-01
-            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            <a href="/Road-To-Graphics/Road-To-Graphics-1/" style="color: #0085a1">
-              <span>
-                Road-To-Graphics-1
-                
-                -- Road-To-Graphics
-                
-              </span>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      
-    </div>
-  </div>
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
 </div>
+<!-- tip end -->
 
+        <!-- tip end -->
+        
 
-      <!-- 如果开启评论功能 -->
-      
-    </div>
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
 
-    <!-- Sidebar Container -->
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-        <!-- Visitors -->
-<h5><a href="/">VISITORS</a></h5>
-
-<div class="widget">
-  <span>
-    Viewed <b><i><span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Times
-  </span>
-  <br />
-  <span>
-    <b><i><span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span></i></b> Visitors In Total
-  </span>
-</div>
-
-
-        <hr>
-    
-        <!-- Featured Tags -->
-
-<section>
-  <h5><a href="/tags/">FEATURED TAGS</a></h5>
-  <div class="tags">
-    
-    
-    <a href="/tags/#教程" title="教程" rel="12">教程</a>
-    
-    
-    
-    <a href="/tags/#Unity" title="Unity" rel="12">Unity</a>
-    
-    
-    
-    <a href="/tags/#沉浸式可视化" title="沉浸式可视化" rel="11">沉浸式可视化</a>
-    
-    
-    
-    <a href="/tags/#团队合作" title="团队合作" rel="2">团队合作</a>
-    
-    
-    
-    <a href="/tags/#其他" title="其他" rel="1">其他</a>
-    
-    
-    
-    <a href="/tags/#AR" title="AR" rel="4">AR</a>
-    
-    
-    
-    <a href="/tags/#Hololens" title="Hololens" rel="1">Hololens</a>
-    
-    
-    
-    <a href="/tags/#TestPage0117" title="TestPage0117" rel="1">TestPage0117</a>
-    
-    
-    
-    <a href="/tags/#产学研慢递" title="产学研慢递" rel="2">产学研慢递</a>
-    
-    
-    
-    <a href="/tags/#VR" title="VR" rel="1">VR</a>
-    
-    
-    
-    <a href="/tags/#云VR" title="云VR" rel="1">云VR</a>
-    
-    
-    
-    <a href="/tags/#项目展示" title="项目展示" rel="3">项目展示</a>
-    
-    
-    
-    <a href="/tags/#跨设备" title="跨设备" rel="1">跨设备</a>
-    
-    
-    
-    <a href="/tags/#PythonECharts" title="PythonECharts" rel="1">PythonECharts</a>
-    
-    
-    
-    <a href="/tags/#信息可视化" title="信息可视化" rel="1">信息可视化</a>
-    
-    
-    
-    <a href="/tags/#地震波属性" title="地震波属性" rel="1">地震波属性</a>
-    
-    
-    
-    <a href="/tags/#油气勘察" title="油气勘察" rel="1">油气勘察</a>
-    
-    
-    
-    <a href="/tags/#python" title="python" rel="1">python</a>
-    
-    
-    
-    <a href="/tags/#自动编码器" title="自动编码器" rel="1">自动编码器</a>
-    
-    
-    
-    <a href="/tags/#聚类" title="聚类" rel="1">聚类</a>
-    
-    
-    
-    <a href="/tags/#STC" title="STC" rel="1">STC</a>
-    
-    
-    
-    <a href="/tags/#时空轨迹" title="时空轨迹" rel="1">时空轨迹</a>
-    
-    
-    
-    <a href="/tags/#科研随笔" title="科研随笔" rel="2">科研随笔</a>
-    
-    
-    
-    <a href="/tags/#交互" title="交互" rel="1">交互</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife-tag" title="Hexo-Theme-LiveMyLife-tag" rel="1">Hexo-Theme-LiveMyLife-tag</a>
-    
-    
-    
-    <a href="/tags/#Hexo-Theme-LiveMyLife" title="Hexo-Theme-LiveMyLife" rel="1">Hexo-Theme-LiveMyLife</a>
-    
-    
-    
-    <a href="/tags/#计算机图形学" title="计算机图形学" rel="1">计算机图形学</a>
-    
-    
-    
-    <a href="/tags/#‘Unity’" title="‘Unity’" rel="1">‘Unity’</a>
-    
-    
-    
-    <a href="/tags/#引擎工具" title="引擎工具" rel="3">引擎工具</a>
-    
-    
-  </div>
-</section>
-
-
-        <hr>
-    
-        <!-- Short About -->
-<section class="visible-md visible-lg">
-  <h5><a href="/about/">ABOUT ME</a></h5>
-  <div class="short-about">
-
-    
-
-    
-
-    <!-- SNS Link -->
-    <ul class="list-inline">
-      
-
-      
-      <li>
-        <a target="_blank" href="https://github.com/Quattro-NIVT">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-    </ul>
-  </div>
-</section>
-
-        <hr>
-    
-        <!-- RECENT POSTS -->
-
-<h5><a href="/">RECENT POSTS</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="../../undefined/TEASER-20230225/">
-      <li>一些正在制作的关于渲染的小玩意儿的进展</li>
-    </a>
-    
-    <a href="../../undefined/PROGRAMME-PROFILER-1/">
-      <li>DIY Profiler 1</li>
-    </a>
-    
-    <a href="../../undefined/PROGRAMME-USHADER-1/">
-      <li>Shader练习1</li>
-    </a>
-    
-    <a href="../../Road-To-EngineTools/R2ET3/">
-      <li>引擎工具链开发3-关于实习内容</li>
-    </a>
-    
-    <a href="../../Road-To-EngineTools/R2ET1/">
-      <li>引擎工具链开发1-概述</li>
-    </a>
-    
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=一些正在制作的关于渲染的小玩意儿的进展&body=Hi,I found this website and thought you might like it http://yoursite-url/undefined/TEASER-20230225/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
   </ul>
 </div>
 
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
+        <!-- Sharing End -->
+        
         <hr>
-    
-        <!-- Friends Blog -->
 
-<h5><a href="/">FRIENDS</a></h5>
-<ul class="list-inline">
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
   
-</ul>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Sat Feb 25 2023 21:47:59 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
 
 
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
         <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
     
-        <!-- Archives -->
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E5%9C%B0%E7%90%86%E5%9C%BA%E6%99%AF%E6%B8%B2%E6%9F%93"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">地理场景渲染</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%90%84%E7%A7%8D%E4%BA%91"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">各种云</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%A4%A9%E6%B0%94%EF%BC%9A%E9%9B%A8"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">天气：雨</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%8E%BB%E7%92%83%EF%BC%88shader%EF%BC%89"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">玻璃（shader）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%9B%A8%E6%BB%B4%EF%BC%88%E7%B2%92%E5%AD%90%EF%BC%89"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">雨滴（粒子）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B6%9F%E6%BC%AA%EF%BC%88%E6%B3%95%E7%BA%BF%E8%B4%B4%E5%9B%BE%EF%BC%89"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">涟漪（法线贴图）</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%A7%AF%E6%B0%B4%E5%92%8C%E6%B0%B4%E9%9D%A2%EF%BC%88%EF%BC%89"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">积水和水面（）</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%9C%B0%E5%BD%A2%E5%88%86%E5%9D%97%E5%8A%A0%E8%BD%BD%E4%B8%8E%E6%8B%BC%E5%90%88"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">地形分块加载与拼合</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%E6%B1%BD%E8%BD%A6%E5%BA%A7%E8%88%B1"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">汽车座舱</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#TINY-RENDERER2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">TINY RENDERER2</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#unity%E6%89%A9%E5%B1%95%E5%B7%A5%E5%85%B7"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">unity扩展工具</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
-<h5><a href="/archives/">archives</a></h5>
-<div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/02/">February 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2023/01/">January 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/04/">April 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/03/">March 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/02/">February 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2022/01/">January 2022</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/1998/09/">September 1998</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/1998/07/">July 1998</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../../archives/1970/01/">January 1970</a><span class="archive-list-count">1</span></li></ul>
-</div>
 
 
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
         <hr>
-    
-        <!-- Categories -->
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
 
-<h5><a href="/categories/">categories</a></h5>
-<div class="widget">
-  <ul>
-    
-    <a href="/categories/#教程">
-      <li>教程</li>
-    </a>
-    
-    <a href="/categories/#技术讨论">
-      <li>技术讨论</li>
-    </a>
-    
-    <a href="/categories/#项目展示">
-      <li>项目展示</li>
-    </a>
-    
-    <a href="/categories/#科研随笔">
-      <li>科研随笔</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife-categories">
-      <li>Hexo-Theme-LiveMyLife-categories</li>
-    </a>
-    
-    <a href="/categories/#Hexo-Theme-LiveMyLife">
-      <li>Hexo-Theme-LiveMyLife</li>
-    </a>
-    
-  </ul>
-</div>
-
-
-        <hr>
-    
-</div>
-
-
-    
+          
+        </ul>
+        
+      </div>
+    </div>
   </div>
-</div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
 
 
 		<!-- Footer (contains ThemeColor、viewer) -->
